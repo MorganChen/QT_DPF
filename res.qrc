@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/btn/icon">
+        <file>Calendar.png</file>
+        <file>Camera.png</file>
+        <file>Clock.png</file>
+        <file>Contacts.png</file>
+        <file>Maps.png</file>
+        <file>Photos.png</file>
+        <file>Videos.png</file>
+        <file>Music.png</file>
+        <file>Stocks.png</file>
+        <file>Settings.png</file>
+    </qresource>
+</RCC>
