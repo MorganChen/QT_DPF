@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Sat May 15 10:32:39 2010
+** Created: Sun May 16 22:10:07 2010
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -14,6 +14,7 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
+#include <QtGui/QCalendarWidget>
 #include <QtGui/QGridLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
@@ -23,8 +24,10 @@
 #include <QtGui/QScrollArea>
 #include <QtGui/QSlider>
 #include <QtGui/QStackedWidget>
+#include <QtGui/QTimeEdit>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
+#include <QtWebKit/QWebView>
 
 QT_BEGIN_NAMESPACE
 
@@ -86,6 +89,12 @@ public:
     QLabel *Lab_PhotoSingle;
     QPushButton *Btn_PhotoSinglePage_L;
     QPushButton *Btn_PhotoSinglePage_R;
+    QWidget *PicasaPage;
+    QWebView *webView;
+    QWidget *CalenderPage;
+    QCalendarWidget *calendarWidget;
+    QWidget *ClockPage;
+    QTimeEdit *timeEdit;
     QPushButton *Btn_ZoomOut;
     QPushButton *Btn_ZoomIn;
     QSlider *Bar_VolAdj;
@@ -102,6 +111,18 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
         MainWindow->setSizePolicy(sizePolicy);
+        QPalette palette;
+        QBrush brush(QColor(255, 255, 255, 255));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Base, brush);
+        QBrush brush1(QColor(220, 218, 213, 255));
+        brush1.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Window, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Base, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Window, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Base, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Window, brush1);
+        MainWindow->setPalette(palette);
         MainWindow->setWindowTitle(QString::fromUtf8(""));
         MainWindow->setAutoFillBackground(false);
         MainWindow->setIconSize(QSize(57, 59));
@@ -117,15 +138,15 @@ public:
         Btn_Home->setObjectName(QString::fromUtf8("Btn_Home"));
         Btn_Home->setGeometry(QRect(0, 0, 57, 59));
         QIcon icon;
-        icon.addFile(QString::fromUtf8(":/btn/icon/Calendar.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8(":/actions/icon/lincity-ng.png"), QSize(), QIcon::Normal, QIcon::Off);
         Btn_Home->setIcon(icon);
-        Btn_Home->setIconSize(QSize(57, 59));
+        Btn_Home->setIconSize(QSize(60, 60));
         Btn_Home->setFlat(true);
         Btn_PhotoFull = new QPushButton(centralWidget);
         Btn_PhotoFull->setObjectName(QString::fromUtf8("Btn_PhotoFull"));
         Btn_PhotoFull->setGeometry(QRect(372, 0, 57, 59));
         QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/btn/icon/Camera.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QString::fromUtf8(":/actions/icon/media-playback-start.png"), QSize(), QIcon::Normal, QIcon::Off);
         Btn_PhotoFull->setIcon(icon1);
         Btn_PhotoFull->setIconSize(QSize(57, 59));
         Btn_PhotoFull->setFlat(true);
@@ -133,7 +154,7 @@ public:
         Btn_PageUp->setObjectName(QString::fromUtf8("Btn_PageUp"));
         Btn_PageUp->setGeometry(QRect(743, 0, 57, 59));
         QIcon icon2;
-        icon2.addFile(QString::fromUtf8(":/btn/icon/Contacts.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QString::fromUtf8(":/actions/icon/media-eject.png"), QSize(), QIcon::Normal, QIcon::Off);
         Btn_PageUp->setIcon(icon2);
         Btn_PageUp->setIconSize(QSize(57, 59));
         Btn_PageUp->setFlat(true);
@@ -153,22 +174,20 @@ public:
         stackedWidget = new QStackedWidget(centralWidget);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
         stackedWidget->setGeometry(QRect(0, 60, 800, 360));
-        QPalette palette;
-        QBrush brush(QColor(8, 231, 255, 255));
-        brush.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Active, QPalette::Base, brush);
-        palette.setBrush(QPalette::Inactive, QPalette::Base, brush);
-        QBrush brush1(QColor(255, 255, 255, 255));
-        brush1.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Disabled, QPalette::Base, brush1);
-        stackedWidget->setPalette(palette);
+        QPalette palette1;
+        QBrush brush2(QColor(8, 231, 255, 255));
+        brush2.setStyle(Qt::SolidPattern);
+        palette1.setBrush(QPalette::Active, QPalette::Base, brush2);
+        palette1.setBrush(QPalette::Inactive, QPalette::Base, brush2);
+        palette1.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        stackedWidget->setPalette(palette1);
         stackedWidget->setAutoFillBackground(true);
         MainPage = new QWidget();
         MainPage->setObjectName(QString::fromUtf8("MainPage"));
         Mainwidget = new QWidget(MainPage);
         Mainwidget->setObjectName(QString::fromUtf8("Mainwidget"));
         Mainwidget->setEnabled(true);
-        Mainwidget->setGeometry(QRect(140, 80, 531, 196));
+        Mainwidget->setGeometry(QRect(30, 0, 701, 361));
         sizePolicy.setHeightForWidth(Mainwidget->sizePolicy().hasHeightForWidth());
         Mainwidget->setSizePolicy(sizePolicy);
         gridLayout = new QGridLayout(Mainwidget);
@@ -176,8 +195,8 @@ public:
         gridLayout->setMargin(11);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setSizeConstraint(QLayout::SetFixedSize);
-        gridLayout->setHorizontalSpacing(95);
-        gridLayout->setVerticalSpacing(15);
+        gridLayout->setHorizontalSpacing(45);
+        gridLayout->setVerticalSpacing(35);
         VLay_Photo = new QVBoxLayout();
         VLay_Photo->setSpacing(0);
         VLay_Photo->setObjectName(QString::fromUtf8("VLay_Photo"));
@@ -205,9 +224,9 @@ public:
         Btn_Photo->setLayoutDirection(Qt::RightToLeft);
         Btn_Photo->setAutoFillBackground(true);
         QIcon icon3;
-        icon3.addFile(QString::fromUtf8(":/btn/icon/Photos.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon3.addFile(QString::fromUtf8(":/apps/icon/f-spot.png"), QSize(), QIcon::Normal, QIcon::Off);
         Btn_Photo->setIcon(icon3);
-        Btn_Photo->setIconSize(QSize(57, 59));
+        Btn_Photo->setIconSize(QSize(128, 128));
         Btn_Photo->setFlat(true);
 
         VLay_Photo->addWidget(Btn_Photo);
@@ -227,9 +246,9 @@ public:
         Btn_Music = new QPushButton(Mainwidget);
         Btn_Music->setObjectName(QString::fromUtf8("Btn_Music"));
         QIcon icon4;
-        icon4.addFile(QString::fromUtf8(":/btn/icon/Music.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon4.addFile(QString::fromUtf8(":/apps/icon/audacious.png"), QSize(), QIcon::Normal, QIcon::Off);
         Btn_Music->setIcon(icon4);
-        Btn_Music->setIconSize(QSize(57, 59));
+        Btn_Music->setIconSize(QSize(128, 128));
         Btn_Music->setFlat(true);
 
         VLay_Music->addWidget(Btn_Music);
@@ -251,9 +270,9 @@ public:
         Btn_Movie->setEnabled(true);
         Btn_Movie->setBaseSize(QSize(0, 0));
         QIcon icon5;
-        icon5.addFile(QString::fromUtf8(":/btn/icon/Videos.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon5.addFile(QString::fromUtf8(":/apps/icon/mplayer.png"), QSize(), QIcon::Normal, QIcon::Off);
         Btn_Movie->setIcon(icon5);
-        Btn_Movie->setIconSize(QSize(57, 59));
+        Btn_Movie->setIconSize(QSize(128, 128));
         Btn_Movie->setFlat(true);
 
         VLay_Movie->addWidget(Btn_Movie);
@@ -272,8 +291,10 @@ public:
         VLay_Cal->setObjectName(QString::fromUtf8("VLay_Cal"));
         Btn_Cal = new QPushButton(Mainwidget);
         Btn_Cal->setObjectName(QString::fromUtf8("Btn_Cal"));
-        Btn_Cal->setIcon(icon);
-        Btn_Cal->setIconSize(QSize(57, 59));
+        QIcon icon6;
+        icon6.addFile(QString::fromUtf8(":/apps/icon/dates.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Btn_Cal->setIcon(icon6);
+        Btn_Cal->setIconSize(QSize(128, 128));
         Btn_Cal->setAutoDefault(true);
         Btn_Cal->setFlat(true);
 
@@ -293,10 +314,10 @@ public:
         VLay_Alarm->setObjectName(QString::fromUtf8("VLay_Alarm"));
         Btn_Alarm = new QPushButton(Mainwidget);
         Btn_Alarm->setObjectName(QString::fromUtf8("Btn_Alarm"));
-        QIcon icon6;
-        icon6.addFile(QString::fromUtf8(":/btn/icon/Clock.png"), QSize(), QIcon::Normal, QIcon::Off);
-        Btn_Alarm->setIcon(icon6);
-        Btn_Alarm->setIconSize(QSize(57, 59));
+        QIcon icon7;
+        icon7.addFile(QString::fromUtf8(":/apps/icon/clock.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Btn_Alarm->setIcon(icon7);
+        Btn_Alarm->setIconSize(QSize(128, 128));
         Btn_Alarm->setFlat(true);
 
         VLay_Alarm->addWidget(Btn_Alarm);
@@ -315,10 +336,10 @@ public:
         VLay_Internet->setObjectName(QString::fromUtf8("VLay_Internet"));
         Btn_Internet = new QPushButton(Mainwidget);
         Btn_Internet->setObjectName(QString::fromUtf8("Btn_Internet"));
-        QIcon icon7;
-        icon7.addFile(QString::fromUtf8(":/btn/icon/Maps.png"), QSize(), QIcon::Normal, QIcon::Off);
-        Btn_Internet->setIcon(icon7);
-        Btn_Internet->setIconSize(QSize(57, 59));
+        QIcon icon8;
+        icon8.addFile(QString::fromUtf8(":/apps/icon/web-browser.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Btn_Internet->setIcon(icon8);
+        Btn_Internet->setIconSize(QSize(128, 128));
         Btn_Internet->setFlat(true);
 
         VLay_Internet->addWidget(Btn_Internet);
@@ -337,10 +358,10 @@ public:
         VLay_Wireless->setObjectName(QString::fromUtf8("VLay_Wireless"));
         Btn_Wireless = new QPushButton(Mainwidget);
         Btn_Wireless->setObjectName(QString::fromUtf8("Btn_Wireless"));
-        QIcon icon8;
-        icon8.addFile(QString::fromUtf8(":/btn/icon/Stocks.png"), QSize(), QIcon::Normal, QIcon::Off);
-        Btn_Wireless->setIcon(icon8);
-        Btn_Wireless->setIconSize(QSize(57, 59));
+        QIcon icon9;
+        icon9.addFile(QString::fromUtf8(":/apps/icon/network-wireless.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Btn_Wireless->setIcon(icon9);
+        Btn_Wireless->setIconSize(QSize(128, 128));
         Btn_Wireless->setFlat(true);
 
         VLay_Wireless->addWidget(Btn_Wireless);
@@ -360,10 +381,10 @@ public:
         Btn_Setting = new QPushButton(Mainwidget);
         Btn_Setting->setObjectName(QString::fromUtf8("Btn_Setting"));
         Btn_Setting->setAutoFillBackground(false);
-        QIcon icon9;
-        icon9.addFile(QString::fromUtf8(":/btn/icon/Settings.png"), QSize(), QIcon::Normal, QIcon::Off);
-        Btn_Setting->setIcon(icon9);
-        Btn_Setting->setIconSize(QSize(57, 59));
+        QIcon icon10;
+        icon10.addFile(QString::fromUtf8(":/apps/icon/gkdebconf.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Btn_Setting->setIcon(icon10);
+        Btn_Setting->setIconSize(QSize(128, 128));
         Btn_Setting->setCheckable(false);
         Btn_Setting->setChecked(false);
         Btn_Setting->setAutoDefault(false);
@@ -386,14 +407,14 @@ public:
         PhotoPage->setObjectName(QString::fromUtf8("PhotoPage"));
         Photowidget = new QWidget(PhotoPage);
         Photowidget->setObjectName(QString::fromUtf8("Photowidget"));
-        Photowidget->setGeometry(QRect(100, 30, 360, 220));
+        Photowidget->setGeometry(QRect(90, 40, 641, 291));
         Lab_SubPhoto = new QLabel(Photowidget);
         Lab_SubPhoto->setObjectName(QString::fromUtf8("Lab_SubPhoto"));
-        Lab_SubPhoto->setGeometry(QRect(30, 20, 61, 61));
-        Lab_SubPhoto->setPixmap(QPixmap(QString::fromUtf8(":/btn/icon/Photos.png")));
+        Lab_SubPhoto->setGeometry(QRect(30, 20, 128, 128));
+        Lab_SubPhoto->setPixmap(QPixmap(QString::fromUtf8(":/apps/icon/f-spot.png")));
         verticalLayoutWidget_9 = new QWidget(Photowidget);
         verticalLayoutWidget_9->setObjectName(QString::fromUtf8("verticalLayoutWidget_9"));
-        verticalLayoutWidget_9->setGeometry(QRect(130, 20, 221, 191));
+        verticalLayoutWidget_9->setGeometry(QRect(250, 20, 321, 241));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget_9);
         verticalLayout->setSpacing(6);
         verticalLayout->setMargin(11);
@@ -426,16 +447,14 @@ public:
         listWidget_Photo->setObjectName(QString::fromUtf8("listWidget_Photo"));
         listWidget_Photo->setEnabled(true);
         listWidget_Photo->setGeometry(QRect(60, 10, 670, 331));
-        QPalette palette1;
-        palette1.setBrush(QPalette::Active, QPalette::Light, brush1);
-        QBrush brush2(QColor(220, 218, 213, 255));
-        brush2.setStyle(Qt::SolidPattern);
-        palette1.setBrush(QPalette::Active, QPalette::Base, brush2);
-        palette1.setBrush(QPalette::Inactive, QPalette::Light, brush1);
-        palette1.setBrush(QPalette::Inactive, QPalette::Base, brush2);
-        palette1.setBrush(QPalette::Disabled, QPalette::Light, brush1);
-        palette1.setBrush(QPalette::Disabled, QPalette::Base, brush1);
-        listWidget_Photo->setPalette(palette1);
+        QPalette palette2;
+        palette2.setBrush(QPalette::Active, QPalette::Light, brush);
+        palette2.setBrush(QPalette::Active, QPalette::Base, brush1);
+        palette2.setBrush(QPalette::Inactive, QPalette::Light, brush);
+        palette2.setBrush(QPalette::Inactive, QPalette::Base, brush1);
+        palette2.setBrush(QPalette::Disabled, QPalette::Light, brush);
+        palette2.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        listWidget_Photo->setPalette(palette2);
         listWidget_Photo->setAutoFillBackground(true);
         listWidget_Photo->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         listWidget_Photo->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -454,13 +473,17 @@ public:
         Btn_PageRight = new QPushButton(PhotoMutiPage);
         Btn_PageRight->setObjectName(QString::fromUtf8("Btn_PageRight"));
         Btn_PageRight->setGeometry(QRect(743, 140, 57, 59));
-        Btn_PageRight->setIcon(icon);
+        QIcon icon11;
+        icon11.addFile(QString::fromUtf8(":/actions/icon/go-next.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Btn_PageRight->setIcon(icon11);
         Btn_PageRight->setIconSize(QSize(57, 59));
         Btn_PageRight->setFlat(true);
         Btn_PageLeft = new QPushButton(PhotoMutiPage);
         Btn_PageLeft->setObjectName(QString::fromUtf8("Btn_PageLeft"));
         Btn_PageLeft->setGeometry(QRect(0, 140, 57, 59));
-        Btn_PageLeft->setIcon(icon);
+        QIcon icon12;
+        icon12.addFile(QString::fromUtf8(":/actions/icon/go-previous.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Btn_PageLeft->setIcon(icon12);
         Btn_PageLeft->setIconSize(QSize(57, 59));
         Btn_PageLeft->setFlat(true);
         stackedWidget->addWidget(PhotoMutiPage);
@@ -469,11 +492,11 @@ public:
         scrollArea = new QScrollArea(PhotoSinglePage);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
         scrollArea->setGeometry(QRect(60, 24, 681, 341));
-        QPalette palette2;
-        palette2.setBrush(QPalette::Active, QPalette::Base, brush1);
-        palette2.setBrush(QPalette::Inactive, QPalette::Base, brush1);
-        palette2.setBrush(QPalette::Disabled, QPalette::Base, brush1);
-        scrollArea->setPalette(palette2);
+        QPalette palette3;
+        palette3.setBrush(QPalette::Active, QPalette::Base, brush);
+        palette3.setBrush(QPalette::Inactive, QPalette::Base, brush);
+        palette3.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        scrollArea->setPalette(palette3);
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
@@ -486,13 +509,13 @@ public:
         sizePolicy2.setVerticalStretch(0);
         sizePolicy2.setHeightForWidth(Lab_PhotoSingle->sizePolicy().hasHeightForWidth());
         Lab_PhotoSingle->setSizePolicy(sizePolicy2);
-        QPalette palette3;
+        QPalette palette4;
         QBrush brush3(QColor(87, 255, 163, 255));
         brush3.setStyle(Qt::SolidPattern);
-        palette3.setBrush(QPalette::Active, QPalette::Base, brush3);
-        palette3.setBrush(QPalette::Inactive, QPalette::Base, brush3);
-        palette3.setBrush(QPalette::Disabled, QPalette::Base, brush1);
-        Lab_PhotoSingle->setPalette(palette3);
+        palette4.setBrush(QPalette::Active, QPalette::Base, brush3);
+        palette4.setBrush(QPalette::Inactive, QPalette::Base, brush3);
+        palette4.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        Lab_PhotoSingle->setPalette(palette4);
         QFont font3;
         font3.setItalic(false);
         Lab_PhotoSingle->setFont(font3);
@@ -503,16 +526,46 @@ public:
         Btn_PhotoSinglePage_L = new QPushButton(PhotoSinglePage);
         Btn_PhotoSinglePage_L->setObjectName(QString::fromUtf8("Btn_PhotoSinglePage_L"));
         Btn_PhotoSinglePage_L->setGeometry(QRect(0, 140, 57, 59));
-        Btn_PhotoSinglePage_L->setIcon(icon);
+        Btn_PhotoSinglePage_L->setIcon(icon12);
         Btn_PhotoSinglePage_L->setIconSize(QSize(57, 59));
         Btn_PhotoSinglePage_L->setFlat(true);
         Btn_PhotoSinglePage_R = new QPushButton(PhotoSinglePage);
         Btn_PhotoSinglePage_R->setObjectName(QString::fromUtf8("Btn_PhotoSinglePage_R"));
         Btn_PhotoSinglePage_R->setGeometry(QRect(743, 140, 57, 59));
-        Btn_PhotoSinglePage_R->setIcon(icon);
+        Btn_PhotoSinglePage_R->setIcon(icon11);
         Btn_PhotoSinglePage_R->setIconSize(QSize(57, 59));
         Btn_PhotoSinglePage_R->setFlat(true);
         stackedWidget->addWidget(PhotoSinglePage);
+        PicasaPage = new QWidget();
+        PicasaPage->setObjectName(QString::fromUtf8("PicasaPage"));
+        webView = new QWebView(PicasaPage);
+        webView->setObjectName(QString::fromUtf8("webView"));
+        webView->setGeometry(QRect(0, 0, 800, 360));
+        QPalette palette5;
+        palette5.setBrush(QPalette::Active, QPalette::Base, brush);
+        palette5.setBrush(QPalette::Inactive, QPalette::Base, brush);
+        palette5.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        webView->setPalette(palette5);
+        webView->setUrl(QUrl("http://picasaweb.google.com/elandman.chuang"));
+        webView->setZoomFactor(0.6);
+        stackedWidget->addWidget(PicasaPage);
+        CalenderPage = new QWidget();
+        CalenderPage->setObjectName(QString::fromUtf8("CalenderPage"));
+        calendarWidget = new QCalendarWidget(CalenderPage);
+        calendarWidget->setObjectName(QString::fromUtf8("calendarWidget"));
+        calendarWidget->setGeometry(QRect(0, 0, 800, 360));
+        calendarWidget->setGridVisible(true);
+        calendarWidget->setHorizontalHeaderFormat(QCalendarWidget::LongDayNames);
+        calendarWidget->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
+        calendarWidget->setNavigationBarVisible(true);
+        calendarWidget->setDateEditEnabled(true);
+        stackedWidget->addWidget(CalenderPage);
+        ClockPage = new QWidget();
+        ClockPage->setObjectName(QString::fromUtf8("ClockPage"));
+        timeEdit = new QTimeEdit(ClockPage);
+        timeEdit->setObjectName(QString::fromUtf8("timeEdit"));
+        timeEdit->setGeometry(QRect(100, 80, 118, 25));
+        stackedWidget->addWidget(ClockPage);
         Btn_ZoomOut = new QPushButton(centralWidget);
         Btn_ZoomOut->setObjectName(QString::fromUtf8("Btn_ZoomOut"));
         Btn_ZoomOut->setGeometry(QRect(0, 421, 57, 59));
@@ -527,7 +580,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

@@ -101,6 +101,17 @@ void MainWindow::CompVisionCtrl(int StackPage)
         ui->Btn_PhotoSinglePage_L->setVisible(true);
         ui->Btn_PhotoSinglePage_R->setVisible(true);
         break;
+    case PicasaStack :
+        ui->Btn_Home->setVisible(true);
+        ui->Btn_PageUp->setVisible(true);
+        ui->Btn_PhotoFull->setVisible(false);
+
+    case CalendarStack :
+        ui->Btn_Home->setVisible(true);
+        ui->Btn_PageUp->setVisible(true);
+        break;
+
+
     }
 }
 
@@ -532,6 +543,7 @@ void MainWindow::on_Btn_Home_clicked()
 {
     ChangeStackPageTo(MainStack);
     CompVisionCtrl(MainStack);
+
 }
 
 
@@ -548,3 +560,20 @@ void MainWindow::on_Btn_Test_clicked()
 }
 
 
+
+void MainWindow::on_Btn_Cal_clicked()
+{
+    ChangeStackPageTo(CalendarStack);
+    CompVisionCtrl(CalendarStack);
+}
+
+void MainWindow::on_Btn_Alarm_clicked()
+{
+    ChangeStackPageTo(ClockStack);
+}
+
+void MainWindow::on_Btn_Picasa_clicked()
+{
+    ChangeStackPageTo(PicasaStack);
+    CompVisionCtrl(PicasaStack);
+}

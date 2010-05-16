@@ -20,6 +20,9 @@
 #define PhotoStack      1
 #define PhotoMutiStack  2
 #define PhotoSingleStack  3
+#define PicasaStack        4
+#define CalendarStack  5
+#define ClockStack  6
 
 namespace Ui {
     class MainWindow;
@@ -37,6 +40,9 @@ public slots:
     void ThreadStop();
 
 private Q_SLOTS:
+    void on_Btn_Picasa_clicked();
+    void on_Btn_Alarm_clicked();
+    void on_Btn_Cal_clicked();
     void on_Btn_PhotoFull_clicked();
     void on_Btn_InMem_clicked();
     void on_Btn_ZoomIn_clicked();

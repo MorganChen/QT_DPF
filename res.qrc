@@ -11,4 +11,23 @@
         <file>Stocks.png</file>
         <file>Settings.png</file>
     </qresource>
+    <qresource prefix="/apps/icon">
+        <file>network-wireless.png</file>
+        <file>mplayer.png</file>
+        <file>gkdebconf.png</file>
+        <file>f-spot.png</file>
+        <file>dates.png</file>
+        <file>clock.png</file>
+        <file>audacious.png</file>
+        <file>web-browser.png</file>
+    </qresource>
+    <qresource prefix="/actions/icon">
+        <file>go-previous.png</file>
+        <file>go-next.png</file>
+        <file>lincity-ng.png</file>
+        <file>media-playback-stop.png</file>
+        <file>media-playback-start.png</file>
+        <file>media-playback-pause.png</file>
+        <file>media-eject.png</file>
+    </qresource>
 </RCC>
