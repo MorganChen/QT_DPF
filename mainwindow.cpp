@@ -144,6 +144,9 @@ void MainWindow::CompVisionCtrl(int StackPage)
     case ClockStack :
         ui->Btn_Home->setVisible(true);
         ui->Btn_PageUp->setVisible(true);
+    case MusicStack :
+        ui->Btn_Home->setVisible(true);
+        ui->Btn_PageUp->setVisible(true);
         break;
     }
 }
@@ -154,7 +157,7 @@ QFileInfoList MainWindow::getListFiles(QString dirPath) const
     QDir dir(dirPath);
 
     QStringList filters;
-    filters << "*.jpg" << "*.jpeg" << "*.png" << ".bmp" << "tiff" << "ico";
+    filters << "*.jpg" << "*.jpeg" << "*.png" << "*.tiff" << "*.ico";
     dir.setNameFilters(filters);
 
     return dir.entryInfoList(filters, QDir::Files);
@@ -303,6 +306,25 @@ void MainWindow::on_Btn_InMem_clicked()
     fileList_ = getListFiles(InMemPath);
     ShowPhotoMutiStack(fileList_);
 }
+
+void MainWindow::on_Btn_MemStk_clicked()
+{
+    fileList_ = getListFiles(MemStkPath);
+    ShowPhotoMutiStack(fileList_);
+}
+
+void MainWindow::on_Btn_MemCard_clicked()
+{
+    fileList_ = getListFiles(MemCardPath);
+    ShowPhotoMutiStack(fileList_);
+}
+
+void MainWindow::on_Btn_Picasa_clicked()
+{
+    ChangeStackPageTo(PicasaStack);
+    CompVisionCtrl(PicasaStack);
+}
+
 
 void MainWindow::ShowPhotoMutiStack(QFileInfoList FileList)
 {
@@ -614,20 +636,36 @@ void MainWindow::on_Btn_Alarm_clicked()
 
 }
 
-void MainWindow::on_Btn_Picasa_clicked()
+void MainWindow::on_Btn_Music_clicked()
 {
-    ChangeStackPageTo(PicasaStack);
-    CompVisionCtrl(PicasaStack);
-}
+    int i;
+    QFileInfoList FileList;
 
-void MainWindow::on_Btn_MemStk_clicked()
-{
-    fileList_ = getListFiles(MemStkPath);
-    ShowPhotoMutiStack(fileList_);
-}
+    QString ItemNum, ItemFileName, ItemFileSize, ItemStr;
 
-void MainWindow::on_Btn_MemCard_clicked()
-{
-    fileList_ = getListFiles(MemCardPath);
-    ShowPhotoMutiStack(fileList_);
+    fileList_ = getListFiles(InMemPath);
+    ui->ListWidget_MusicFile->clear();
+
+
+    FileList = fileList_;
+    MaxPhotoMutiFileCount = FileList.count();
+    ui->label_ThreadInfo->setText(ItemNum.setNum(MaxPhotoMutiFileCount));  // for test
+
+
+    for (i = 0; i < MaxPhotoMutiFileCount; ++i)
+    {
+        QListWidgetItem *ItemFile = new QListWidgetItem;
+        ItemFile->setData(Qt::WhatsThisRole, QString(FileList[i].filePath()));
+        ItemNum = ItemNum.setNum(i+1)+" :";
+        ItemFileName = QString(FileList[i].fileName());
+        ItemFileSize = "Size:"+ItemFileSize.setNum(FileList[i].size()/1024)+"KB";
+        ItemStr = QString("%1 %2 %3").arg(ItemNum,-5).arg(ItemFileName,-20).arg(ItemFileSize,-11);       
+        ItemFile->setText(ItemStr);
+        ui->ListWidget_MusicFile->addItem(ItemFile);
+
+    }
+
+    ChangeStackPageTo(MusicStack);
+    CompVisionCtrl(MusicStack);
+
 }

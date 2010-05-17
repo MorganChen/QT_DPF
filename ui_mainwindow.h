@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Mon May 17 11:52:31 2010
+** Created: Mon May 17 19:11:07 2010
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -95,6 +95,9 @@ public:
     QCalendarWidget *calendarWidget;
     QWidget *ClockPage;
     QLCDNumber *LcdNum_DigiClock;
+    QWidget *MusucPage;
+    QLabel *Lab_Music;
+    QListWidget *ListWidget_MusicFile;
     QPushButton *Btn_ZoomOut;
     QPushButton *Btn_ZoomIn;
     QSlider *Bar_VolAdj;
@@ -564,7 +567,7 @@ public:
         ClockPage->setObjectName(QString::fromUtf8("ClockPage"));
         LcdNum_DigiClock = new QLCDNumber(ClockPage);
         LcdNum_DigiClock->setObjectName(QString::fromUtf8("LcdNum_DigiClock"));
-        LcdNum_DigiClock->setGeometry(QRect(0, 80, 740, 200));
+        LcdNum_DigiClock->setGeometry(QRect(30, 80, 740, 200));
         QFont font4;
         font4.setBold(false);
         font4.setWeight(50);
@@ -579,6 +582,24 @@ public:
         LcdNum_DigiClock->setSegmentStyle(QLCDNumber::Filled);
         LcdNum_DigiClock->setProperty("value", QVariant(0));
         stackedWidget->addWidget(ClockPage);
+        MusucPage = new QWidget();
+        MusucPage->setObjectName(QString::fromUtf8("MusucPage"));
+        Lab_Music = new QLabel(MusucPage);
+        Lab_Music->setObjectName(QString::fromUtf8("Lab_Music"));
+        Lab_Music->setGeometry(QRect(40, 20, 128, 128));
+        Lab_Music->setPixmap(QPixmap(QString::fromUtf8(":/apps/icon/audacious.png")));
+        ListWidget_MusicFile = new QListWidget(MusucPage);
+        ListWidget_MusicFile->setObjectName(QString::fromUtf8("ListWidget_MusicFile"));
+        ListWidget_MusicFile->setGeometry(QRect(200, 20, 500, 320));
+        QPalette palette6;
+        palette6.setBrush(QPalette::Active, QPalette::Base, brush);
+        palette6.setBrush(QPalette::Inactive, QPalette::Base, brush);
+        palette6.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        ListWidget_MusicFile->setPalette(palette6);
+        QFont font5;
+        font5.setPointSize(16);
+        ListWidget_MusicFile->setFont(font5);
+        stackedWidget->addWidget(MusucPage);
         Btn_ZoomOut = new QPushButton(centralWidget);
         Btn_ZoomOut->setObjectName(QString::fromUtf8("Btn_ZoomOut"));
         Btn_ZoomOut->setGeometry(QRect(0, 421, 57, 59));
@@ -593,7 +614,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(7);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -637,6 +658,7 @@ public:
         Lab_PhotoSingle->setText(QApplication::translate("MainWindow", "TextLabel", 0, QApplication::UnicodeUTF8));
         Btn_PhotoSinglePage_L->setText(QString());
         Btn_PhotoSinglePage_R->setText(QString());
+        Lab_Music->setText(QString());
         Btn_ZoomOut->setText(QApplication::translate("MainWindow", "ZOut", 0, QApplication::UnicodeUTF8));
         Btn_ZoomIn->setText(QApplication::translate("MainWindow", "ZIn", 0, QApplication::UnicodeUTF8));
         Q_UNUSED(MainWindow);

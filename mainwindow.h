@@ -24,6 +24,7 @@
 #define PicasaStack        4
 #define CalendarStack  5
 #define ClockStack  6
+#define MusicStack  7
 
 namespace Ui {
     class MainWindow;
@@ -41,6 +42,7 @@ public slots:
     void ThreadStop();
 
 private Q_SLOTS:
+    void on_Btn_Music_clicked();
     void on_Btn_MemCard_clicked();
     void on_Btn_MemStk_clicked();
     void on_Btn_Picasa_clicked();

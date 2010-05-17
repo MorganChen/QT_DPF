@@ -290,7 +290,7 @@
      <bool>true</bool>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="MainPage">
      <widget class="QWidget" name="Mainwidget" native="true">
@@ -1212,7 +1212,7 @@
      <widget class="QLCDNumber" name="LcdNum_DigiClock">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>30</x>
         <y>80</y>
         <width>740</width>
         <height>200</height>
@@ -1250,6 +1250,76 @@
       </property>
       <property name="value" stdset="0">
        <double>0.000000000000000</double>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="MusucPage">
+     <widget class="QLabel" name="Lab_Music">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>20</y>
+        <width>128</width>
+        <height>128</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="res.qrc">:/apps/icon/audacious.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="ListWidget_MusicFile">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>20</y>
+        <width>500</width>
+        <height>320</height>
+       </rect>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
       </property>
      </widget>
     </widget>
