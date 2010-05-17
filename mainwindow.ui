@@ -138,7 +138,7 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset>
+     <iconset resource="res.qrc">
       <normaloff>:/actions/icon/lincity-ng.png</normaloff>:/actions/icon/lincity-ng.png</iconset>
     </property>
     <property name="iconSize">
@@ -164,7 +164,7 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset>
+     <iconset resource="res.qrc">
       <normaloff>:/actions/icon/media-playback-start.png</normaloff>:/actions/icon/media-playback-start.png</iconset>
     </property>
     <property name="iconSize">
@@ -190,7 +190,7 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset>
+     <iconset resource="res.qrc">
       <normaloff>:/actions/icon/media-eject.png</normaloff>:/actions/icon/media-eject.png</iconset>
     </property>
     <property name="iconSize">
@@ -290,7 +290,7 @@
      <bool>true</bool>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="MainPage">
      <widget class="QWidget" name="Mainwidget" native="true">
@@ -299,10 +299,10 @@
       </property>
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>20</x>
         <y>0</y>
-        <width>701</width>
-        <height>361</height>
+        <width>700</width>
+        <height>360</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -372,7 +372,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="res.qrc">
              <normaloff>:/apps/icon/f-spot.png</normaloff>:/apps/icon/f-spot.png</iconset>
            </property>
            <property name="iconSize">
@@ -409,7 +409,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="res.qrc">
              <normaloff>:/apps/icon/audacious.png</normaloff>:/apps/icon/audacious.png</iconset>
            </property>
            <property name="iconSize">
@@ -458,7 +458,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="res.qrc">
              <normaloff>:/apps/icon/mplayer.png</normaloff>:/apps/icon/mplayer.png</iconset>
            </property>
            <property name="iconSize">
@@ -495,7 +495,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="res.qrc">
              <normaloff>:/apps/icon/dates.png</normaloff>:/apps/icon/dates.png</iconset>
            </property>
            <property name="iconSize">
@@ -535,7 +535,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="res.qrc">
              <normaloff>:/apps/icon/clock.png</normaloff>:/apps/icon/clock.png</iconset>
            </property>
            <property name="iconSize">
@@ -572,7 +572,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="res.qrc">
              <normaloff>:/apps/icon/web-browser.png</normaloff>:/apps/icon/web-browser.png</iconset>
            </property>
            <property name="iconSize">
@@ -609,7 +609,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="res.qrc">
              <normaloff>:/apps/icon/network-wireless.png</normaloff>:/apps/icon/network-wireless.png</iconset>
            </property>
            <property name="iconSize">
@@ -649,7 +649,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="res.qrc">
              <normaloff>:/apps/icon/gkdebconf.png</normaloff>:/apps/icon/gkdebconf.png</iconset>
            </property>
            <property name="iconSize">
@@ -713,7 +713,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>:/apps/icon/f-spot.png</pixmap>
+        <pixmap resource="res.qrc">:/apps/icon/f-spot.png</pixmap>
        </property>
       </widget>
       <widget class="QWidget" name="verticalLayoutWidget_9">
@@ -734,14 +734,14 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="Btn_MenStk">
+         <widget class="QPushButton" name="Btn_MemStk">
           <property name="text">
            <string>Memory Stick</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="Btn_MenCard">
+         <widget class="QPushButton" name="Btn_MemCard">
           <property name="text">
            <string>Memory Card</string>
           </property>
@@ -900,7 +900,7 @@
        <string/>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="res.qrc">
         <normaloff>:/actions/icon/go-next.png</normaloff>:/actions/icon/go-next.png</iconset>
       </property>
       <property name="iconSize">
@@ -926,7 +926,7 @@
        <string/>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="res.qrc">
         <normaloff>:/actions/icon/go-previous.png</normaloff>:/actions/icon/go-previous.png</iconset>
       </property>
       <property name="iconSize">
@@ -1084,7 +1084,7 @@
        <string/>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="res.qrc">
         <normaloff>:/actions/icon/go-previous.png</normaloff>:/actions/icon/go-previous.png</iconset>
       </property>
       <property name="iconSize">
@@ -1110,7 +1110,7 @@
        <string/>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="res.qrc">
         <normaloff>:/actions/icon/go-next.png</normaloff>:/actions/icon/go-next.png</iconset>
       </property>
       <property name="iconSize">
@@ -1209,14 +1209,47 @@
      </widget>
     </widget>
     <widget class="QWidget" name="ClockPage">
-     <widget class="QTimeEdit" name="timeEdit">
+     <widget class="QLCDNumber" name="LcdNum_DigiClock">
       <property name="geometry">
        <rect>
-        <x>100</x>
+        <x>0</x>
         <y>80</y>
-        <width>118</width>
-        <height>25</height>
+        <width>740</width>
+        <height>200</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <property name="lineWidth">
+       <number>2</number>
+      </property>
+      <property name="midLineWidth">
+       <number>0</number>
+      </property>
+      <property name="smallDecimalPoint">
+       <bool>false</bool>
+      </property>
+      <property name="numDigits">
+       <number>8</number>
+      </property>
+      <property name="segmentStyle">
+       <enum>QLCDNumber::Filled</enum>
+      </property>
+      <property name="value" stdset="0">
+       <double>0.000000000000000</double>
       </property>
      </widget>
     </widget>
@@ -1270,7 +1303,9 @@
    <header>QtWebKit/QWebView</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
  <slots>
   <slot>ThreadStart()</slot>

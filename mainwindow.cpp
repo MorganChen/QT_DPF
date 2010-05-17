@@ -14,6 +14,12 @@ const int PANEL_HEIGHT = 480;
 
 const int STACK_PAGE_HIS_NUM = 5;
 
+const QString InMemPath = "/root/QT/Picture";
+const QString MemStkPath = "/root/QT/Picture";
+const QString MemCardPath = "/root/QT/Picture";
+
+int Para_PhotoSliceShow_Timer = 2500;
+
 int CurPhotoMutiPageIdx = 0;
 int MaxPhotoMutiPageCount = 0;
 int CurPhotoMutiFileIdx = 0;
@@ -27,6 +33,8 @@ QRect Lab_PhotoSingle_Gem;
 QRect scrollArea_Gem;
 QRect FullScreen_Gem;
 
+
+
 int PrvStackPage, CurStackPage, Prv2StackPage;
 int StackPageHis[STACK_PAGE_HIS_NUM], StackPageHisIdx=0;
 
@@ -39,9 +47,32 @@ MainWindow::MainWindow(QWidget *parent) :
     FullScreen_Gem.setRect(0,0,PANEL_WIDTH,PANEL_HEIGHT);
     ui->setupUi(this);
     ct = new charThread(ui->label_ThreadInfo);
+    DigiClockTimer = new QTimer(this);
     ChangeStackPageTo(MainStack);
     CompVisionCtrl(MainStack);
-    imagesShow_ = new QFutureWatcher<QImage>(this);    
+    imagesShow_ = new QFutureWatcher<QImage>(this);
+
+    connect(DigiClockTimer, SIGNAL(timeout()), this, SLOT(ShowDigiClock()));
+
+    DigiClockTimer->start(1000);
+
+
+
+
+}
+
+void MainWindow::ShowDigiClock()
+{
+
+    QTime time = QTime::currentTime();
+    QString text = time.toString("hh:mm:ss");
+    if ((time.second() % 2) == 0)
+    {
+        text[2] = ' ';
+        text[5] = ' ';
+    }
+    ui->LcdNum_DigiClock->display(text);
+
 }
 
 MainWindow::~MainWindow()
@@ -110,8 +141,10 @@ void MainWindow::CompVisionCtrl(int StackPage)
         ui->Btn_Home->setVisible(true);
         ui->Btn_PageUp->setVisible(true);
         break;
-
-
+    case ClockStack :
+        ui->Btn_Home->setVisible(true);
+        ui->Btn_PageUp->setVisible(true);
+        break;
     }
 }
 
@@ -267,6 +300,12 @@ void MainWindow::changeEvent(QEvent *e)
 
 void MainWindow::on_Btn_InMem_clicked()
 {
+    fileList_ = getListFiles(InMemPath);
+    ShowPhotoMutiStack(fileList_);
+}
+
+void MainWindow::ShowPhotoMutiStack(QFileInfoList FileList)
+{
     int i,ShowIdx;
     QString strTemp;
 
@@ -277,8 +316,8 @@ void MainWindow::on_Btn_InMem_clicked()
 
     ui->listWidget_Photo->clear();
 
-    fileList_ = getListFiles("/root/QT/Picture");
-    MaxPhotoMutiFileCount = fileList_.count();
+
+    MaxPhotoMutiFileCount = FileList.count();
     ui->label_ThreadInfo->setText(strTemp.setNum(MaxPhotoMutiFileCount));  // for test
 
     ui->Btn_PageRight->setEnabled(false);
@@ -302,13 +341,14 @@ void MainWindow::on_Btn_InMem_clicked()
     for (i = 0; i < ShowIdx; ++i)
     {
         QListWidgetItem *item = new QListWidgetItem;
-        item->setData(Qt::WhatsThisRole, QString(fileList_[CurPhotoMutiFileIdx].filePath()));
+        item->setData(Qt::WhatsThisRole, QString(FileList[CurPhotoMutiFileIdx].filePath()));
         ui->listWidget_Photo->addItem(item);
         ui->listWidget_Photo->item(i)->setIcon(QIcon(QPixmap::fromImage(prepareImage(fileList_[CurPhotoMutiFileIdx]))));
         CurPhotoMutiFileIdx++;
     }
     ChangeStackPageTo(PhotoMutiStack);
     CompVisionCtrl(PhotoMutiStack);
+
 }
 
 void MainWindow::on_Btn_PageRight_clicked()
@@ -408,7 +448,7 @@ void MainWindow::on_Btn_PhotoFull_clicked()
     ShowSinglePhoto(fileList_[current_index_].filePath());
     ui->Lab_PhotoSingle->installEventFilter(this);
     installEventFilter(this);
-    SliceTimerID = startTimer(2500);
+    SliceTimerID = startTimer(Para_PhotoSliceShow_Timer);
 
 
 }
@@ -556,7 +596,6 @@ void MainWindow::on_Btn_Test_clicked()
 {
 
 
-
 }
 
 
@@ -570,10 +609,25 @@ void MainWindow::on_Btn_Cal_clicked()
 void MainWindow::on_Btn_Alarm_clicked()
 {
     ChangeStackPageTo(ClockStack);
+    CompVisionCtrl(ClockStack);
+
+
 }
 
 void MainWindow::on_Btn_Picasa_clicked()
 {
     ChangeStackPageTo(PicasaStack);
     CompVisionCtrl(PicasaStack);
+}
+
+void MainWindow::on_Btn_MemStk_clicked()
+{
+    fileList_ = getListFiles(MemStkPath);
+    ShowPhotoMutiStack(fileList_);
+}
+
+void MainWindow::on_Btn_MemCard_clicked()
+{
+    fileList_ = getListFiles(MemCardPath);
+    ShowPhotoMutiStack(fileList_);
 }

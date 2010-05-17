@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Sun May 16 22:10:07 2010
+** Created: Mon May 17 11:52:31 2010
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -17,6 +17,7 @@
 #include <QtGui/QCalendarWidget>
 #include <QtGui/QGridLayout>
 #include <QtGui/QHeaderView>
+#include <QtGui/QLCDNumber>
 #include <QtGui/QLabel>
 #include <QtGui/QListWidget>
 #include <QtGui/QMainWindow>
@@ -24,7 +25,6 @@
 #include <QtGui/QScrollArea>
 #include <QtGui/QSlider>
 #include <QtGui/QStackedWidget>
-#include <QtGui/QTimeEdit>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
 #include <QtWebKit/QWebView>
@@ -76,8 +76,8 @@ public:
     QWidget *verticalLayoutWidget_9;
     QVBoxLayout *verticalLayout;
     QPushButton *Btn_InMem;
-    QPushButton *Btn_MenStk;
-    QPushButton *Btn_MenCard;
+    QPushButton *Btn_MemStk;
+    QPushButton *Btn_MemCard;
     QPushButton *Btn_Picasa;
     QWidget *PhotoMutiPage;
     QListWidget *listWidget_Photo;
@@ -94,7 +94,7 @@ public:
     QWidget *CalenderPage;
     QCalendarWidget *calendarWidget;
     QWidget *ClockPage;
-    QTimeEdit *timeEdit;
+    QLCDNumber *LcdNum_DigiClock;
     QPushButton *Btn_ZoomOut;
     QPushButton *Btn_ZoomIn;
     QSlider *Bar_VolAdj;
@@ -187,7 +187,7 @@ public:
         Mainwidget = new QWidget(MainPage);
         Mainwidget->setObjectName(QString::fromUtf8("Mainwidget"));
         Mainwidget->setEnabled(true);
-        Mainwidget->setGeometry(QRect(30, 0, 701, 361));
+        Mainwidget->setGeometry(QRect(20, 0, 700, 360));
         sizePolicy.setHeightForWidth(Mainwidget->sizePolicy().hasHeightForWidth());
         Mainwidget->setSizePolicy(sizePolicy);
         gridLayout = new QGridLayout(Mainwidget);
@@ -425,15 +425,15 @@ public:
 
         verticalLayout->addWidget(Btn_InMem);
 
-        Btn_MenStk = new QPushButton(verticalLayoutWidget_9);
-        Btn_MenStk->setObjectName(QString::fromUtf8("Btn_MenStk"));
+        Btn_MemStk = new QPushButton(verticalLayoutWidget_9);
+        Btn_MemStk->setObjectName(QString::fromUtf8("Btn_MemStk"));
 
-        verticalLayout->addWidget(Btn_MenStk);
+        verticalLayout->addWidget(Btn_MemStk);
 
-        Btn_MenCard = new QPushButton(verticalLayoutWidget_9);
-        Btn_MenCard->setObjectName(QString::fromUtf8("Btn_MenCard"));
+        Btn_MemCard = new QPushButton(verticalLayoutWidget_9);
+        Btn_MemCard->setObjectName(QString::fromUtf8("Btn_MemCard"));
 
-        verticalLayout->addWidget(Btn_MenCard);
+        verticalLayout->addWidget(Btn_MemCard);
 
         Btn_Picasa = new QPushButton(verticalLayoutWidget_9);
         Btn_Picasa->setObjectName(QString::fromUtf8("Btn_Picasa"));
@@ -562,9 +562,22 @@ public:
         stackedWidget->addWidget(CalenderPage);
         ClockPage = new QWidget();
         ClockPage->setObjectName(QString::fromUtf8("ClockPage"));
-        timeEdit = new QTimeEdit(ClockPage);
-        timeEdit->setObjectName(QString::fromUtf8("timeEdit"));
-        timeEdit->setGeometry(QRect(100, 80, 118, 25));
+        LcdNum_DigiClock = new QLCDNumber(ClockPage);
+        LcdNum_DigiClock->setObjectName(QString::fromUtf8("LcdNum_DigiClock"));
+        LcdNum_DigiClock->setGeometry(QRect(0, 80, 740, 200));
+        QFont font4;
+        font4.setBold(false);
+        font4.setWeight(50);
+        LcdNum_DigiClock->setFont(font4);
+        LcdNum_DigiClock->setAutoFillBackground(false);
+        LcdNum_DigiClock->setFrameShape(QFrame::Box);
+        LcdNum_DigiClock->setFrameShadow(QFrame::Raised);
+        LcdNum_DigiClock->setLineWidth(2);
+        LcdNum_DigiClock->setMidLineWidth(0);
+        LcdNum_DigiClock->setSmallDecimalPoint(false);
+        LcdNum_DigiClock->setNumDigits(8);
+        LcdNum_DigiClock->setSegmentStyle(QLCDNumber::Filled);
+        LcdNum_DigiClock->setProperty("value", QVariant(0));
         stackedWidget->addWidget(ClockPage);
         Btn_ZoomOut = new QPushButton(centralWidget);
         Btn_ZoomOut->setObjectName(QString::fromUtf8("Btn_ZoomOut"));
@@ -580,7 +593,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(4);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -616,8 +629,8 @@ public:
         Lab_Setting->setText(QApplication::translate("MainWindow", "Setting", 0, QApplication::UnicodeUTF8));
         Lab_SubPhoto->setText(QString());
         Btn_InMem->setText(QApplication::translate("MainWindow", "Internal Memory", 0, QApplication::UnicodeUTF8));
-        Btn_MenStk->setText(QApplication::translate("MainWindow", "Memory Stick", 0, QApplication::UnicodeUTF8));
-        Btn_MenCard->setText(QApplication::translate("MainWindow", "Memory Card", 0, QApplication::UnicodeUTF8));
+        Btn_MemStk->setText(QApplication::translate("MainWindow", "Memory Stick", 0, QApplication::UnicodeUTF8));
+        Btn_MemCard->setText(QApplication::translate("MainWindow", "Memory Card", 0, QApplication::UnicodeUTF8));
         Btn_Picasa->setText(QApplication::translate("MainWindow", "Picasa Web Albums", 0, QApplication::UnicodeUTF8));
         Btn_PageRight->setText(QString());
         Btn_PageLeft->setText(QString());

@@ -14,7 +14,8 @@
 #include <QFuture>
 #include <QListWidget>
 #include <QEvent>
-
+#include <QLCDNumber>
+#include <QFrame>
 
 #define MainStack       0
 #define PhotoStack      1
@@ -40,6 +41,8 @@ public slots:
     void ThreadStop();
 
 private Q_SLOTS:
+    void on_Btn_MemCard_clicked();
+    void on_Btn_MemStk_clicked();
     void on_Btn_Picasa_clicked();
     void on_Btn_Alarm_clicked();
     void on_Btn_Cal_clicked();
@@ -57,6 +60,7 @@ private Q_SLOTS:
 protected:
     void changeEvent(QEvent *e);
     void ShowSinglePhoto(QString filePath);
+    void ShowPhotoMutiStack(QFileInfoList FileList);
     void SetPhotoSingleBtn(void);
     bool eventFilter(QObject *obj, QEvent *event);
     void ChangeStackPageTo(int StackPage);
@@ -70,6 +74,7 @@ private:
     QFileInfoList fileList_;
     QFutureWatcher<QImage> *imagesShow_;
     QPixmap pixmap_;
+    QTimer *DigiClockTimer;
 
 private slots:
     void on_Btn_Home_clicked();
@@ -79,6 +84,7 @@ private slots:
     void on_Btn_Ok_clicked();
     void on_Btn_Test_clicked();
     QFileInfoList getListFiles(QString dirPath) const;
+    void ShowDigiClock();
 };
 
 QPixmap prepareIcon(const QFileInfo &infoFile);
