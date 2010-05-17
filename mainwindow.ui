@@ -290,7 +290,7 @@
      <bool>true</bool>
     </property>
     <property name="currentIndex">
-     <number>7</number>
+     <number>6</number>
     </property>
     <widget class="QWidget" name="MainPage">
      <widget class="QWidget" name="Mainwidget" native="true">
@@ -1253,7 +1253,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="MusucPage">
+    <widget class="QWidget" name="MusicPage">
      <widget class="QLabel" name="Lab_Music">
       <property name="geometry">
        <rect>
@@ -1275,7 +1275,7 @@
        <rect>
         <x>200</x>
         <y>20</y>
-        <width>500</width>
+        <width>551</width>
         <height>320</height>
        </rect>
       </property>
@@ -1285,9 +1285,9 @@
          <colorrole role="Base">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
+            <red>220</red>
+            <green>218</green>
+            <blue>213</blue>
            </color>
           </brush>
          </colorrole>
@@ -1296,9 +1296,9 @@
          <colorrole role="Base">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
+            <red>220</red>
+            <green>218</green>
+            <blue>213</blue>
            </color>
           </brush>
          </colorrole>
@@ -1318,8 +1318,102 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>16</pointsize>
+        <pointsize>20</pointsize>
        </font>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="autoScrollMargin">
+       <number>16</number>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="MoviePage">
+     <widget class="QLabel" name="Lab_MoviePage">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>20</y>
+        <width>128</width>
+        <height>128</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="res.qrc">:/apps/icon/mplayer.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="ListWidget_MovieFile">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>20</y>
+        <width>541</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>220</red>
+            <green>218</green>
+            <blue>213</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>220</red>
+            <green>218</green>
+            <blue>213</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="viewMode">
+       <enum>QListView::ListMode</enum>
+      </property>
+      <property name="modelColumn">
+       <number>0</number>
       </property>
      </widget>
     </widget>

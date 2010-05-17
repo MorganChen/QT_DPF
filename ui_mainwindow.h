@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Mon May 17 19:11:07 2010
+** Created: Mon May 17 23:42:12 2010
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -95,9 +95,12 @@ public:
     QCalendarWidget *calendarWidget;
     QWidget *ClockPage;
     QLCDNumber *LcdNum_DigiClock;
-    QWidget *MusucPage;
+    QWidget *MusicPage;
     QLabel *Lab_Music;
     QListWidget *ListWidget_MusicFile;
+    QWidget *MoviePage;
+    QLabel *Lab_MoviePage;
+    QListWidget *ListWidget_MovieFile;
     QPushButton *Btn_ZoomOut;
     QPushButton *Btn_ZoomIn;
     QSlider *Bar_VolAdj;
@@ -582,24 +585,47 @@ public:
         LcdNum_DigiClock->setSegmentStyle(QLCDNumber::Filled);
         LcdNum_DigiClock->setProperty("value", QVariant(0));
         stackedWidget->addWidget(ClockPage);
-        MusucPage = new QWidget();
-        MusucPage->setObjectName(QString::fromUtf8("MusucPage"));
-        Lab_Music = new QLabel(MusucPage);
+        MusicPage = new QWidget();
+        MusicPage->setObjectName(QString::fromUtf8("MusicPage"));
+        Lab_Music = new QLabel(MusicPage);
         Lab_Music->setObjectName(QString::fromUtf8("Lab_Music"));
         Lab_Music->setGeometry(QRect(40, 20, 128, 128));
         Lab_Music->setPixmap(QPixmap(QString::fromUtf8(":/apps/icon/audacious.png")));
-        ListWidget_MusicFile = new QListWidget(MusucPage);
+        ListWidget_MusicFile = new QListWidget(MusicPage);
         ListWidget_MusicFile->setObjectName(QString::fromUtf8("ListWidget_MusicFile"));
-        ListWidget_MusicFile->setGeometry(QRect(200, 20, 500, 320));
+        ListWidget_MusicFile->setGeometry(QRect(200, 20, 551, 320));
         QPalette palette6;
-        palette6.setBrush(QPalette::Active, QPalette::Base, brush);
-        palette6.setBrush(QPalette::Inactive, QPalette::Base, brush);
+        palette6.setBrush(QPalette::Active, QPalette::Base, brush1);
+        palette6.setBrush(QPalette::Inactive, QPalette::Base, brush1);
         palette6.setBrush(QPalette::Disabled, QPalette::Base, brush);
         ListWidget_MusicFile->setPalette(palette6);
         QFont font5;
-        font5.setPointSize(16);
+        font5.setPointSize(20);
         ListWidget_MusicFile->setFont(font5);
-        stackedWidget->addWidget(MusucPage);
+        ListWidget_MusicFile->setFrameShape(QFrame::NoFrame);
+        ListWidget_MusicFile->setFrameShadow(QFrame::Sunken);
+        ListWidget_MusicFile->setAutoScrollMargin(16);
+        stackedWidget->addWidget(MusicPage);
+        MoviePage = new QWidget();
+        MoviePage->setObjectName(QString::fromUtf8("MoviePage"));
+        Lab_MoviePage = new QLabel(MoviePage);
+        Lab_MoviePage->setObjectName(QString::fromUtf8("Lab_MoviePage"));
+        Lab_MoviePage->setGeometry(QRect(50, 20, 128, 128));
+        Lab_MoviePage->setPixmap(QPixmap(QString::fromUtf8(":/apps/icon/mplayer.png")));
+        ListWidget_MovieFile = new QListWidget(MoviePage);
+        ListWidget_MovieFile->setObjectName(QString::fromUtf8("ListWidget_MovieFile"));
+        ListWidget_MovieFile->setGeometry(QRect(200, 20, 541, 321));
+        QPalette palette7;
+        palette7.setBrush(QPalette::Active, QPalette::Base, brush1);
+        palette7.setBrush(QPalette::Inactive, QPalette::Base, brush1);
+        palette7.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        ListWidget_MovieFile->setPalette(palette7);
+        ListWidget_MovieFile->setFont(font5);
+        ListWidget_MovieFile->setFrameShape(QFrame::NoFrame);
+        ListWidget_MovieFile->setIconSize(QSize(20, 20));
+        ListWidget_MovieFile->setViewMode(QListView::ListMode);
+        ListWidget_MovieFile->setModelColumn(0);
+        stackedWidget->addWidget(MoviePage);
         Btn_ZoomOut = new QPushButton(centralWidget);
         Btn_ZoomOut->setObjectName(QString::fromUtf8("Btn_ZoomOut"));
         Btn_ZoomOut->setGeometry(QRect(0, 421, 57, 59));
@@ -614,7 +640,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(7);
+        stackedWidget->setCurrentIndex(6);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -659,6 +685,7 @@ public:
         Btn_PhotoSinglePage_L->setText(QString());
         Btn_PhotoSinglePage_R->setText(QString());
         Lab_Music->setText(QString());
+        Lab_MoviePage->setText(QString());
         Btn_ZoomOut->setText(QApplication::translate("MainWindow", "ZOut", 0, QApplication::UnicodeUTF8));
         Btn_ZoomIn->setText(QApplication::translate("MainWindow", "ZIn", 0, QApplication::UnicodeUTF8));
         Q_UNUSED(MainWindow);

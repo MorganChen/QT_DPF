@@ -25,6 +25,7 @@
 #define CalendarStack  5
 #define ClockStack  6
 #define MusicStack  7
+#define MovieStack  8
 
 namespace Ui {
     class MainWindow;
@@ -42,6 +43,7 @@ public slots:
     void ThreadStop();
 
 private Q_SLOTS:
+    void on_Btn_Movie_clicked();
     void on_Btn_Music_clicked();
     void on_Btn_MemCard_clicked();
     void on_Btn_MemStk_clicked();
@@ -68,6 +70,9 @@ protected:
     void ChangeStackPageTo(int StackPage);
     void ChangeStackPageUp(void);
     void CompVisionCtrl(int StackPage);
+    QFileInfoList getPhotoListFiles(QString dirPath) const;
+    QFileInfoList getMusicListFiles(QString dirPath) const;
+    QFileInfoList getMovieListFiles(QString dirPath) const;
 
 private:
     Ui::MainWindow *ui;
@@ -78,6 +83,7 @@ private:
     QPixmap pixmap_;
     QTimer *DigiClockTimer;
 
+
 private slots:
     void on_Btn_Home_clicked();
     void on_Btn_PageUp_clicked();
@@ -85,7 +91,6 @@ private slots:
     void on_Btn_Setting_clicked();
     void on_Btn_Ok_clicked();
     void on_Btn_Test_clicked();
-    QFileInfoList getListFiles(QString dirPath) const;
     void ShowDigiClock();
 };
 

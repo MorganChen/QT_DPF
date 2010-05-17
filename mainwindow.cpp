@@ -148,16 +148,42 @@ void MainWindow::CompVisionCtrl(int StackPage)
         ui->Btn_Home->setVisible(true);
         ui->Btn_PageUp->setVisible(true);
         break;
+    case MovieStack :
+        ui->Btn_Home->setVisible(true);
+        ui->Btn_PageUp->setVisible(true);
+        break;
     }
 }
 
 
-QFileInfoList MainWindow::getListFiles(QString dirPath) const
+QFileInfoList MainWindow::getPhotoListFiles(QString dirPath) const
 {
     QDir dir(dirPath);
 
     QStringList filters;
     filters << "*.jpg" << "*.jpeg" << "*.png" << "*.tiff" << "*.ico";
+    dir.setNameFilters(filters);
+
+    return dir.entryInfoList(filters, QDir::Files);
+}
+
+QFileInfoList MainWindow::getMusicListFiles(QString dirPath) const
+{
+    QDir dir(dirPath);
+
+    QStringList filters;
+    filters << "*.mp3" << "*.jpg" ;
+    dir.setNameFilters(filters);
+
+    return dir.entryInfoList(filters, QDir::Files);
+}
+
+QFileInfoList MainWindow::getMovieListFiles(QString dirPath) const
+{
+    QDir dir(dirPath);
+
+    QStringList filters;
+    filters << "*.avi" << "*.jpg" ;
     dir.setNameFilters(filters);
 
     return dir.entryInfoList(filters, QDir::Files);
@@ -303,19 +329,19 @@ void MainWindow::changeEvent(QEvent *e)
 
 void MainWindow::on_Btn_InMem_clicked()
 {
-    fileList_ = getListFiles(InMemPath);
+    fileList_ = getPhotoListFiles(InMemPath);
     ShowPhotoMutiStack(fileList_);
 }
 
 void MainWindow::on_Btn_MemStk_clicked()
 {
-    fileList_ = getListFiles(MemStkPath);
+    fileList_ = getPhotoListFiles(MemStkPath);
     ShowPhotoMutiStack(fileList_);
 }
 
 void MainWindow::on_Btn_MemCard_clicked()
 {
-    fileList_ = getListFiles(MemCardPath);
+    fileList_ = getPhotoListFiles(MemCardPath);
     ShowPhotoMutiStack(fileList_);
 }
 
@@ -639,26 +665,25 @@ void MainWindow::on_Btn_Alarm_clicked()
 void MainWindow::on_Btn_Music_clicked()
 {
     int i;
-    QFileInfoList FileList;
+
 
     QString ItemNum, ItemFileName, ItemFileSize, ItemStr;
 
-    fileList_ = getListFiles(InMemPath);
+    fileList_ = getPhotoListFiles(InMemPath);
     ui->ListWidget_MusicFile->clear();
 
 
-    FileList = fileList_;
-    MaxPhotoMutiFileCount = FileList.count();
+    MaxPhotoMutiFileCount = fileList_.count();
     ui->label_ThreadInfo->setText(ItemNum.setNum(MaxPhotoMutiFileCount));  // for test
 
 
     for (i = 0; i < MaxPhotoMutiFileCount; ++i)
     {
         QListWidgetItem *ItemFile = new QListWidgetItem;
-        ItemFile->setData(Qt::WhatsThisRole, QString(FileList[i].filePath()));
+        ItemFile->setData(Qt::WhatsThisRole, QString(fileList_[i].filePath()));
         ItemNum = ItemNum.setNum(i+1)+" :";
-        ItemFileName = QString(FileList[i].fileName());
-        ItemFileSize = "Size:"+ItemFileSize.setNum(FileList[i].size()/1024)+"KB";
+        ItemFileName = QString(fileList_[i].fileName());
+        ItemFileSize = "Size:"+ItemFileSize.setNum(fileList_[i].size()/1024)+"KB";
         ItemStr = QString("%1 %2 %3").arg(ItemNum,-5).arg(ItemFileName,-20).arg(ItemFileSize,-11);       
         ItemFile->setText(ItemStr);
         ui->ListWidget_MusicFile->addItem(ItemFile);
@@ -668,4 +693,35 @@ void MainWindow::on_Btn_Music_clicked()
     ChangeStackPageTo(MusicStack);
     CompVisionCtrl(MusicStack);
 
+}
+
+void MainWindow::on_Btn_Movie_clicked()
+{
+    int i;
+
+    QString ItemNum, ItemFileName, ItemFileSize, ItemStr;
+
+    fileList_ = getPhotoListFiles(InMemPath);
+    ui->ListWidget_MovieFile->clear();
+
+
+    MaxPhotoMutiFileCount = fileList_.count();
+    ui->label_ThreadInfo->setText(ItemNum.setNum(MaxPhotoMutiFileCount));  // for test
+
+
+    for (i = 0; i < MaxPhotoMutiFileCount; ++i)
+    {
+        QListWidgetItem *ItemFile = new QListWidgetItem;
+        ItemFile->setData(Qt::WhatsThisRole, QString(fileList_[i].filePath()));
+        ItemNum = ItemNum.setNum(i+1)+" :";
+        ItemFileName = QString(fileList_[i].fileName());
+        ItemFileSize = "Size:"+ItemFileSize.setNum(fileList_[i].size()/1024)+"KB";
+        ItemStr = QString("%1 %2 %3").arg(ItemNum,-5).arg(ItemFileName,-20).arg(ItemFileSize,-11);
+        ItemFile->setText(ItemStr);
+        ui->ListWidget_MovieFile->addItem(ItemFile);
+
+    }
+
+    ChangeStackPageTo(MovieStack);
+    CompVisionCtrl(MovieStack);
 }
