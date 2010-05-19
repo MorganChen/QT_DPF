@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Mon May 17 23:42:12 2010
+** Created: Wed May 19 09:47:15 2010
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -101,6 +101,16 @@ public:
     QWidget *MoviePage;
     QLabel *Lab_MoviePage;
     QListWidget *ListWidget_MovieFile;
+    QWidget *MoviePlayPage;
+    QWidget *MoviePlayWidget;
+    QWidget *MoviePlayBtnWidget;
+    QGridLayout *gridLayout1;
+    QPushButton *Btn_MovieSeekBack;
+    QPushButton *Btn_MovieStop;
+    QPushButton *Btn_MoviePause;
+    QPushButton *Btn_MoviePlay;
+    QPushButton *Btn_MovieSeekNext;
+    QPushButton *Btn_MovieScreen;
     QPushButton *Btn_ZoomOut;
     QPushButton *Btn_ZoomIn;
     QSlider *Bar_VolAdj;
@@ -118,16 +128,21 @@ public:
         sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
         MainWindow->setSizePolicy(sizePolicy);
         QPalette palette;
-        QBrush brush(QColor(255, 255, 255, 255));
+        QBrush brush(QColor(220, 218, 213, 150));
         brush.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Active, QPalette::Base, brush);
-        QBrush brush1(QColor(220, 218, 213, 255));
+        palette.setBrush(QPalette::Active, QPalette::Button, brush);
+        QBrush brush1(QColor(255, 255, 255, 255));
         brush1.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Active, QPalette::Window, brush1);
-        palette.setBrush(QPalette::Inactive, QPalette::Base, brush);
-        palette.setBrush(QPalette::Inactive, QPalette::Window, brush1);
-        palette.setBrush(QPalette::Disabled, QPalette::Base, brush1);
-        palette.setBrush(QPalette::Disabled, QPalette::Window, brush1);
+        palette.setBrush(QPalette::Active, QPalette::Base, brush1);
+        QBrush brush2(QColor(220, 218, 213, 255));
+        brush2.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Window, brush2);
+        palette.setBrush(QPalette::Inactive, QPalette::Button, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Base, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Window, brush2);
+        palette.setBrush(QPalette::Disabled, QPalette::Button, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::Base, brush2);
+        palette.setBrush(QPalette::Disabled, QPalette::Window, brush2);
         MainWindow->setPalette(palette);
         MainWindow->setWindowTitle(QString::fromUtf8(""));
         MainWindow->setAutoFillBackground(false);
@@ -181,11 +196,12 @@ public:
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
         stackedWidget->setGeometry(QRect(0, 60, 800, 360));
         QPalette palette1;
-        QBrush brush2(QColor(8, 231, 255, 255));
-        brush2.setStyle(Qt::SolidPattern);
-        palette1.setBrush(QPalette::Active, QPalette::Base, brush2);
-        palette1.setBrush(QPalette::Inactive, QPalette::Base, brush2);
-        palette1.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        palette1.setBrush(QPalette::Active, QPalette::Button, brush);
+        palette1.setBrush(QPalette::Active, QPalette::Base, brush1);
+        palette1.setBrush(QPalette::Inactive, QPalette::Button, brush);
+        palette1.setBrush(QPalette::Inactive, QPalette::Base, brush1);
+        palette1.setBrush(QPalette::Disabled, QPalette::Button, brush);
+        palette1.setBrush(QPalette::Disabled, QPalette::Base, brush1);
         stackedWidget->setPalette(palette1);
         stackedWidget->setAutoFillBackground(true);
         MainPage = new QWidget();
@@ -454,12 +470,12 @@ public:
         listWidget_Photo->setEnabled(true);
         listWidget_Photo->setGeometry(QRect(60, 10, 670, 331));
         QPalette palette2;
-        palette2.setBrush(QPalette::Active, QPalette::Light, brush);
-        palette2.setBrush(QPalette::Active, QPalette::Base, brush1);
-        palette2.setBrush(QPalette::Inactive, QPalette::Light, brush);
-        palette2.setBrush(QPalette::Inactive, QPalette::Base, brush1);
-        palette2.setBrush(QPalette::Disabled, QPalette::Light, brush);
-        palette2.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        palette2.setBrush(QPalette::Active, QPalette::Light, brush1);
+        palette2.setBrush(QPalette::Active, QPalette::Base, brush2);
+        palette2.setBrush(QPalette::Inactive, QPalette::Light, brush1);
+        palette2.setBrush(QPalette::Inactive, QPalette::Base, brush2);
+        palette2.setBrush(QPalette::Disabled, QPalette::Light, brush1);
+        palette2.setBrush(QPalette::Disabled, QPalette::Base, brush1);
         listWidget_Photo->setPalette(palette2);
         listWidget_Photo->setAutoFillBackground(true);
         listWidget_Photo->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -499,9 +515,9 @@ public:
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
         scrollArea->setGeometry(QRect(60, 24, 681, 341));
         QPalette palette3;
-        palette3.setBrush(QPalette::Active, QPalette::Base, brush);
-        palette3.setBrush(QPalette::Inactive, QPalette::Base, brush);
-        palette3.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        palette3.setBrush(QPalette::Active, QPalette::Base, brush1);
+        palette3.setBrush(QPalette::Inactive, QPalette::Base, brush1);
+        palette3.setBrush(QPalette::Disabled, QPalette::Base, brush1);
         scrollArea->setPalette(palette3);
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
@@ -520,7 +536,7 @@ public:
         brush3.setStyle(Qt::SolidPattern);
         palette4.setBrush(QPalette::Active, QPalette::Base, brush3);
         palette4.setBrush(QPalette::Inactive, QPalette::Base, brush3);
-        palette4.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        palette4.setBrush(QPalette::Disabled, QPalette::Base, brush1);
         Lab_PhotoSingle->setPalette(palette4);
         QFont font3;
         font3.setItalic(false);
@@ -548,9 +564,9 @@ public:
         webView->setObjectName(QString::fromUtf8("webView"));
         webView->setGeometry(QRect(0, 0, 800, 360));
         QPalette palette5;
-        palette5.setBrush(QPalette::Active, QPalette::Base, brush);
-        palette5.setBrush(QPalette::Inactive, QPalette::Base, brush);
-        palette5.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        palette5.setBrush(QPalette::Active, QPalette::Base, brush1);
+        palette5.setBrush(QPalette::Inactive, QPalette::Base, brush1);
+        palette5.setBrush(QPalette::Disabled, QPalette::Base, brush1);
         webView->setPalette(palette5);
         webView->setUrl(QUrl("http://picasaweb.google.com/elandman.chuang"));
         webView->setZoomFactor(0.6);
@@ -595,9 +611,9 @@ public:
         ListWidget_MusicFile->setObjectName(QString::fromUtf8("ListWidget_MusicFile"));
         ListWidget_MusicFile->setGeometry(QRect(200, 20, 551, 320));
         QPalette palette6;
-        palette6.setBrush(QPalette::Active, QPalette::Base, brush1);
-        palette6.setBrush(QPalette::Inactive, QPalette::Base, brush1);
-        palette6.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        palette6.setBrush(QPalette::Active, QPalette::Base, brush2);
+        palette6.setBrush(QPalette::Inactive, QPalette::Base, brush2);
+        palette6.setBrush(QPalette::Disabled, QPalette::Base, brush1);
         ListWidget_MusicFile->setPalette(palette6);
         QFont font5;
         font5.setPointSize(20);
@@ -616,9 +632,9 @@ public:
         ListWidget_MovieFile->setObjectName(QString::fromUtf8("ListWidget_MovieFile"));
         ListWidget_MovieFile->setGeometry(QRect(200, 20, 541, 321));
         QPalette palette7;
-        palette7.setBrush(QPalette::Active, QPalette::Base, brush1);
-        palette7.setBrush(QPalette::Inactive, QPalette::Base, brush1);
-        palette7.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        palette7.setBrush(QPalette::Active, QPalette::Base, brush2);
+        palette7.setBrush(QPalette::Inactive, QPalette::Base, brush2);
+        palette7.setBrush(QPalette::Disabled, QPalette::Base, brush1);
         ListWidget_MovieFile->setPalette(palette7);
         ListWidget_MovieFile->setFont(font5);
         ListWidget_MovieFile->setFrameShape(QFrame::NoFrame);
@@ -626,6 +642,108 @@ public:
         ListWidget_MovieFile->setViewMode(QListView::ListMode);
         ListWidget_MovieFile->setModelColumn(0);
         stackedWidget->addWidget(MoviePage);
+        MoviePlayPage = new QWidget();
+        MoviePlayPage->setObjectName(QString::fromUtf8("MoviePlayPage"));
+        MoviePlayWidget = new QWidget(MoviePlayPage);
+        MoviePlayWidget->setObjectName(QString::fromUtf8("MoviePlayWidget"));
+        MoviePlayWidget->setGeometry(QRect(240, 20, 320, 240));
+        MoviePlayWidget->setAutoFillBackground(true);
+        MoviePlayBtnWidget = new QWidget(MoviePlayPage);
+        MoviePlayBtnWidget->setObjectName(QString::fromUtf8("MoviePlayBtnWidget"));
+        MoviePlayBtnWidget->setGeometry(QRect(160, 270, 491, 91));
+        QPalette palette8;
+        QBrush brush4(QColor(8, 231, 255, 255));
+        brush4.setStyle(Qt::SolidPattern);
+        palette8.setBrush(QPalette::Active, QPalette::Base, brush4);
+        palette8.setBrush(QPalette::Active, QPalette::Window, brush2);
+        palette8.setBrush(QPalette::Inactive, QPalette::Base, brush4);
+        palette8.setBrush(QPalette::Inactive, QPalette::Window, brush2);
+        palette8.setBrush(QPalette::Disabled, QPalette::Base, brush2);
+        palette8.setBrush(QPalette::Disabled, QPalette::Window, brush2);
+        MoviePlayBtnWidget->setPalette(palette8);
+        gridLayout1 = new QGridLayout(MoviePlayBtnWidget);
+        gridLayout1->setSpacing(6);
+        gridLayout1->setMargin(11);
+        gridLayout1->setObjectName(QString::fromUtf8("gridLayout1"));
+        gridLayout1->setHorizontalSpacing(0);
+        Btn_MovieSeekBack = new QPushButton(MoviePlayBtnWidget);
+        Btn_MovieSeekBack->setObjectName(QString::fromUtf8("Btn_MovieSeekBack"));
+        QIcon icon13;
+        icon13.addFile(QString::fromUtf8(":/actions/icon/go-first.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Btn_MovieSeekBack->setIcon(icon13);
+        Btn_MovieSeekBack->setIconSize(QSize(60, 60));
+        Btn_MovieSeekBack->setAutoRepeat(true);
+        Btn_MovieSeekBack->setFlat(true);
+
+        gridLayout1->addWidget(Btn_MovieSeekBack, 2, 1, 1, 1);
+
+        Btn_MovieStop = new QPushButton(MoviePlayBtnWidget);
+        Btn_MovieStop->setObjectName(QString::fromUtf8("Btn_MovieStop"));
+        QIcon icon14;
+        icon14.addFile(QString::fromUtf8(":/actions/icon/media-playback-stop.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Btn_MovieStop->setIcon(icon14);
+        Btn_MovieStop->setIconSize(QSize(60, 60));
+        Btn_MovieStop->setFlat(true);
+
+        gridLayout1->addWidget(Btn_MovieStop, 2, 2, 1, 1);
+
+        Btn_MoviePause = new QPushButton(MoviePlayBtnWidget);
+        Btn_MoviePause->setObjectName(QString::fromUtf8("Btn_MoviePause"));
+        QPalette palette9;
+        palette9.setBrush(QPalette::Active, QPalette::Button, brush);
+        palette9.setBrush(QPalette::Inactive, QPalette::Button, brush);
+        palette9.setBrush(QPalette::Disabled, QPalette::Button, brush);
+        Btn_MoviePause->setPalette(palette9);
+        QIcon icon15;
+        icon15.addFile(QString::fromUtf8(":/actions/icon/media-playback-pause.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Btn_MoviePause->setIcon(icon15);
+        Btn_MoviePause->setIconSize(QSize(60, 60));
+        Btn_MoviePause->setFlat(true);
+
+        gridLayout1->addWidget(Btn_MoviePause, 2, 3, 1, 1);
+
+        Btn_MoviePlay = new QPushButton(MoviePlayBtnWidget);
+        Btn_MoviePlay->setObjectName(QString::fromUtf8("Btn_MoviePlay"));
+        QPalette palette10;
+        palette10.setBrush(QPalette::Active, QPalette::Button, brush2);
+        palette10.setBrush(QPalette::Inactive, QPalette::Button, brush2);
+        palette10.setBrush(QPalette::Disabled, QPalette::Button, brush2);
+        Btn_MoviePlay->setPalette(palette10);
+        Btn_MoviePlay->setIcon(icon11);
+        Btn_MoviePlay->setIconSize(QSize(60, 60));
+        Btn_MoviePlay->setFlat(true);
+
+        gridLayout1->addWidget(Btn_MoviePlay, 2, 4, 1, 1);
+
+        Btn_MovieSeekNext = new QPushButton(MoviePlayBtnWidget);
+        Btn_MovieSeekNext->setObjectName(QString::fromUtf8("Btn_MovieSeekNext"));
+        QIcon icon16;
+        icon16.addFile(QString::fromUtf8(":/actions/icon/go-last.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Btn_MovieSeekNext->setIcon(icon16);
+        Btn_MovieSeekNext->setIconSize(QSize(60, 60));
+        Btn_MovieSeekNext->setAutoRepeat(true);
+        Btn_MovieSeekNext->setFlat(true);
+
+        gridLayout1->addWidget(Btn_MovieSeekNext, 2, 5, 1, 1);
+
+        Btn_MovieScreen = new QPushButton(MoviePlayBtnWidget);
+        Btn_MovieScreen->setObjectName(QString::fromUtf8("Btn_MovieScreen"));
+        QPalette palette11;
+        palette11.setBrush(QPalette::Active, QPalette::Button, brush);
+        palette11.setBrush(QPalette::Inactive, QPalette::Button, brush);
+        palette11.setBrush(QPalette::Disabled, QPalette::Button, brush);
+        Btn_MovieScreen->setPalette(palette11);
+        Btn_MovieScreen->setAutoFillBackground(true);
+        QIcon icon17;
+        icon17.addFile(QString::fromUtf8(":/actions/icon/zoom-in.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon17.addFile(QString::fromUtf8(":/actions/icon/zoom-in.png"), QSize(), QIcon::Normal, QIcon::On);
+        Btn_MovieScreen->setIcon(icon17);
+        Btn_MovieScreen->setIconSize(QSize(60, 60));
+        Btn_MovieScreen->setFlat(true);
+
+        gridLayout1->addWidget(Btn_MovieScreen, 2, 6, 1, 1);
+
+        stackedWidget->addWidget(MoviePlayPage);
         Btn_ZoomOut = new QPushButton(centralWidget);
         Btn_ZoomOut->setObjectName(QString::fromUtf8("Btn_ZoomOut"));
         Btn_ZoomOut->setGeometry(QRect(0, 421, 57, 59));
@@ -640,7 +758,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(6);
+        stackedWidget->setCurrentIndex(9);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -686,6 +804,12 @@ public:
         Btn_PhotoSinglePage_R->setText(QString());
         Lab_Music->setText(QString());
         Lab_MoviePage->setText(QString());
+        Btn_MovieSeekBack->setText(QString());
+        Btn_MovieStop->setText(QString());
+        Btn_MoviePause->setText(QString());
+        Btn_MoviePlay->setText(QString());
+        Btn_MovieSeekNext->setText(QString());
+        Btn_MovieScreen->setText(QString());
         Btn_ZoomOut->setText(QApplication::translate("MainWindow", "ZOut", 0, QApplication::UnicodeUTF8));
         Btn_ZoomIn->setText(QApplication::translate("MainWindow", "ZIn", 0, QApplication::UnicodeUTF8));
         Q_UNUSED(MainWindow);

@@ -16,6 +16,7 @@
 #include <QEvent>
 #include <QLCDNumber>
 #include <QFrame>
+#include <QProcess>
 
 #define MainStack       0
 #define PhotoStack      1
@@ -26,6 +27,7 @@
 #define ClockStack  6
 #define MusicStack  7
 #define MovieStack  8
+#define MoviePlayStack  9
 
 namespace Ui {
     class MainWindow;
@@ -41,8 +43,16 @@ public slots:
     void ThreadStart();
     void ThreadPause();
     void ThreadStop();
+    void MoiveFinished();
 
 private Q_SLOTS:
+    void on_ListWidget_MovieFile_itemClicked(QListWidgetItem* item);
+    void on_Btn_MovieScreen_clicked();
+    void on_Btn_MovieStop_clicked();
+    void on_Btn_MoviePlay_clicked();
+    void on_Btn_MoviePause_clicked();
+    void on_Btn_MovieSeekNext_clicked();
+    void on_Btn_MovieSeekBack_clicked();
     void on_Btn_Movie_clicked();
     void on_Btn_Music_clicked();
     void on_Btn_MemCard_clicked();
@@ -60,6 +70,7 @@ private Q_SLOTS:
     void on_Btn_PageRight_clicked();
     void setItemInList(int index);
     void finished();
+
 
 protected:
     void changeEvent(QEvent *e);
@@ -82,6 +93,7 @@ private:
     QFutureWatcher<QImage> *imagesShow_;
     QPixmap pixmap_;
     QTimer *DigiClockTimer;
+    QProcess  *MovieProc;
 
 
 private slots:

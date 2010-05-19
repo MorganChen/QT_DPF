@@ -14,9 +14,13 @@ const int PANEL_HEIGHT = 480;
 
 const int STACK_PAGE_HIS_NUM = 5;
 
+const int MOVIE_SCREEN_CLR_TIME = 100;
+
 const QString InMemPath = "/root/QT/Picture";
 const QString MemStkPath = "/root/QT/Picture";
 const QString MemCardPath = "/root/QT/Picture";
+
+QString MovieItemPath;
 
 int Para_PhotoSliceShow_Timer = 2500;
 
@@ -27,11 +31,17 @@ int MaxPhotoMutiFileCount = 0;
 int current_index_;
 
 int SliceTimerID;
+int MovieTimerID,MovieTimerID1;
 
 QRect stackWidget_Gem;
 QRect Lab_PhotoSingle_Gem;
 QRect scrollArea_Gem;
 QRect FullScreen_Gem;
+QRect MoviePlayWidget_Gem;
+
+bool isMoviePlay = false;
+
+
 
 
 
@@ -151,6 +161,7 @@ void MainWindow::CompVisionCtrl(int StackPage)
     case MovieStack :
         ui->Btn_Home->setVisible(true);
         ui->Btn_PageUp->setVisible(true);
+    case MoviePlayStack :
         break;
     }
 }
@@ -183,7 +194,7 @@ QFileInfoList MainWindow::getMovieListFiles(QString dirPath) const
     QDir dir(dirPath);
 
     QStringList filters;
-    filters << "*.avi" << "*.jpg" ;
+    filters << "*.avi" << "*.mp4" << "*.mpg" << "*.mpeg" ;
     dir.setNameFilters(filters);
 
     return dir.entryInfoList(filters, QDir::Files);
@@ -495,8 +506,8 @@ void MainWindow::on_Btn_PhotoFull_clicked()
 
     ShowSinglePhoto(fileList_[current_index_].filePath());
     ui->Lab_PhotoSingle->installEventFilter(this);
-    installEventFilter(this);
-    SliceTimerID = startTimer(Para_PhotoSliceShow_Timer);
+    installEventFilter(this);    
+    SliceTimerID = ui->Lab_PhotoSingle->startTimer(Para_PhotoSliceShow_Timer);
 
 
 }
@@ -506,7 +517,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 {
     if (obj == ui->Lab_PhotoSingle)
     {
-        if (event->type() == QEvent::MouseButtonDblClick)
+        if (event->type() == QEvent::MouseButtonPress)
         {
 
             //ui->stackedWidget->setGeometry(0, 0, stackedWidget_OrgW, stackedWidget_OrgH);
@@ -522,10 +533,59 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
             killTimer(SliceTimerID);
 
             return true;
-        } else {
+        }
+        else if(event->type() == QEvent::Timer)
+        {
+            if (current_index_ + 1 < fileList_.count())
+                current_index_++;
+            else
+                current_index_ = 0;
+
+            ShowSinglePhoto(fileList_[current_index_].filePath());
+            return true;
+        }
+        else
+        {
             return false;
         }
     }
+    else if(obj == ui->MoviePlayWidget)
+    {
+        if (event->type() == QEvent::MouseButtonPress)
+        {            
+            ui->stackedWidget->setGeometry(stackWidget_Gem);
+            ui->MoviePlayWidget->setGeometry(MoviePlayWidget_Gem);
+
+            //ui->MoviePlayWidget->repaint(0,0,320,240);
+            MovieTimerID = ui->MoviePlayWidget->startTimer(MOVIE_SCREEN_CLR_TIME);
+            return true;
+
+        }
+        else if(event->type() == QEvent::Timer)
+        {
+
+
+            if(ui->MoviePlayWidget->geometry() != FullScreen_Gem)
+            {
+                ui->MoviePlayWidget->killTimer(MovieTimerID);
+                ui->MoviePlayWidget->killTimer(MovieTimerID1);
+                ui->MoviePlayWidget->repaint(0,0,320,240);
+                ui->MoviePlayWidget->removeEventFilter(this);
+                removeEventFilter(this);
+            }
+            else
+            {
+                ui->MoviePlayWidget->killTimer(MovieTimerID);
+                ui->MoviePlayWidget->killTimer(MovieTimerID1);
+                ui->MoviePlayWidget->repaint(FullScreen_Gem);
+
+            }
+            return true;
+
+        }
+        return false;
+
+    }/*
     else if(event->type() == QEvent::Timer)
     {
         if (current_index_ + 1 < fileList_.count())
@@ -535,7 +595,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 
         ShowSinglePhoto(fileList_[current_index_].filePath());
         return true;
-    }
+    }*/
     else
     {
         // pass the event on to the parent class
@@ -603,12 +663,7 @@ void MainWindow::SetPhotoSingleBtn(void)
         ui->Btn_PhotoSinglePage_R->setEnabled(false);
 }
 
-void MainWindow::on_Btn_Ok_clicked()
-{
 
-
-
-}
 
 void MainWindow::on_Btn_Setting_clicked()
 {
@@ -642,10 +697,31 @@ void MainWindow::on_Btn_ZoomIn_clicked()
 
 void MainWindow::on_Btn_Test_clicked()
 {
-
-
+    on_Btn_MoviePlay_clicked();
 }
 
+
+
+void MainWindow::on_Btn_Ok_clicked()
+{
+
+    MoviePlayWidget_Gem = ui->MoviePlayWidget->geometry();
+
+    //QPainter pal;
+    //pal.fillRect(MoviePlayWidget_Gem,QColor(255, 8, 220, 225));
+
+    ui->MoviePlayWidget->repaint(0,0,320,240);
+
+    /*
+    MovieProc->write("quit\n");
+    if(!MovieProc->waitForFinished(3000))
+    {
+        //qDebug("ZOMG, ça plante :(");
+        //return false;
+    }
+    */
+
+}
 
 
 void MainWindow::on_Btn_Cal_clicked()
@@ -701,7 +777,7 @@ void MainWindow::on_Btn_Movie_clicked()
 
     QString ItemNum, ItemFileName, ItemFileSize, ItemStr;
 
-    fileList_ = getPhotoListFiles(InMemPath);
+    fileList_ = getMovieListFiles(InMemPath);
     ui->ListWidget_MovieFile->clear();
 
 
@@ -725,3 +801,124 @@ void MainWindow::on_Btn_Movie_clicked()
     ChangeStackPageTo(MovieStack);
     CompVisionCtrl(MovieStack);
 }
+
+void MainWindow::on_ListWidget_MovieFile_itemClicked(QListWidgetItem* item)
+{
+    MovieItemPath = item->data(Qt::WhatsThisRole).toString();
+
+    ChangeStackPageTo(MoviePlayStack);
+    CompVisionCtrl(MoviePlayStack);
+
+    on_Btn_MoviePlay_clicked();
+}
+
+
+void MainWindow::on_Btn_MovieSeekBack_clicked()
+{
+    MovieProc->write("seek -5\n");
+}
+
+void MainWindow::on_Btn_MovieSeekNext_clicked()
+{
+    MovieProc->write("seek 5\n");
+}
+
+
+
+void MainWindow::on_Btn_MoviePause_clicked()
+{
+    MovieProc->write("pause\n");
+    if(isMoviePlay == true)
+        isMoviePlay = false;
+    else
+        isMoviePlay = true;
+    ui->Btn_MovieScreen->setEnabled(isMoviePlay);
+    ui->Btn_MovieSeekBack->setEnabled(isMoviePlay);
+    ui->Btn_MovieSeekNext->setEnabled(isMoviePlay);
+
+}
+
+void MainWindow::on_Btn_MoviePlay_clicked()
+{
+    QStringList file;
+
+
+    ui->Btn_Home->setEnabled(false);
+    ui->Btn_PageUp->setEnabled(false);
+
+    ui->Btn_MoviePlay->setEnabled(false);
+
+    ui->Btn_MovieScreen->setEnabled(true);
+    ui->Btn_MoviePause->setEnabled(true);
+    ui->Btn_MovieSeekBack->setEnabled(true);
+    ui->Btn_MovieSeekNext->setEnabled(true);
+    ui->Btn_MovieStop->setEnabled(true);
+
+
+
+    file << "-slave";
+    file << "-quiet";
+    file << "-wid" << QString::number(ui->MoviePlayWidget->winId());
+    file << MovieItemPath << "-zoom" ;// << "-x" << "800" << "-y" << "480";
+
+    MovieProc = new QProcess(this);
+    connect(MovieProc, SIGNAL(finished(int, QProcess::ExitStatus)),
+               this, SLOT(MoiveFinished()));
+
+    MovieProc->start("./mplayer",file);
+    isMoviePlay = true;
+
+    ui->label_ThreadInfo->setText("MovieStart");   // test
+
+
+
+}
+
+void MainWindow::MoiveFinished()
+{
+
+    ui->Btn_Home->setEnabled(true);
+    ui->Btn_PageUp->setEnabled(true);
+
+    ui->Btn_MoviePlay->setEnabled(true);
+
+    ui->Btn_MovieScreen->setEnabled(false);
+    ui->Btn_MoviePause->setEnabled(false);
+    ui->Btn_MovieSeekBack->setEnabled(false);
+    ui->Btn_MovieSeekNext->setEnabled(false);
+    ui->Btn_MovieStop->setEnabled(false);
+
+    isMoviePlay = false;
+
+    ui->label_ThreadInfo->setText("MovieFinished");
+    MovieProc->kill();
+}
+
+void MainWindow::on_Btn_MovieStop_clicked()
+{
+    MovieProc->write("quit\n");
+    if(!MovieProc->waitForFinished(3000)){}    
+    MovieProc->kill();
+}
+
+void MainWindow::on_Btn_MovieScreen_clicked()
+{
+    stackWidget_Gem = ui->stackedWidget->geometry();
+    MoviePlayWidget_Gem = ui->MoviePlayWidget->geometry();
+
+    ui->stackedWidget->setGeometry(FullScreen_Gem);
+    ui->MoviePlayWidget->setGeometry(FullScreen_Gem);
+
+
+    ui->stackedWidget->raise();
+    ui->MoviePlayWidget->raise();
+
+
+    ui->MoviePlayWidget->installEventFilter(this);
+    installEventFilter(this);
+
+    MovieTimerID1 = ui->MoviePlayWidget->startTimer(MOVIE_SCREEN_CLR_TIME);
+
+}
+
+

@@ -27,7 +27,12 @@
         <file>lincity-ng.png</file>
         <file>media-playback-stop.png</file>
         <file>media-playback-start.png</file>
-        <file>media-playback-pause.png</file>
         <file>media-eject.png</file>
+        <file>go-last.png</file>
+        <file>go-first.png</file>
+        <file>edit-undo.png</file>
+        <file>zoom-in.png</file>
+        <file>media-playback-pause.png</file>
+        <file>zoom-out.png</file>
     </qresource>
 </RCC>
