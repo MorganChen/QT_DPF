@@ -66,6 +66,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
     DigiClockTimer->start(1000);
 
+    // for test
+    bool flag =  false;
+    ui->label_ThreadInfo->setVisible(flag);
+    ui->Btn_Test->setVisible(flag);
+    ui->Btn_Ok->setVisible(flag);
+
 
 
 
@@ -555,9 +561,11 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
         {            
             ui->stackedWidget->setGeometry(stackWidget_Gem);
             ui->MoviePlayWidget->setGeometry(MoviePlayWidget_Gem);
+            ui->Lab_MoviePlay->setVisible(true);
 
             //ui->MoviePlayWidget->repaint(0,0,320,240);
             MovieTimerID = ui->MoviePlayWidget->startTimer(MOVIE_SCREEN_CLR_TIME);
+
             return true;
 
         }
@@ -798,6 +806,7 @@ void MainWindow::on_Btn_Movie_clicked()
 
     }
 
+    ui->MoviePlayWidget->raise();
     ChangeStackPageTo(MovieStack);
     CompVisionCtrl(MovieStack);
 }
@@ -909,7 +918,7 @@ void MainWindow::on_Btn_MovieScreen_clicked()
     ui->stackedWidget->setGeometry(FullScreen_Gem);
     ui->MoviePlayWidget->setGeometry(FullScreen_Gem);
 
-
+    ui->Lab_MoviePlay->setVisible(false);
     ui->stackedWidget->raise();
     ui->MoviePlayWidget->raise();
 
@@ -922,3 +931,19 @@ void MainWindow::on_Btn_MovieScreen_clicked()
 }
 
 
+
+void MainWindow::on_Btn_Internet_clicked()
+{        
+    BrowserProc = new QProcess(this);
+    connect(BrowserProc, SIGNAL(finished(int, QProcess::ExitStatus)),
+               this, SLOT(BrowserFinished()));
+
+    BrowserProc->start("./browser");
+
+}
+
+void MainWindow::BrowserFinished()
+{
+
+    BrowserProc->kill();
+}

@@ -44,8 +44,10 @@ public slots:
     void ThreadPause();
     void ThreadStop();
     void MoiveFinished();
+    void BrowserFinished();
 
 private Q_SLOTS:
+    void on_Btn_Internet_clicked();
     void on_ListWidget_MovieFile_itemClicked(QListWidgetItem* item);
     void on_Btn_MovieScreen_clicked();
     void on_Btn_MovieStop_clicked();
@@ -94,7 +96,7 @@ private:
     QPixmap pixmap_;
     QTimer *DigiClockTimer;
     QProcess  *MovieProc;
-
+    QProcess  *BrowserProc;
 
 private slots:
     void on_Btn_Home_clicked();

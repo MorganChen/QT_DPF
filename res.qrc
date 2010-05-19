@@ -1,16 +1,4 @@
 <RCC>
-    <qresource prefix="/btn/icon">
-        <file>Calendar.png</file>
-        <file>Camera.png</file>
-        <file>Clock.png</file>
-        <file>Contacts.png</file>
-        <file>Maps.png</file>
-        <file>Photos.png</file>
-        <file>Videos.png</file>
-        <file>Music.png</file>
-        <file>Stocks.png</file>
-        <file>Settings.png</file>
-    </qresource>
     <qresource prefix="/apps/icon">
         <file>network-wireless.png</file>
         <file>mplayer.png</file>
@@ -25,14 +13,14 @@
         <file>go-previous.png</file>
         <file>go-next.png</file>
         <file>lincity-ng.png</file>
-        <file>media-playback-stop.png</file>
-        <file>media-playback-start.png</file>
-        <file>media-eject.png</file>
         <file>go-last.png</file>
         <file>go-first.png</file>
         <file>edit-undo.png</file>
         <file>zoom-in.png</file>
         <file>media-playback-pause.png</file>
         <file>zoom-out.png</file>
+        <file>zoom-fit-width.png</file>
+        <file>zoom-fit-page.png</file>
+        <file>media-playback-stop.png</file>
     </qresource>
 </RCC>
