@@ -42,7 +42,7 @@ QRect MoviePlayWidget_Gem;
 
 bool isMoviePlay = false;
 
-
+double opacity=1;
 
 
 
@@ -54,7 +54,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
 
-    setWindowFlags(Qt::FramelessWindowHint);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     FullScreen_Gem.setRect(0,0,PANEL_WIDTH,PANEL_HEIGHT);
     ui->setupUi(this);
     ct = new charThread(ui->label_ThreadInfo);
@@ -720,14 +720,18 @@ void MainWindow::on_Btn_ZoomIn_clicked()
 
 void MainWindow::on_Btn_Test_clicked()
 {
-    on_Btn_MoviePlay_clicked();
+    if(opacity>0)
+        opacity-=0.1;
+    setWindowOpacity(opacity);
 }
 
 
 
 void MainWindow::on_Btn_Ok_clicked()
 {
-    MovieProc->write("f\n");
+    if(opacity<1)
+        opacity+=0.1;
+    setWindowOpacity(opacity);
 
     //MoviePlayWidget_Gem = ui->MoviePlayWidget->geometry();
 
@@ -883,8 +887,10 @@ void MainWindow::on_Btn_MoviePlay_clicked()
 
     file << "-slave";
     //file << "-quiet";
-    file << "-wid" << QString::number(ui->MoviePlayWidget->winId());
-    file << MovieItemPath << "-zoom";// << "-x" << "800" << "-y" << "480";
+   // file << "-wid" << QString::number(ui->MoviePlayWidget->winId());
+    //file << "−geometry" << "100%";
+    //file << "−rootwin" ;
+    file << MovieItemPath << "-zoom" ;//<< "-xy" <<"480";// << "-x" << "800" << "-y" << "480";
 
     MovieProc = new QProcess(this);
     connect(MovieProc, SIGNAL(finished(int, QProcess::ExitStatus)),
@@ -894,7 +900,8 @@ void MainWindow::on_Btn_MoviePlay_clicked()
     if(!MovieProc->waitForStarted(1000)){}
     //MovieProc->write("vo_ontop  0\n");
     //MovieProc->write("vo_border 0\n");
-    //MovieProc->write("change_rectangle 3 0\n");
+    MovieProc->write("vo_fullscreen\n");
+    //setFocus();
 
     isMoviePlay = true;
 
