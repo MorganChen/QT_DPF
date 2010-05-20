@@ -727,13 +727,14 @@ void MainWindow::on_Btn_Test_clicked()
 
 void MainWindow::on_Btn_Ok_clicked()
 {
+    MovieProc->write("f\n");
 
-    MoviePlayWidget_Gem = ui->MoviePlayWidget->geometry();
+    //MoviePlayWidget_Gem = ui->MoviePlayWidget->geometry();
 
     //QPainter pal;
     //pal.fillRect(MoviePlayWidget_Gem,QColor(255, 8, 220, 225));
 
-    ui->MoviePlayWidget->repaint(0,0,320,240);
+    //ui->MoviePlayWidget->repaint(0,0,320,240);
 
     /*
     MovieProc->write("quit\n");
@@ -881,16 +882,23 @@ void MainWindow::on_Btn_MoviePlay_clicked()
 
 
     file << "-slave";
-    file << "-quiet";
+    //file << "-quiet";
     file << "-wid" << QString::number(ui->MoviePlayWidget->winId());
-    file << MovieItemPath << "-zoom" ;// << "-x" << "800" << "-y" << "480";
+    file << MovieItemPath << "-zoom";// << "-x" << "800" << "-y" << "480";
 
     MovieProc = new QProcess(this);
     connect(MovieProc, SIGNAL(finished(int, QProcess::ExitStatus)),
                this, SLOT(MoiveFinished()));
 
     MovieProc->start("./mplayer",file);
+    if(!MovieProc->waitForStarted(1000)){}
+    //MovieProc->write("vo_ontop  0\n");
+    //MovieProc->write("vo_border 0\n");
+    //MovieProc->write("change_rectangle 3 0\n");
+
     isMoviePlay = true;
+
+    //setWindowFlags(Qt::WindowStaysOnTopHint);
 
     ui->label_ThreadInfo->setText("MovieStart");   // test
 

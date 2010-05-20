@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Thu May 20 09:53:38 2010
+** Created: Thu May 20 10:07:52 2010
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -841,7 +841,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(10);
+        stackedWidget->setCurrentIndex(9);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

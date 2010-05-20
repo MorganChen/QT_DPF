@@ -2,6 +2,7 @@
 # Project created by QtCreator 2010-05-07T10:07:10
 # -------------------------------------------------
 QT += webkit
+QT += opengl
 TARGET = SQDPF
 TEMPLATE = app
 SOURCES += main.cpp \
