@@ -18,6 +18,8 @@
 #include <QFrame>
 #include <QProcess>
 
+#include "WidgetKeyboard.h"
+
 #define MainStack       0
 #define PhotoStack      1
 #define PhotoMutiStack  2
@@ -28,6 +30,7 @@
 #define MusicStack  7
 #define MovieStack  8
 #define MoviePlayStack  9
+#define SettingStack  10
 
 namespace Ui {
     class MainWindow;
@@ -47,6 +50,8 @@ public slots:
     void BrowserFinished();
 
 private Q_SLOTS:
+    void on_Btn_SettingCancel_clicked();
+    void on_Btn_SettingOK_clicked();
     void on_Btn_Internet_clicked();
     void on_ListWidget_MovieFile_itemClicked(QListWidgetItem* item);
     void on_Btn_MovieScreen_clicked();
@@ -97,6 +102,7 @@ private:
     QTimer *DigiClockTimer;
     QProcess  *MovieProc;
     QProcess  *BrowserProc;
+    WidgetKeyboard *virtualKeyBoard;
 
 private slots:
     void on_Btn_Home_clicked();

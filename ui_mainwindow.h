@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Wed May 19 13:43:26 2010
+** Created: Thu May 20 09:53:38 2010
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -16,14 +16,17 @@
 #include <QtGui/QButtonGroup>
 #include <QtGui/QCalendarWidget>
 #include <QtGui/QGridLayout>
+#include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLCDNumber>
 #include <QtGui/QLabel>
+#include <QtGui/QLineEdit>
 #include <QtGui/QListWidget>
 #include <QtGui/QMainWindow>
 #include <QtGui/QPushButton>
 #include <QtGui/QScrollArea>
 #include <QtGui/QSlider>
+#include <QtGui/QSpinBox>
 #include <QtGui/QStackedWidget>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
@@ -109,6 +112,18 @@ public:
     QPushButton *Btn_MovieScreen;
     QLabel *Lab_MoviePlay;
     QWidget *MoviePlayWidget;
+    QWidget *SettingPage;
+    QLabel *Lab_SettingPage;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout;
+    QLabel *Lab_SettingSliceShowTimer;
+    QSpinBox *spinBox;
+    QWidget *horizontalLayoutWidget_2;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *label;
+    QLineEdit *LEdit_SettingInMenPath;
+    QPushButton *Btn_SettingOK;
+    QPushButton *Btn_SettingCancel;
     QPushButton *Btn_ZoomOut;
     QPushButton *Btn_ZoomIn;
     QSlider *Bar_VolAdj;
@@ -743,6 +758,65 @@ public:
         MoviePlayWidget->setGeometry(QRect(250, 20, 320, 240));
         MoviePlayWidget->setAutoFillBackground(true);
         stackedWidget->addWidget(MoviePlayPage);
+        SettingPage = new QWidget();
+        SettingPage->setObjectName(QString::fromUtf8("SettingPage"));
+        Lab_SettingPage = new QLabel(SettingPage);
+        Lab_SettingPage->setObjectName(QString::fromUtf8("Lab_SettingPage"));
+        Lab_SettingPage->setGeometry(QRect(10, 10, 128, 128));
+        Lab_SettingPage->setPixmap(QPixmap(QString::fromUtf8(":/apps/icon/gkdebconf.png")));
+        horizontalLayoutWidget = new QWidget(SettingPage);
+        horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
+        horizontalLayoutWidget->setGeometry(QRect(170, 20, 301, 51));
+        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout->setSpacing(5);
+        horizontalLayout->setMargin(11);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        Lab_SettingSliceShowTimer = new QLabel(horizontalLayoutWidget);
+        Lab_SettingSliceShowTimer->setObjectName(QString::fromUtf8("Lab_SettingSliceShowTimer"));
+        Lab_SettingSliceShowTimer->setFont(font2);
+
+        horizontalLayout->addWidget(Lab_SettingSliceShowTimer);
+
+        spinBox = new QSpinBox(horizontalLayoutWidget);
+        spinBox->setObjectName(QString::fromUtf8("spinBox"));
+        spinBox->setFont(font2);
+        spinBox->setMinimum(500);
+        spinBox->setMaximum(10000);
+        spinBox->setSingleStep(100);
+        spinBox->setValue(2500);
+
+        horizontalLayout->addWidget(spinBox);
+
+        horizontalLayoutWidget_2 = new QWidget(SettingPage);
+        horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
+        horizontalLayoutWidget_2->setGeometry(QRect(170, 80, 611, 41));
+        horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setMargin(11);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        label = new QLabel(horizontalLayoutWidget_2);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setFont(font2);
+
+        horizontalLayout_2->addWidget(label);
+
+        LEdit_SettingInMenPath = new QLineEdit(horizontalLayoutWidget_2);
+        LEdit_SettingInMenPath->setObjectName(QString::fromUtf8("LEdit_SettingInMenPath"));
+        LEdit_SettingInMenPath->setFont(font2);
+
+        horizontalLayout_2->addWidget(LEdit_SettingInMenPath);
+
+        Btn_SettingOK = new QPushButton(SettingPage);
+        Btn_SettingOK->setObjectName(QString::fromUtf8("Btn_SettingOK"));
+        Btn_SettingOK->setGeometry(QRect(670, 290, 120, 60));
+        Btn_SettingOK->setFont(font2);
+        Btn_SettingCancel = new QPushButton(SettingPage);
+        Btn_SettingCancel->setObjectName(QString::fromUtf8("Btn_SettingCancel"));
+        Btn_SettingCancel->setGeometry(QRect(550, 290, 120, 60));
+        Btn_SettingCancel->setFont(font2);
+        stackedWidget->addWidget(SettingPage);
         Btn_ZoomOut = new QPushButton(centralWidget);
         Btn_ZoomOut->setObjectName(QString::fromUtf8("Btn_ZoomOut"));
         Btn_ZoomOut->setGeometry(QRect(0, 420, 60, 60));
@@ -767,7 +841,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(10);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -819,6 +893,14 @@ public:
         Btn_MovieSeekNext->setText(QString());
         Btn_MovieScreen->setText(QString());
         Lab_MoviePlay->setText(QString());
+        Lab_SettingPage->setText(QString());
+        Lab_SettingSliceShowTimer->setText(QApplication::translate("MainWindow", "Slice Show Timer:", 0, QApplication::UnicodeUTF8));
+        spinBox->setSuffix(QString());
+        spinBox->setPrefix(QString());
+        label->setText(QApplication::translate("MainWindow", "Internal Memory Path:", 0, QApplication::UnicodeUTF8));
+        LEdit_SettingInMenPath->setText(QApplication::translate("MainWindow", "/root/QT/Picture", 0, QApplication::UnicodeUTF8));
+        Btn_SettingOK->setText(QApplication::translate("MainWindow", "OK", 0, QApplication::UnicodeUTF8));
+        Btn_SettingCancel->setText(QApplication::translate("MainWindow", "Cancel", 0, QApplication::UnicodeUTF8));
         Btn_ZoomOut->setText(QString());
         Btn_ZoomIn->setText(QString());
         Q_UNUSED(MainWindow);

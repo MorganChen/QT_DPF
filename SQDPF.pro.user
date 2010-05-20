@@ -120,15 +120,15 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-thandE4sYz,guid=417e1faf19dbca5c3b9e88ef4be2357c</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-OVyWojbEm3,guid=80d08152e85959eac34641444bf35644</value>
     <value type="QString">DESKTOP_SESSION=gnome</value>
     <value type="QString">DISPLAY=:0.0</value>
     <value type="QString">GDMSESSION=gnome</value>
     <value type="QString">GDM_KEYBOARD_LAYOUT=us</value>
     <value type="QString">GDM_LANG=en_US.UTF-8</value>
     <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
-    <value type="QString">GNOME_KEYRING_PID=1835</value>
-    <value type="QString">GNOME_KEYRING_SOCKET=/tmp/keyring-7jBSeJ/socket</value>
+    <value type="QString">GNOME_KEYRING_PID=1887</value>
+    <value type="QString">GNOME_KEYRING_SOCKET=/tmp/keyring-hxeiJu/socket</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
     <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/root/.gtkrc-1.2-gnome2</value>
     <value type="QString">HOME=/root</value>
@@ -139,16 +139,16 @@
     <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
     <value type="QString">PWD=/root</value>
     <value type="QString">QTDIR=/usr/share/qt4</value>
-    <value type="QString">SESSION_MANAGER=local/ubuntu:@/tmp/.ICE-unix/1850,unix/ubuntu:/tmp/.ICE-unix/1850</value>
+    <value type="QString">SESSION_MANAGER=local/ubuntu:@/tmp/.ICE-unix/1902,unix/ubuntu:/tmp/.ICE-unix/1902</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SPEECHD_PORT=6560</value>
-    <value type="QString">SSH_AGENT_PID=1893</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-7jBSeJ/socket.ssh</value>
+    <value type="QString">SSH_AGENT_PID=1945</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-hxeiJu/socket.ssh</value>
     <value type="QString">USER=root</value>
     <value type="QString">USERNAME=root</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-root-ph4lRz/database</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-root-rqYFKz/database</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
-    <value type="QString">XDG_SESSION_COOKIE=7bb16e6c7dfb5aeae389d0674b0223f1-1273116028.489917-287407730</value>
+    <value type="QString">XDG_SESSION_COOKIE=7bb16e6c7dfb5aeae389d0674b0223f1-1274238532.299635-1332444417</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
     <value type="QString">/root/QT/SQDPF/SQDPF.pro</value>
@@ -167,15 +167,15 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-thandE4sYz,guid=417e1faf19dbca5c3b9e88ef4be2357c</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-OVyWojbEm3,guid=80d08152e85959eac34641444bf35644</value>
     <value type="QString">DESKTOP_SESSION=gnome</value>
     <value type="QString">DISPLAY=:0.0</value>
     <value type="QString">GDMSESSION=gnome</value>
     <value type="QString">GDM_KEYBOARD_LAYOUT=us</value>
     <value type="QString">GDM_LANG=en_US.UTF-8</value>
     <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
-    <value type="QString">GNOME_KEYRING_PID=1835</value>
-    <value type="QString">GNOME_KEYRING_SOCKET=/tmp/keyring-7jBSeJ/socket</value>
+    <value type="QString">GNOME_KEYRING_PID=1887</value>
+    <value type="QString">GNOME_KEYRING_SOCKET=/tmp/keyring-hxeiJu/socket</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
     <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/root/.gtkrc-1.2-gnome2</value>
     <value type="QString">HOME=/root</value>
@@ -186,16 +186,16 @@
     <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
     <value type="QString">PWD=/root</value>
     <value type="QString">QTDIR=/usr/share/qt4</value>
-    <value type="QString">SESSION_MANAGER=local/ubuntu:@/tmp/.ICE-unix/1850,unix/ubuntu:/tmp/.ICE-unix/1850</value>
+    <value type="QString">SESSION_MANAGER=local/ubuntu:@/tmp/.ICE-unix/1902,unix/ubuntu:/tmp/.ICE-unix/1902</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SPEECHD_PORT=6560</value>
-    <value type="QString">SSH_AGENT_PID=1893</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-7jBSeJ/socket.ssh</value>
+    <value type="QString">SSH_AGENT_PID=1945</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-hxeiJu/socket.ssh</value>
     <value type="QString">USER=root</value>
     <value type="QString">USERNAME=root</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-root-ph4lRz/database</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-root-rqYFKz/database</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
-    <value type="QString">XDG_SESSION_COOKIE=7bb16e6c7dfb5aeae389d0674b0223f1-1273116028.489917-287407730</value>
+    <value type="QString">XDG_SESSION_COOKIE=7bb16e6c7dfb5aeae389d0674b0223f1-1274238532.299635-1332444417</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
    <valuelist key="abstractProcess.arguments" type="QVariantList">

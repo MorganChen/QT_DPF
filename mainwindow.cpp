@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+
 const int WIDTH_ICON = 200;
 const int HEIGHT_ICON = 140;
 
@@ -57,6 +58,7 @@ MainWindow::MainWindow(QWidget *parent) :
     FullScreen_Gem.setRect(0,0,PANEL_WIDTH,PANEL_HEIGHT);
     ui->setupUi(this);
     ct = new charThread(ui->label_ThreadInfo);
+    virtualKeyBoard = new WidgetKeyboard(this);
     DigiClockTimer = new QTimer(this);
     ChangeStackPageTo(MainStack);
     CompVisionCtrl(MainStack);
@@ -66,11 +68,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
     DigiClockTimer->start(1000);
 
+
     // for test
-    bool flag =  false;
+    bool flag =  true;
     ui->label_ThreadInfo->setVisible(flag);
     ui->Btn_Test->setVisible(flag);
     ui->Btn_Ok->setVisible(flag);
+    //virtualKeyBoard->show();
 
 
 
@@ -168,6 +172,10 @@ void MainWindow::CompVisionCtrl(int StackPage)
         ui->Btn_Home->setVisible(true);
         ui->Btn_PageUp->setVisible(true);
     case MoviePlayStack :
+        break;
+    case SettingStack :
+        ui->Btn_Home->setVisible(false);
+        ui->Btn_PageUp->setVisible(false);
         break;
     }
 }
@@ -593,17 +601,19 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
         }
         return false;
 
-    }/*
-    else if(event->type() == QEvent::Timer)
+    }
+    else if(obj == ui->LEdit_SettingInMenPath)
     {
-        if (current_index_ + 1 < fileList_.count())
-            current_index_++;
-        else
-            current_index_ = 0;
+        if(event->type() == QEvent::MouseButtonPress)
+        {
+            virtualKeyBoard->show();
 
-        ShowSinglePhoto(fileList_[current_index_].filePath());
-        return true;
-    }*/
+        }
+    }
+    else if(event->type() == QEvent::MouseButtonPress)
+    {
+        virtualKeyBoard->hide();
+    }
     else
     {
         // pass the event on to the parent class
@@ -675,6 +685,11 @@ void MainWindow::SetPhotoSingleBtn(void)
 
 void MainWindow::on_Btn_Setting_clicked()
 {
+    ChangeStackPageTo(SettingStack);
+    CompVisionCtrl(SettingStack);
+
+    ui->LEdit_SettingInMenPath->installEventFilter(this);
+    installEventFilter(this);
 
 }
 
@@ -946,4 +961,20 @@ void MainWindow::BrowserFinished()
 {
 
     BrowserProc->kill();
+}
+
+void MainWindow::on_Btn_SettingOK_clicked()
+{
+    ui->LEdit_SettingInMenPath->removeEventFilter(this);
+    removeEventFilter(this);
+    ChangeStackPageTo(MainStack);
+    CompVisionCtrl(MainStack);
+}
+
+void MainWindow::on_Btn_SettingCancel_clicked()
+{
+    ui->LEdit_SettingInMenPath->removeEventFilter(this);
+    removeEventFilter(this);
+    ChangeStackPageTo(MainStack);
+    CompVisionCtrl(MainStack);
 }
