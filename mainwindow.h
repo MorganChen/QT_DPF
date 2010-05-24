@@ -104,6 +104,7 @@ private:
     QProcess  *BrowserProc;
     WidgetKeyboard *virtualKeyBoard;
 
+
 private slots:
     void on_Btn_Home_clicked();
     void on_Btn_PageUp_clicked();

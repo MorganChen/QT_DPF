@@ -165,7 +165,7 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset>
+     <iconset resource="res.qrc">
       <normaloff>:/actions/icon/lincity-ng.png</normaloff>:/actions/icon/lincity-ng.png</iconset>
     </property>
     <property name="iconSize">
@@ -191,7 +191,7 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset>
+     <iconset resource="res.qrc">
       <normaloff>:/actions/icon/go-next.png</normaloff>:/actions/icon/go-next.png</iconset>
     </property>
     <property name="iconSize">
@@ -217,7 +217,7 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset>
+     <iconset resource="res.qrc">
       <normaloff>:/actions/icon/edit-undo.png</normaloff>:/actions/icon/edit-undo.png</iconset>
     </property>
     <property name="iconSize">
@@ -408,7 +408,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="res.qrc">
              <normaloff>:/apps/icon/f-spot.png</normaloff>:/apps/icon/f-spot.png</iconset>
            </property>
            <property name="iconSize">
@@ -445,7 +445,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="res.qrc">
              <normaloff>:/apps/icon/audacious.png</normaloff>:/apps/icon/audacious.png</iconset>
            </property>
            <property name="iconSize">
@@ -494,7 +494,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="res.qrc">
              <normaloff>:/apps/icon/mplayer.png</normaloff>:/apps/icon/mplayer.png</iconset>
            </property>
            <property name="iconSize">
@@ -531,7 +531,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="res.qrc">
              <normaloff>:/apps/icon/dates.png</normaloff>:/apps/icon/dates.png</iconset>
            </property>
            <property name="iconSize">
@@ -571,7 +571,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="res.qrc">
              <normaloff>:/apps/icon/clock.png</normaloff>:/apps/icon/clock.png</iconset>
            </property>
            <property name="iconSize">
@@ -608,7 +608,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="res.qrc">
              <normaloff>:/apps/icon/web-browser.png</normaloff>:/apps/icon/web-browser.png</iconset>
            </property>
            <property name="iconSize">
@@ -645,7 +645,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="res.qrc">
              <normaloff>:/apps/icon/network-wireless.png</normaloff>:/apps/icon/network-wireless.png</iconset>
            </property>
            <property name="iconSize">
@@ -685,7 +685,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="res.qrc">
              <normaloff>:/apps/icon/gkdebconf.png</normaloff>:/apps/icon/gkdebconf.png</iconset>
            </property>
            <property name="iconSize">
@@ -749,7 +749,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>:/apps/icon/f-spot.png</pixmap>
+        <pixmap resource="res.qrc">:/apps/icon/f-spot.png</pixmap>
        </property>
       </widget>
       <widget class="QPushButton" name="Btn_MemStk">
@@ -983,7 +983,7 @@
        <string/>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="res.qrc">
         <normaloff>:/actions/icon/go-last.png</normaloff>:/actions/icon/go-last.png</iconset>
       </property>
       <property name="iconSize">
@@ -1009,7 +1009,7 @@
        <string/>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="res.qrc">
         <normaloff>:/actions/icon/go-first.png</normaloff>:/actions/icon/go-first.png</iconset>
       </property>
       <property name="iconSize">
@@ -1170,7 +1170,7 @@
        <string/>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="res.qrc">
         <normaloff>:/actions/icon/go-previous.png</normaloff>:/actions/icon/go-previous.png</iconset>
       </property>
       <property name="iconSize">
@@ -1196,7 +1196,7 @@
        <string/>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="res.qrc">
         <normaloff>:/actions/icon/go-next.png</normaloff>:/actions/icon/go-next.png</iconset>
       </property>
       <property name="iconSize">
@@ -1390,7 +1390,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>:/apps/icon/audacious.png</pixmap>
+       <pixmap resource="res.qrc">:/apps/icon/audacious.png</pixmap>
       </property>
      </widget>
      <widget class="QListWidget" name="ListWidget_MusicFile">
@@ -1472,7 +1472,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>:/apps/icon/mplayer.png</pixmap>
+       <pixmap resource="res.qrc">:/apps/icon/mplayer.png</pixmap>
       </property>
      </widget>
      <widget class="QListWidget" name="ListWidget_MovieFile">
@@ -1633,7 +1633,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset>
+          <iconset resource="res.qrc">
            <normaloff>:/actions/icon/go-first.png</normaloff>:/actions/icon/go-first.png</iconset>
          </property>
          <property name="iconSize">
@@ -1656,7 +1656,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset>
+          <iconset resource="res.qrc">
            <normaloff>:/actions/icon/media-playback-stop.png</normaloff>:/actions/icon/media-playback-stop.png</iconset>
          </property>
          <property name="iconSize">
@@ -1713,7 +1713,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset>
+          <iconset resource="res.qrc">
            <normaloff>:/actions/icon/media-playback-pause.png</normaloff>:/actions/icon/media-playback-pause.png</iconset>
          </property>
          <property name="iconSize">
@@ -1770,7 +1770,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset>
+          <iconset resource="res.qrc">
            <normaloff>:/actions/icon/go-next.png</normaloff>:/actions/icon/go-next.png</iconset>
          </property>
          <property name="iconSize">
@@ -1790,7 +1790,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset>
+          <iconset resource="res.qrc">
            <normaloff>:/actions/icon/go-last.png</normaloff>:/actions/icon/go-last.png</iconset>
          </property>
          <property name="iconSize">
@@ -1853,7 +1853,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset>
+          <iconset resource="res.qrc">
            <normaloff>:/actions/icon/zoom-in.png</normaloff>
            <normalon>:/actions/icon/zoom-in.png</normalon>:/actions/icon/zoom-in.png</iconset>
          </property>
@@ -1883,7 +1883,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>:/apps/icon/mplayer.png</pixmap>
+       <pixmap resource="res.qrc">:/apps/icon/mplayer.png</pixmap>
       </property>
      </widget>
      <widget class="QWidget" name="MoviePlayWidget" native="true">
@@ -1914,7 +1914,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>:/apps/icon/gkdebconf.png</pixmap>
+       <pixmap resource="res.qrc">:/apps/icon/gkdebconf.png</pixmap>
       </property>
      </widget>
      <widget class="QWidget" name="horizontalLayoutWidget">
@@ -2058,7 +2058,7 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset>
+     <iconset resource="res.qrc">
       <normaloff>:/actions/icon/zoom-fit-width.png</normaloff>:/actions/icon/zoom-fit-width.png</iconset>
     </property>
     <property name="iconSize">
@@ -2084,7 +2084,7 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset>
+     <iconset resource="res.qrc">
       <normaloff>:/actions/icon/zoom-fit-page.png</normaloff>:/actions/icon/zoom-fit-page.png</iconset>
     </property>
     <property name="iconSize">
@@ -2120,7 +2120,9 @@
    <header>QtWebKit/QWebView</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
  <slots>
   <slot>ThreadStart()</slot>

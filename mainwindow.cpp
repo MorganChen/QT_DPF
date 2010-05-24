@@ -54,7 +54,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
 
-    setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+    //setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+    setWindowFlags(Qt::FramelessWindowHint );
     FullScreen_Gem.setRect(0,0,PANEL_WIDTH,PANEL_HEIGHT);
     ui->setupUi(this);
     ct = new charThread(ui->label_ThreadInfo);
@@ -883,31 +884,25 @@ void MainWindow::on_Btn_MoviePlay_clicked()
     ui->Btn_MovieSeekNext->setEnabled(true);
     ui->Btn_MovieStop->setEnabled(true);
 
+    //ui->label_ThreadInfo->setText(QString::number(X11eCon->winId()));
 
 
     file << "-slave";
     //file << "-quiet";
-   // file << "-wid" << QString::number(ui->MoviePlayWidget->winId());
-    //file << "−geometry" << "100%";
-    //file << "−rootwin" ;
+    //file << "-wid" << QString::number(ui->MoviePlayWidget->winId());
+    //file << "-fs" ;
     file << MovieItemPath << "-zoom" ;//<< "-xy" <<"480";// << "-x" << "800" << "-y" << "480";
 
     MovieProc = new QProcess(this);
     connect(MovieProc, SIGNAL(finished(int, QProcess::ExitStatus)),
                this, SLOT(MoiveFinished()));
 
+    //MovieProc->start("/opt/Qtopia/demos/mplayer",file);
     MovieProc->start("./mplayer",file);
     if(!MovieProc->waitForStarted(1000)){}
-    //MovieProc->write("vo_ontop  0\n");
-    //MovieProc->write("vo_border 0\n");
-    MovieProc->write("vo_fullscreen\n");
-    //setFocus();
 
     isMoviePlay = true;
 
-    //setWindowFlags(Qt::WindowStaysOnTopHint);
-
-    ui->label_ThreadInfo->setText("MovieStart");   // test
 
 
 
@@ -968,7 +963,7 @@ void MainWindow::on_Btn_Internet_clicked()
     connect(BrowserProc, SIGNAL(finished(int, QProcess::ExitStatus)),
                this, SLOT(BrowserFinished()));
 
-    BrowserProc->start("./browser");
+    BrowserProc->start("/opt/Qtopia/demos/browser");
 
 }
 
