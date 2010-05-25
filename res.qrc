@@ -22,5 +22,7 @@
         <file>zoom-fit-width.png</file>
         <file>zoom-fit-page.png</file>
         <file>media-playback-stop.png</file>
+        <file>media-seek-forward2.png</file>
+        <file>media-seek-forward1.png</file>
     </qresource>
 </RCC>

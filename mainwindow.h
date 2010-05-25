@@ -28,9 +28,10 @@
 #define CalendarStack  5
 #define ClockStack  6
 #define MusicStack  7
-#define MovieStack  8
-#define MoviePlayStack  9
-#define SettingStack  10
+#define MusicPlayStack  8
+#define MovieStack  9
+#define MoviePlayStack  10
+#define SettingStack  11
 
 namespace Ui {
     class MainWindow;
@@ -46,10 +47,21 @@ public slots:
     void ThreadStart();
     void ThreadPause();
     void ThreadStop();
+    void MusicFinished();
     void MoiveFinished();
     void BrowserFinished();
+    void Music_Back_Message();
+    void MusicInfoUpdate();
 
 private Q_SLOTS:
+    void on_Btn_MusicNext_clicked();
+    void on_Btn_MusicBack_clicked();
+    void on_Btn_MusicSeekBack_clicked();
+    void on_Btn_MusicSeekNext_clicked();
+    void on_Btn_MusicPause_clicked();
+    void on_Btn_MusicStop_clicked();
+    void on_Btn_MusicPlay_clicked();
+    void on_ListWidget_MusicFile_itemClicked(QListWidgetItem* item);
     void on_Btn_SettingInMen_Path_clicked();
     void on_Btn_SettingCancel_clicked();
     void on_Btn_SettingOK_clicked();
@@ -97,12 +109,16 @@ private:
     charThread *ct;
     //ClickLabel *Test_CkLab ;
     QFileInfoList fileList_;
+    QFileInfoList MusicFileList;
     QFutureWatcher<QImage> *imagesShow_;
     QPixmap pixmap_;
     QTimer *DigiClockTimer;
+    QProcess  *MusicProc;
     QProcess  *MovieProc;
     QProcess  *BrowserProc;
     WidgetKeyboard *virtualKeyBoard;
+    QTime *MusicTime;
+    QTimer *Music_Update_Timer;
 
 
 private slots:

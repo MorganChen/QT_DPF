@@ -165,7 +165,7 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset resource="res.qrc">
+     <iconset>
       <normaloff>:/actions/icon/lincity-ng.png</normaloff>:/actions/icon/lincity-ng.png</iconset>
     </property>
     <property name="iconSize">
@@ -191,7 +191,7 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset resource="res.qrc">
+     <iconset>
       <normaloff>:/actions/icon/go-next.png</normaloff>:/actions/icon/go-next.png</iconset>
     </property>
     <property name="iconSize">
@@ -217,7 +217,7 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset resource="res.qrc">
+     <iconset>
       <normaloff>:/actions/icon/edit-undo.png</normaloff>:/actions/icon/edit-undo.png</iconset>
     </property>
     <property name="iconSize">
@@ -255,7 +255,7 @@
       <x>0</x>
       <y>60</y>
       <width>800</width>
-      <height>360</height>
+      <height>420</height>
      </rect>
     </property>
     <property name="palette">
@@ -408,7 +408,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="res.qrc">
+            <iconset>
              <normaloff>:/apps/icon/f-spot.png</normaloff>:/apps/icon/f-spot.png</iconset>
            </property>
            <property name="iconSize">
@@ -445,7 +445,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="res.qrc">
+            <iconset>
              <normaloff>:/apps/icon/audacious.png</normaloff>:/apps/icon/audacious.png</iconset>
            </property>
            <property name="iconSize">
@@ -494,7 +494,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="res.qrc">
+            <iconset>
              <normaloff>:/apps/icon/mplayer.png</normaloff>:/apps/icon/mplayer.png</iconset>
            </property>
            <property name="iconSize">
@@ -531,7 +531,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="res.qrc">
+            <iconset>
              <normaloff>:/apps/icon/dates.png</normaloff>:/apps/icon/dates.png</iconset>
            </property>
            <property name="iconSize">
@@ -571,7 +571,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="res.qrc">
+            <iconset>
              <normaloff>:/apps/icon/clock.png</normaloff>:/apps/icon/clock.png</iconset>
            </property>
            <property name="iconSize">
@@ -608,7 +608,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="res.qrc">
+            <iconset>
              <normaloff>:/apps/icon/web-browser.png</normaloff>:/apps/icon/web-browser.png</iconset>
            </property>
            <property name="iconSize">
@@ -645,7 +645,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="res.qrc">
+            <iconset>
              <normaloff>:/apps/icon/network-wireless.png</normaloff>:/apps/icon/network-wireless.png</iconset>
            </property>
            <property name="iconSize">
@@ -685,7 +685,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="res.qrc">
+            <iconset>
              <normaloff>:/apps/icon/gkdebconf.png</normaloff>:/apps/icon/gkdebconf.png</iconset>
            </property>
            <property name="iconSize">
@@ -749,7 +749,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="res.qrc">:/apps/icon/f-spot.png</pixmap>
+        <pixmap>:/apps/icon/f-spot.png</pixmap>
        </property>
       </widget>
       <widget class="QPushButton" name="Btn_MemStk">
@@ -983,7 +983,7 @@
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/go-last.png</normaloff>:/actions/icon/go-last.png</iconset>
       </property>
       <property name="iconSize">
@@ -1009,7 +1009,7 @@
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/go-first.png</normaloff>:/actions/icon/go-first.png</iconset>
       </property>
       <property name="iconSize">
@@ -1170,7 +1170,7 @@
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/go-previous.png</normaloff>:/actions/icon/go-previous.png</iconset>
       </property>
       <property name="iconSize">
@@ -1196,7 +1196,7 @@
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/go-next.png</normaloff>:/actions/icon/go-next.png</iconset>
       </property>
       <property name="iconSize">
@@ -1216,8 +1216,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>800</width>
-        <height>360</height>
+        <width>740</width>
+        <height>420</height>
        </rect>
       </property>
       <property name="palette">
@@ -1264,6 +1264,58 @@
       </property>
       <property name="zoomFactor">
        <double>0.600000023841858</double>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Btn_ZoomIn">
+      <property name="geometry">
+       <rect>
+        <x>740</x>
+        <y>360</y>
+        <width>60</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>:/actions/icon/zoom-fit-page.png</normaloff>:/actions/icon/zoom-fit-page.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>60</width>
+        <height>60</height>
+       </size>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Btn_ZoomOut">
+      <property name="geometry">
+       <rect>
+        <x>740</x>
+        <y>290</y>
+        <width>60</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>:/actions/icon/zoom-fit-width.png</normaloff>:/actions/icon/zoom-fit-width.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>60</width>
+        <height>60</height>
+       </size>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
       </property>
      </widget>
     </widget>
@@ -1390,7 +1442,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/apps/icon/audacious.png</pixmap>
+       <pixmap>:/apps/icon/audacious.png</pixmap>
       </property>
      </widget>
      <widget class="QListWidget" name="ListWidget_MusicFile">
@@ -1399,7 +1451,7 @@
         <x>200</x>
         <y>20</y>
         <width>551</width>
-        <height>320</height>
+        <height>371</height>
        </rect>
       </property>
       <property name="palette">
@@ -1458,6 +1510,246 @@
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="MusicPlayPage">
+     <widget class="QWidget" name="widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>300</y>
+        <width>491</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <property name="horizontalSpacing">
+        <number>2</number>
+       </property>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="Btn_MusicSeekBack">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/actions/icon/go-first.png</normaloff>:/actions/icon/go-first.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>60</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="autoRepeat">
+          <bool>true</bool>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="Btn_MusicPause">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/actions/icon/media-playback-pause.png</normaloff>:/actions/icon/media-playback-pause.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>60</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QPushButton" name="Btn_MusicStop">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/actions/icon/media-playback-stop.png</normaloff>:/actions/icon/media-playback-stop.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>60</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <widget class="QPushButton" name="Btn_MusicPlay">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/actions/icon/go-next.png</normaloff>:/actions/icon/go-next.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>60</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="5">
+        <widget class="QPushButton" name="Btn_MusicSeekNext">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/actions/icon/go-last.png</normaloff>:/actions/icon/go-last.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>60</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="autoRepeat">
+          <bool>true</bool>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QPushButton" name="Btn_MusicBack">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/actions/icon/media-seek-forward2.png</normaloff>:/actions/icon/media-seek-forward2.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>60</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="6">
+        <widget class="QPushButton" name="Btn_MusicNext">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/actions/icon/media-seek-forward1.png</normaloff>:/actions/icon/media-seek-forward1.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>60</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QProgressBar" name="ProBar_MusicPro">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>270</y>
+        <width>481</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>24</number>
+      </property>
+      <property name="textVisible">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Lab_MusicTitle">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>90</y>
+        <width>491</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLCDNumber" name="LcdNum_MusicTime">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>180</y>
+        <width>281</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="smallDecimalPoint">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>50</y>
+        <width>151</width>
+        <height>141</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>:/apps/icon/audacious.png</pixmap>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="MoviePage">
      <widget class="QLabel" name="Lab_MoviePage">
       <property name="geometry">
@@ -1472,7 +1764,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/apps/icon/mplayer.png</pixmap>
+       <pixmap>:/apps/icon/mplayer.png</pixmap>
       </property>
      </widget>
      <widget class="QListWidget" name="ListWidget_MovieFile">
@@ -1481,7 +1773,7 @@
         <x>200</x>
         <y>20</y>
         <width>561</width>
-        <height>321</height>
+        <height>361</height>
        </rect>
       </property>
       <property name="palette">
@@ -1633,7 +1925,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="res.qrc">
+          <iconset>
            <normaloff>:/actions/icon/go-first.png</normaloff>:/actions/icon/go-first.png</iconset>
          </property>
          <property name="iconSize">
@@ -1656,7 +1948,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="res.qrc">
+          <iconset>
            <normaloff>:/actions/icon/media-playback-stop.png</normaloff>:/actions/icon/media-playback-stop.png</iconset>
          </property>
          <property name="iconSize">
@@ -1713,7 +2005,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="res.qrc">
+          <iconset>
            <normaloff>:/actions/icon/media-playback-pause.png</normaloff>:/actions/icon/media-playback-pause.png</iconset>
          </property>
          <property name="iconSize">
@@ -1770,7 +2062,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="res.qrc">
+          <iconset>
            <normaloff>:/actions/icon/go-next.png</normaloff>:/actions/icon/go-next.png</iconset>
          </property>
          <property name="iconSize">
@@ -1790,7 +2082,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="res.qrc">
+          <iconset>
            <normaloff>:/actions/icon/go-last.png</normaloff>:/actions/icon/go-last.png</iconset>
          </property>
          <property name="iconSize">
@@ -1822,7 +2114,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/apps/icon/mplayer.png</pixmap>
+       <pixmap>:/apps/icon/mplayer.png</pixmap>
       </property>
      </widget>
      <widget class="QWidget" name="MoviePlayWidget" native="true">
@@ -1917,7 +2209,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/apps/icon/gkdebconf.png</pixmap>
+       <pixmap>:/apps/icon/gkdebconf.png</pixmap>
       </property>
      </widget>
      <widget class="QWidget" name="horizontalLayoutWidget">
@@ -2074,7 +2366,7 @@
         <x>170</x>
         <y>80</y>
         <width>611</width>
-        <height>45</height>
+        <height>47</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -2138,7 +2430,7 @@
       <property name="geometry">
        <rect>
         <x>670</x>
-        <y>290</y>
+        <y>340</y>
         <width>120</width>
         <height>60</height>
        </rect>
@@ -2156,7 +2448,7 @@
       <property name="geometry">
        <rect>
         <x>550</x>
-        <y>290</y>
+        <y>340</y>
         <width>120</width>
         <height>60</height>
        </rect>
@@ -2172,63 +2464,11 @@
      </widget>
     </widget>
    </widget>
-   <widget class="QPushButton" name="Btn_ZoomOut">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>420</y>
-      <width>60</width>
-      <height>60</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="res.qrc">
-      <normaloff>:/actions/icon/zoom-fit-width.png</normaloff>:/actions/icon/zoom-fit-width.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>60</width>
-      <height>60</height>
-     </size>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Btn_ZoomIn">
-    <property name="geometry">
-     <rect>
-      <x>740</x>
-      <y>420</y>
-      <width>60</width>
-      <height>60</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="res.qrc">
-      <normaloff>:/actions/icon/zoom-fit-page.png</normaloff>:/actions/icon/zoom-fit-page.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>60</width>
-      <height>60</height>
-     </size>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QSlider" name="Bar_VolAdj">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>450</y>
+      <x>460</x>
+      <y>30</y>
       <width>251</width>
       <height>18</height>
      </rect>
@@ -2247,9 +2487,7 @@
    <header>QtWebKit/QWebView</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="res.qrc"/>
- </resources>
+ <resources/>
  <connections/>
  <slots>
   <slot>ThreadStart()</slot>
