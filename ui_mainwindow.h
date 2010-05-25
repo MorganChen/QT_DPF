@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Mon May 24 09:54:55 2010
+** Created: Mon May 24 19:06:01 2010
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -15,6 +15,7 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QCalendarWidget>
+#include <QtGui/QComboBox>
 #include <QtGui/QGridLayout>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
@@ -26,7 +27,6 @@
 #include <QtGui/QPushButton>
 #include <QtGui/QScrollArea>
 #include <QtGui/QSlider>
-#include <QtGui/QSpinBox>
 #include <QtGui/QStackedWidget>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
@@ -109,7 +109,6 @@ public:
     QPushButton *Btn_MoviePause;
     QPushButton *Btn_MoviePlay;
     QPushButton *Btn_MovieSeekNext;
-    QPushButton *Btn_MovieScreen;
     QLabel *Lab_MoviePlay;
     QWidget *MoviePlayWidget;
     QWidget *SettingPage;
@@ -117,11 +116,12 @@ public:
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
     QLabel *Lab_SettingSliceShowTimer;
-    QSpinBox *spinBox;
+    QComboBox *CbBox_SettingSSTimer;
     QWidget *horizontalLayoutWidget_2;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label;
-    QLineEdit *LEdit_SettingInMenPath;
+    QLineEdit *LEdit_SettingInMen_Path;
+    QPushButton *Btn_SettingInMen_Path;
     QPushButton *Btn_SettingOK;
     QPushButton *Btn_SettingCancel;
     QPushButton *Btn_ZoomOut;
@@ -164,10 +164,10 @@ public:
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         Btn_Test = new QPushButton(centralWidget);
         Btn_Test->setObjectName(QString::fromUtf8("Btn_Test"));
-        Btn_Test->setGeometry(QRect(90, 440, 91, 27));
+        Btn_Test->setGeometry(QRect(120, 10, 91, 27));
         Btn_Ok = new QPushButton(centralWidget);
         Btn_Ok->setObjectName(QString::fromUtf8("Btn_Ok"));
-        Btn_Ok->setGeometry(QRect(600, 440, 91, 27));
+        Btn_Ok->setGeometry(QRect(250, 10, 91, 27));
         Btn_Home = new QPushButton(centralWidget);
         Btn_Home->setObjectName(QString::fromUtf8("Btn_Home"));
         Btn_Home->setGeometry(QRect(0, 0, 60, 60));
@@ -732,30 +732,23 @@ public:
 
         gridLayout1->addWidget(Btn_MovieSeekNext, 2, 5, 1, 1);
 
-        Btn_MovieScreen = new QPushButton(MoviePlayBtnWidget);
-        Btn_MovieScreen->setObjectName(QString::fromUtf8("Btn_MovieScreen"));
-        QPalette palette12;
-        palette12.setBrush(QPalette::Active, QPalette::Button, brush);
-        palette12.setBrush(QPalette::Inactive, QPalette::Button, brush);
-        palette12.setBrush(QPalette::Disabled, QPalette::Button, brush);
-        Btn_MovieScreen->setPalette(palette12);
-        Btn_MovieScreen->setAutoFillBackground(true);
-        QIcon icon16;
-        icon16.addFile(QString::fromUtf8(":/actions/icon/zoom-in.png"), QSize(), QIcon::Normal, QIcon::Off);
-        icon16.addFile(QString::fromUtf8(":/actions/icon/zoom-in.png"), QSize(), QIcon::Normal, QIcon::On);
-        Btn_MovieScreen->setIcon(icon16);
-        Btn_MovieScreen->setIconSize(QSize(60, 60));
-        Btn_MovieScreen->setFlat(true);
-
-        gridLayout1->addWidget(Btn_MovieScreen, 2, 6, 1, 1);
-
         Lab_MoviePlay = new QLabel(MoviePlayPage);
         Lab_MoviePlay->setObjectName(QString::fromUtf8("Lab_MoviePlay"));
         Lab_MoviePlay->setGeometry(QRect(50, 20, 128, 128));
         Lab_MoviePlay->setPixmap(QPixmap(QString::fromUtf8(":/apps/icon/mplayer.png")));
         MoviePlayWidget = new QWidget(MoviePlayPage);
         MoviePlayWidget->setObjectName(QString::fromUtf8("MoviePlayWidget"));
-        MoviePlayWidget->setGeometry(QRect(250, 20, 320, 240));
+        MoviePlayWidget->setGeometry(QRect(290, 100, 201, 141));
+        QPalette palette12;
+        palette12.setBrush(QPalette::Active, QPalette::Base, brush1);
+        QBrush brush6(QColor(0, 0, 0, 255));
+        brush6.setStyle(Qt::SolidPattern);
+        palette12.setBrush(QPalette::Active, QPalette::Window, brush6);
+        palette12.setBrush(QPalette::Inactive, QPalette::Base, brush1);
+        palette12.setBrush(QPalette::Inactive, QPalette::Window, brush6);
+        palette12.setBrush(QPalette::Disabled, QPalette::Base, brush6);
+        palette12.setBrush(QPalette::Disabled, QPalette::Window, brush6);
+        MoviePlayWidget->setPalette(palette12);
         MoviePlayWidget->setAutoFillBackground(true);
         stackedWidget->addWidget(MoviePlayPage);
         SettingPage = new QWidget();
@@ -766,47 +759,57 @@ public:
         Lab_SettingPage->setPixmap(QPixmap(QString::fromUtf8(":/apps/icon/gkdebconf.png")));
         horizontalLayoutWidget = new QWidget(SettingPage);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(170, 20, 301, 51));
+        horizontalLayoutWidget->setGeometry(QRect(170, 20, 531, 51));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
-        horizontalLayout->setSpacing(5);
+        horizontalLayout->setSpacing(8);
         horizontalLayout->setMargin(11);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         Lab_SettingSliceShowTimer = new QLabel(horizontalLayoutWidget);
         Lab_SettingSliceShowTimer->setObjectName(QString::fromUtf8("Lab_SettingSliceShowTimer"));
-        Lab_SettingSliceShowTimer->setFont(font2);
+        Lab_SettingSliceShowTimer->setFont(font5);
 
         horizontalLayout->addWidget(Lab_SettingSliceShowTimer);
 
-        spinBox = new QSpinBox(horizontalLayoutWidget);
-        spinBox->setObjectName(QString::fromUtf8("spinBox"));
-        spinBox->setFont(font2);
-        spinBox->setMinimum(500);
-        spinBox->setMaximum(10000);
-        spinBox->setSingleStep(100);
-        spinBox->setValue(2500);
+        CbBox_SettingSSTimer = new QComboBox(horizontalLayoutWidget);
+        CbBox_SettingSSTimer->setObjectName(QString::fromUtf8("CbBox_SettingSSTimer"));
+        QFont font6;
+        font6.setPointSize(22);
+        CbBox_SettingSSTimer->setFont(font6);
+        CbBox_SettingSSTimer->setMaxVisibleItems(7);
+        CbBox_SettingSSTimer->setInsertPolicy(QComboBox::InsertAtBottom);
+        CbBox_SettingSSTimer->setFrame(true);
 
-        horizontalLayout->addWidget(spinBox);
+        horizontalLayout->addWidget(CbBox_SettingSSTimer);
 
         horizontalLayoutWidget_2 = new QWidget(SettingPage);
         horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
-        horizontalLayoutWidget_2->setGeometry(QRect(170, 80, 611, 41));
+        horizontalLayoutWidget_2->setGeometry(QRect(170, 80, 611, 45));
         horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setMargin(11);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_2->setContentsMargins(0, 0, 6, 0);
         label = new QLabel(horizontalLayoutWidget_2);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setFont(font2);
+        label->setFont(font5);
 
         horizontalLayout_2->addWidget(label);
 
-        LEdit_SettingInMenPath = new QLineEdit(horizontalLayoutWidget_2);
-        LEdit_SettingInMenPath->setObjectName(QString::fromUtf8("LEdit_SettingInMenPath"));
-        LEdit_SettingInMenPath->setFont(font2);
+        LEdit_SettingInMen_Path = new QLineEdit(horizontalLayoutWidget_2);
+        LEdit_SettingInMen_Path->setObjectName(QString::fromUtf8("LEdit_SettingInMen_Path"));
+        LEdit_SettingInMen_Path->setFont(font5);
+        LEdit_SettingInMen_Path->setAutoFillBackground(false);
+        LEdit_SettingInMen_Path->setFrame(true);
 
-        horizontalLayout_2->addWidget(LEdit_SettingInMenPath);
+        horizontalLayout_2->addWidget(LEdit_SettingInMen_Path);
+
+        Btn_SettingInMen_Path = new QPushButton(horizontalLayoutWidget_2);
+        Btn_SettingInMen_Path->setObjectName(QString::fromUtf8("Btn_SettingInMen_Path"));
+        Btn_SettingInMen_Path->setFont(font6);
+        Btn_SettingInMen_Path->setIconSize(QSize(60, 60));
+
+        horizontalLayout_2->addWidget(Btn_SettingInMen_Path);
 
         Btn_SettingOK = new QPushButton(SettingPage);
         Btn_SettingOK->setObjectName(QString::fromUtf8("Btn_SettingOK"));
@@ -820,17 +823,17 @@ public:
         Btn_ZoomOut = new QPushButton(centralWidget);
         Btn_ZoomOut->setObjectName(QString::fromUtf8("Btn_ZoomOut"));
         Btn_ZoomOut->setGeometry(QRect(0, 420, 60, 60));
-        QIcon icon17;
-        icon17.addFile(QString::fromUtf8(":/actions/icon/zoom-fit-width.png"), QSize(), QIcon::Normal, QIcon::Off);
-        Btn_ZoomOut->setIcon(icon17);
+        QIcon icon16;
+        icon16.addFile(QString::fromUtf8(":/actions/icon/zoom-fit-width.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Btn_ZoomOut->setIcon(icon16);
         Btn_ZoomOut->setIconSize(QSize(60, 60));
         Btn_ZoomOut->setFlat(true);
         Btn_ZoomIn = new QPushButton(centralWidget);
         Btn_ZoomIn->setObjectName(QString::fromUtf8("Btn_ZoomIn"));
         Btn_ZoomIn->setGeometry(QRect(740, 420, 60, 60));
-        QIcon icon18;
-        icon18.addFile(QString::fromUtf8(":/actions/icon/zoom-fit-page.png"), QSize(), QIcon::Normal, QIcon::Off);
-        Btn_ZoomIn->setIcon(icon18);
+        QIcon icon17;
+        icon17.addFile(QString::fromUtf8(":/actions/icon/zoom-fit-page.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Btn_ZoomIn->setIcon(icon17);
         Btn_ZoomIn->setIconSize(QSize(60, 60));
         Btn_ZoomIn->setFlat(true);
         Bar_VolAdj = new QSlider(centralWidget);
@@ -841,7 +844,8 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(9);
+        stackedWidget->setCurrentIndex(10);
+        CbBox_SettingSSTimer->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -891,14 +895,35 @@ public:
         Btn_MoviePause->setText(QString());
         Btn_MoviePlay->setText(QString());
         Btn_MovieSeekNext->setText(QString());
-        Btn_MovieScreen->setText(QString());
         Lab_MoviePlay->setText(QString());
         Lab_SettingPage->setText(QString());
-        Lab_SettingSliceShowTimer->setText(QApplication::translate("MainWindow", "Slice Show Timer:", 0, QApplication::UnicodeUTF8));
-        spinBox->setSuffix(QString());
-        spinBox->setPrefix(QString());
+        Lab_SettingSliceShowTimer->setText(QApplication::translate("MainWindow", "Slice Show Timer(MS):", 0, QApplication::UnicodeUTF8));
+        CbBox_SettingSSTimer->clear();
+        CbBox_SettingSSTimer->insertItems(0, QStringList()
+         << QApplication::translate("MainWindow", "500", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "1000", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "1500", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "2000", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "2500", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "3000", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "3500", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "4000", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "4500", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "5000", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "5500", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "6000", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "6500", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "7000", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "7500", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "8000", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "8500", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "9000", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "9500", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "10000", 0, QApplication::UnicodeUTF8)
+        );
         label->setText(QApplication::translate("MainWindow", "Internal Memory Path:", 0, QApplication::UnicodeUTF8));
-        LEdit_SettingInMenPath->setText(QApplication::translate("MainWindow", "/root/QT/Picture", 0, QApplication::UnicodeUTF8));
+        LEdit_SettingInMen_Path->setText(QApplication::translate("MainWindow", "/root/QT/Picture", 0, QApplication::UnicodeUTF8));
+        Btn_SettingInMen_Path->setText(QApplication::translate("MainWindow", "Edit", 0, QApplication::UnicodeUTF8));
         Btn_SettingOK->setText(QApplication::translate("MainWindow", "OK", 0, QApplication::UnicodeUTF8));
         Btn_SettingCancel->setText(QApplication::translate("MainWindow", "Cancel", 0, QApplication::UnicodeUTF8));
         Btn_ZoomOut->setText(QString());

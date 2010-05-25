@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+//#define ARM_PLF
 
 const int WIDTH_ICON = 200;
 const int HEIGHT_ICON = 140;
@@ -15,11 +16,11 @@ const int PANEL_HEIGHT = 480;
 
 const int STACK_PAGE_HIS_NUM = 5;
 
-const int MOVIE_SCREEN_CLR_TIME = 100;
+const int MOVIE_SCREEN_CLR_TIME = 3000;
 
-const QString InMemPath = "/root/QT/Picture";
-const QString MemStkPath = "/root/QT/Picture";
-const QString MemCardPath = "/root/QT/Picture";
+QString InMemPath = "/root/QT/Picture";
+QString MemStkPath = "/root/QT/Picture";
+QString MemCardPath = "/root/QT/Picture";
 
 QString MovieItemPath;
 
@@ -32,7 +33,7 @@ int MaxPhotoMutiFileCount = 0;
 int current_index_;
 
 int SliceTimerID;
-int MovieTimerID,MovieTimerID1;
+int MovieTimerID;
 
 QRect stackWidget_Gem;
 QRect Lab_PhotoSingle_Gem;
@@ -40,7 +41,9 @@ QRect scrollArea_Gem;
 QRect FullScreen_Gem;
 QRect MoviePlayWidget_Gem;
 
+
 bool isMoviePlay = false;
+bool isMovieBgBlack = false;
 
 double opacity=1;
 
@@ -566,54 +569,36 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
     }
     else if(obj == ui->MoviePlayWidget)
     {
-        if (event->type() == QEvent::MouseButtonPress)
-        {            
-            ui->stackedWidget->setGeometry(stackWidget_Gem);
-            ui->MoviePlayWidget->setGeometry(MoviePlayWidget_Gem);
-            ui->Lab_MoviePlay->setVisible(true);
-
-            //ui->MoviePlayWidget->repaint(0,0,320,240);
-            MovieTimerID = ui->MoviePlayWidget->startTimer(MOVIE_SCREEN_CLR_TIME);
-
-            return true;
-
-        }
-        else if(event->type() == QEvent::Timer)
+        if(event->type() == QEvent::MouseButtonPress)
         {
-
-
-            if(ui->MoviePlayWidget->geometry() != FullScreen_Gem)
+            if(isMovieBgBlack == true)
             {
-                ui->MoviePlayWidget->killTimer(MovieTimerID);
-                ui->MoviePlayWidget->killTimer(MovieTimerID1);
-                ui->MoviePlayWidget->repaint(0,0,320,240);
-                ui->MoviePlayWidget->removeEventFilter(this);
-                removeEventFilter(this);
+                ui->stackedWidget->setGeometry(0,60,800,420);
+                ui->MoviePlayWidget->setGeometry(MoviePlayWidget_Gem);
+                isMovieBgBlack = false;
             }
             else
             {
-                ui->MoviePlayWidget->killTimer(MovieTimerID);
-                ui->MoviePlayWidget->killTimer(MovieTimerID1);
-                ui->MoviePlayWidget->repaint(FullScreen_Gem);
-
+                ui->stackedWidget->setGeometry(FullScreen_Gem);
+                ui->MoviePlayWidget->setGeometry(FullScreen_Gem);
+                isMovieBgBlack = true;
             }
-            return true;
-
         }
-        return false;
-
-    }
-    else if(obj == ui->LEdit_SettingInMenPath)
+    }/*
+    else if(obj == ui->LEdit_SettingInMen_Path)
     {
+
         if(event->type() == QEvent::MouseButtonPress)
         {
             virtualKeyBoard->show();
-
         }
-    }
+        return true;
+    }*/
     else if(event->type() == QEvent::MouseButtonPress)
     {
         virtualKeyBoard->hide();
+
+        return true;
     }
     else
     {
@@ -689,7 +674,7 @@ void MainWindow::on_Btn_Setting_clicked()
     ChangeStackPageTo(SettingStack);
     CompVisionCtrl(SettingStack);
 
-    ui->LEdit_SettingInMenPath->installEventFilter(this);
+    //ui->LEdit_SettingInMen_Path->installEventFilter(this);
     installEventFilter(this);
 
 }
@@ -721,9 +706,12 @@ void MainWindow::on_Btn_ZoomIn_clicked()
 
 void MainWindow::on_Btn_Test_clicked()
 {
+
+    /*
     if(opacity>0)
         opacity-=0.1;
     setWindowOpacity(opacity);
+    */
 }
 
 
@@ -733,22 +721,6 @@ void MainWindow::on_Btn_Ok_clicked()
     if(opacity<1)
         opacity+=0.1;
     setWindowOpacity(opacity);
-
-    //MoviePlayWidget_Gem = ui->MoviePlayWidget->geometry();
-
-    //QPainter pal;
-    //pal.fillRect(MoviePlayWidget_Gem,QColor(255, 8, 220, 225));
-
-    //ui->MoviePlayWidget->repaint(0,0,320,240);
-
-    /*
-    MovieProc->write("quit\n");
-    if(!MovieProc->waitForFinished(3000))
-    {
-        //qDebug("ZOMG, ça plante :(");
-        //return false;
-    }
-    */
 
 }
 
@@ -827,7 +799,6 @@ void MainWindow::on_Btn_Movie_clicked()
 
     }
 
-    ui->MoviePlayWidget->raise();
     ChangeStackPageTo(MovieStack);
     CompVisionCtrl(MovieStack);
 }
@@ -862,7 +833,6 @@ void MainWindow::on_Btn_MoviePause_clicked()
         isMoviePlay = false;
     else
         isMoviePlay = true;
-    ui->Btn_MovieScreen->setEnabled(isMoviePlay);
     ui->Btn_MovieSeekBack->setEnabled(isMoviePlay);
     ui->Btn_MovieSeekNext->setEnabled(isMoviePlay);
 
@@ -878,32 +848,41 @@ void MainWindow::on_Btn_MoviePlay_clicked()
 
     ui->Btn_MoviePlay->setEnabled(false);
 
-    ui->Btn_MovieScreen->setEnabled(true);
     ui->Btn_MoviePause->setEnabled(true);
     ui->Btn_MovieSeekBack->setEnabled(true);
     ui->Btn_MovieSeekNext->setEnabled(true);
     ui->Btn_MovieStop->setEnabled(true);
 
-    //ui->label_ThreadInfo->setText(QString::number(X11eCon->winId()));
-
-
     file << "-slave";
     //file << "-quiet";
-    //file << "-wid" << QString::number(ui->MoviePlayWidget->winId());
-    //file << "-fs" ;
-    file << MovieItemPath << "-zoom" ;//<< "-xy" <<"480";// << "-x" << "800" << "-y" << "480";
+#ifdef ARM_PLF
+    file << "-fs" ;
+#endif
+    file << MovieItemPath ;
 
     MovieProc = new QProcess(this);
     connect(MovieProc, SIGNAL(finished(int, QProcess::ExitStatus)),
                this, SLOT(MoiveFinished()));
 
-    //MovieProc->start("/opt/Qtopia/demos/mplayer",file);
+#ifdef ARM_PLF
+    MovieProc->start("/opt/Qtopia/demos/mplayer",file);
+#else
     MovieProc->start("./mplayer",file);
+#endif
     if(!MovieProc->waitForStarted(1000)){}
 
     isMoviePlay = true;
 
-
+    stackWidget_Gem = ui->stackedWidget->geometry();
+    MoviePlayWidget_Gem = ui->MoviePlayWidget->geometry();
+    ui->MoviePlayWidget->setGeometry(FullScreen_Gem);
+    ui->stackedWidget->setGeometry(FullScreen_Gem);
+    ui->MoviePlayBtnWidget->setGeometry(160,310,490,90);
+    ui->MoviePlayWidget->raise();
+    ui->MoviePlayWidget->setAutoFillBackground(true);
+    ui->MoviePlayWidget->installEventFilter(this);
+    installEventFilter(this);
+    isMovieBgBlack = true;
 
 
 }
@@ -916,16 +895,26 @@ void MainWindow::MoiveFinished()
 
     ui->Btn_MoviePlay->setEnabled(true);
 
-    ui->Btn_MovieScreen->setEnabled(false);
     ui->Btn_MoviePause->setEnabled(false);
     ui->Btn_MovieSeekBack->setEnabled(false);
     ui->Btn_MovieSeekNext->setEnabled(false);
     ui->Btn_MovieStop->setEnabled(false);
 
     isMoviePlay = false;
+    isMovieBgBlack = false;
+
+    ui->stackedWidget->setGeometry(0,60,800,420);
+    ui->MoviePlayWidget->setGeometry(MoviePlayWidget_Gem);
+    ui->MoviePlayWidget->setAutoFillBackground(false);
+    ui->stackedWidget->repaint();
+
+    ui->MoviePlayWidget->removeEventFilter(this);
+    removeEventFilter(this);
+
 
     ui->label_ThreadInfo->setText("MovieFinished");
     MovieProc->kill();
+
 }
 
 void MainWindow::on_Btn_MovieStop_clicked()
@@ -935,35 +924,17 @@ void MainWindow::on_Btn_MovieStop_clicked()
     MovieProc->kill();
 }
 
-void MainWindow::on_Btn_MovieScreen_clicked()
-{
-    stackWidget_Gem = ui->stackedWidget->geometry();
-    MoviePlayWidget_Gem = ui->MoviePlayWidget->geometry();
-
-    ui->stackedWidget->setGeometry(FullScreen_Gem);
-    ui->MoviePlayWidget->setGeometry(FullScreen_Gem);
-
-    ui->Lab_MoviePlay->setVisible(false);
-    ui->stackedWidget->raise();
-    ui->MoviePlayWidget->raise();
-
-
-    ui->MoviePlayWidget->installEventFilter(this);
-    installEventFilter(this);
-
-    MovieTimerID1 = ui->MoviePlayWidget->startTimer(MOVIE_SCREEN_CLR_TIME);
-
-}
-
-
 
 void MainWindow::on_Btn_Internet_clicked()
 {        
     BrowserProc = new QProcess(this);
     connect(BrowserProc, SIGNAL(finished(int, QProcess::ExitStatus)),
                this, SLOT(BrowserFinished()));
-
+#ifdef ARM_PLF
     BrowserProc->start("/opt/Qtopia/demos/browser");
+#else
+    BrowserProc->start("./browser");
+#endif
 
 }
 
@@ -975,7 +946,12 @@ void MainWindow::BrowserFinished()
 
 void MainWindow::on_Btn_SettingOK_clicked()
 {
-    ui->LEdit_SettingInMenPath->removeEventFilter(this);
+    QString Str;
+
+    Str = ui->CbBox_SettingSSTimer->currentText();
+    Para_PhotoSliceShow_Timer = Str.toInt();
+    InMemPath = ui->LEdit_SettingInMen_Path->text();
+
     removeEventFilter(this);
     ChangeStackPageTo(MainStack);
     CompVisionCtrl(MainStack);
@@ -983,8 +959,17 @@ void MainWindow::on_Btn_SettingOK_clicked()
 
 void MainWindow::on_Btn_SettingCancel_clicked()
 {
-    ui->LEdit_SettingInMenPath->removeEventFilter(this);
+    virtualKeyBoard->show();
+    /*
+    ui->LEdit_SettingInMen_Path->removeEventFilter(this);
     removeEventFilter(this);
     ChangeStackPageTo(MainStack);
     CompVisionCtrl(MainStack);
+    */
+}
+
+void MainWindow::on_Btn_SettingInMen_Path_clicked()
+{
+    virtualKeyBoard->show();
+    ui->LEdit_SettingInMen_Path->setFocus();
 }

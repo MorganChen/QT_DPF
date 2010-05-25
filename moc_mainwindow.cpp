@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Mon May 24 09:49:19 2010
+** Created: Mon May 24 18:56:35 2010
 **      by: The Qt Meta Object Compiler version 61 (Qt 4.5.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -35,39 +35,39 @@ static const uint qt_meta_data_MainWindow[] = {
       53,   11,   11,   11, 0x0a,
       69,   11,   11,   11, 0x0a,
       87,   11,   11,   11, 0x08,
-     118,   11,   11,   11, 0x08,
-     145,   11,   11,   11, 0x08,
-     176,  171,   11,   11, 0x08,
-     230,   11,   11,   11, 0x08,
-     259,   11,   11,   11, 0x08,
-     286,   11,   11,   11, 0x08,
-     313,   11,   11,   11, 0x08,
-     341,   11,   11,   11, 0x08,
-     372,   11,   11,   11, 0x08,
-     403,   11,   11,   11, 0x08,
-     426,   11,   11,   11, 0x08,
-     449,   11,   11,   11, 0x08,
-     474,   11,   11,   11, 0x08,
-     498,   11,   11,   11, 0x08,
-     522,   11,   11,   11, 0x08,
-     545,   11,   11,   11, 0x08,
-     566,   11,   11,   11, 0x08,
-     593,   11,   11,   11, 0x08,
-     616,   11,   11,   11, 0x08,
-     640,   11,   11,   11, 0x08,
-     675,   11,   11,   11, 0x08,
-     710,  171,   11,   11, 0x08,
-     760,   11,   11,   11, 0x08,
-     786,   11,   11,   11, 0x08,
-     819,  813,   11,   11, 0x08,
-     838,   11,   11,   11, 0x08,
-     849,   11,   11,   11, 0x08,
-     871,   11,   11,   11, 0x08,
-     895,   11,   11,   11, 0x08,
-     918,   11,   11,   11, 0x08,
-     943,   11,   11,   11, 0x08,
-     963,   11,   11,   11, 0x08,
-     985,   11,   11,   11, 0x08,
+     122,   11,   11,   11, 0x08,
+     153,   11,   11,   11, 0x08,
+     180,   11,   11,   11, 0x08,
+     211,  206,   11,   11, 0x08,
+     265,   11,   11,   11, 0x08,
+     292,   11,   11,   11, 0x08,
+     319,   11,   11,   11, 0x08,
+     347,   11,   11,   11, 0x08,
+     378,   11,   11,   11, 0x08,
+     409,   11,   11,   11, 0x08,
+     432,   11,   11,   11, 0x08,
+     455,   11,   11,   11, 0x08,
+     480,   11,   11,   11, 0x08,
+     504,   11,   11,   11, 0x08,
+     528,   11,   11,   11, 0x08,
+     551,   11,   11,   11, 0x08,
+     572,   11,   11,   11, 0x08,
+     599,   11,   11,   11, 0x08,
+     622,   11,   11,   11, 0x08,
+     646,   11,   11,   11, 0x08,
+     681,   11,   11,   11, 0x08,
+     716,  206,   11,   11, 0x08,
+     766,   11,   11,   11, 0x08,
+     792,   11,   11,   11, 0x08,
+     825,  819,   11,   11, 0x08,
+     844,   11,   11,   11, 0x08,
+     855,   11,   11,   11, 0x08,
+     877,   11,   11,   11, 0x08,
+     901,   11,   11,   11, 0x08,
+     924,   11,   11,   11, 0x08,
+     949,   11,   11,   11, 0x08,
+     969,   11,   11,   11, 0x08,
+     991,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -75,11 +75,11 @@ static const uint qt_meta_data_MainWindow[] = {
 static const char qt_meta_stringdata_MainWindow[] = {
     "MainWindow\0\0ThreadStart()\0ThreadPause()\0"
     "ThreadStop()\0MoiveFinished()\0"
-    "BrowserFinished()\0on_Btn_SettingCancel_clicked()\0"
+    "BrowserFinished()\0on_Btn_SettingInMen_Path_clicked()\0"
+    "on_Btn_SettingCancel_clicked()\0"
     "on_Btn_SettingOK_clicked()\0"
     "on_Btn_Internet_clicked()\0item\0"
     "on_ListWidget_MovieFile_itemClicked(QListWidgetItem*)\0"
-    "on_Btn_MovieScreen_clicked()\0"
     "on_Btn_MovieStop_clicked()\0"
     "on_Btn_MoviePlay_clicked()\0"
     "on_Btn_MoviePause_clicked()\0"
@@ -133,11 +133,11 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 2: ThreadStop(); break;
         case 3: MoiveFinished(); break;
         case 4: BrowserFinished(); break;
-        case 5: on_Btn_SettingCancel_clicked(); break;
-        case 6: on_Btn_SettingOK_clicked(); break;
-        case 7: on_Btn_Internet_clicked(); break;
-        case 8: on_ListWidget_MovieFile_itemClicked((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
-        case 9: on_Btn_MovieScreen_clicked(); break;
+        case 5: on_Btn_SettingInMen_Path_clicked(); break;
+        case 6: on_Btn_SettingCancel_clicked(); break;
+        case 7: on_Btn_SettingOK_clicked(); break;
+        case 8: on_Btn_Internet_clicked(); break;
+        case 9: on_ListWidget_MovieFile_itemClicked((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
         case 10: on_Btn_MovieStop_clicked(); break;
         case 11: on_Btn_MoviePlay_clicked(); break;
         case 12: on_Btn_MoviePause_clicked(); break;

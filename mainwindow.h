@@ -50,11 +50,11 @@ public slots:
     void BrowserFinished();
 
 private Q_SLOTS:
+    void on_Btn_SettingInMen_Path_clicked();
     void on_Btn_SettingCancel_clicked();
     void on_Btn_SettingOK_clicked();
     void on_Btn_Internet_clicked();
     void on_ListWidget_MovieFile_itemClicked(QListWidgetItem* item);
-    void on_Btn_MovieScreen_clicked();
     void on_Btn_MovieStop_clicked();
     void on_Btn_MoviePlay_clicked();
     void on_Btn_MoviePause_clicked();

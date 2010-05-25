@@ -129,8 +129,8 @@
    <widget class="QPushButton" name="Btn_Test">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>440</y>
+      <x>120</x>
+      <y>10</y>
       <width>91</width>
       <height>27</height>
      </rect>
@@ -142,8 +142,8 @@
    <widget class="QPushButton" name="Btn_Ok">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>440</y>
+      <x>250</x>
+      <y>10</y>
       <width>91</width>
       <height>27</height>
      </rect>
@@ -326,7 +326,7 @@
      <bool>true</bool>
     </property>
     <property name="currentIndex">
-     <number>9</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="MainPage">
      <widget class="QWidget" name="Mainwidget" native="true">
@@ -1807,67 +1807,6 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="6">
-        <widget class="QPushButton" name="Btn_MovieScreen">
-         <property name="palette">
-          <palette>
-           <active>
-            <colorrole role="Button">
-             <brush brushstyle="SolidPattern">
-              <color alpha="150">
-               <red>220</red>
-               <green>218</green>
-               <blue>213</blue>
-              </color>
-             </brush>
-            </colorrole>
-           </active>
-           <inactive>
-            <colorrole role="Button">
-             <brush brushstyle="SolidPattern">
-              <color alpha="150">
-               <red>220</red>
-               <green>218</green>
-               <blue>213</blue>
-              </color>
-             </brush>
-            </colorrole>
-           </inactive>
-           <disabled>
-            <colorrole role="Button">
-             <brush brushstyle="SolidPattern">
-              <color alpha="150">
-               <red>220</red>
-               <green>218</green>
-               <blue>213</blue>
-              </color>
-             </brush>
-            </colorrole>
-           </disabled>
-          </palette>
-         </property>
-         <property name="autoFillBackground">
-          <bool>true</bool>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="res.qrc">
-           <normaloff>:/actions/icon/zoom-in.png</normaloff>
-           <normalon>:/actions/icon/zoom-in.png</normalon>:/actions/icon/zoom-in.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>60</width>
-           <height>60</height>
-          </size>
-         </property>
-         <property name="flat">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
       </layout>
      </widget>
      <widget class="QLabel" name="Lab_MoviePlay">
@@ -1889,11 +1828,75 @@
      <widget class="QWidget" name="MoviePlayWidget" native="true">
       <property name="geometry">
        <rect>
-        <x>250</x>
-        <y>20</y>
-        <width>320</width>
-        <height>240</height>
+        <x>290</x>
+        <y>100</y>
+        <width>201</width>
+        <height>141</height>
        </rect>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
       </property>
       <property name="autoFillBackground">
        <bool>true</bool>
@@ -1922,51 +1925,145 @@
        <rect>
         <x>170</x>
         <y>20</y>
-        <width>301</width>
+        <width>531</width>
         <height>51</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <property name="spacing">
-        <number>5</number>
+        <number>8</number>
        </property>
        <item>
         <widget class="QLabel" name="Lab_SettingSliceShowTimer">
          <property name="font">
           <font>
-           <pointsize>16</pointsize>
+           <pointsize>20</pointsize>
           </font>
          </property>
          <property name="text">
-          <string>Slice Show Timer:</string>
+          <string>Slice Show Timer(MS):</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="spinBox">
+        <widget class="QComboBox" name="CbBox_SettingSSTimer">
          <property name="font">
           <font>
-           <pointsize>16</pointsize>
+           <pointsize>22</pointsize>
           </font>
          </property>
-         <property name="suffix">
-          <string/>
+         <property name="currentIndex">
+          <number>4</number>
          </property>
-         <property name="prefix">
-          <string/>
+         <property name="maxVisibleItems">
+          <number>7</number>
          </property>
-         <property name="minimum">
-          <number>500</number>
+         <property name="insertPolicy">
+          <enum>QComboBox::InsertAtBottom</enum>
          </property>
-         <property name="maximum">
-          <number>10000</number>
+         <property name="frame">
+          <bool>true</bool>
          </property>
-         <property name="singleStep">
-          <number>100</number>
-         </property>
-         <property name="value">
-          <number>2500</number>
-         </property>
+         <item>
+          <property name="text">
+           <string>500</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>1000</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>1500</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>2000</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>2500</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>3000</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>3500</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>4000</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>4500</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>5000</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>5500</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>6000</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>6500</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>7000</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>7500</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>8000</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>8500</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>9000</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>9500</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>10000</string>
+          </property>
+         </item>
         </widget>
        </item>
       </layout>
@@ -1977,15 +2074,21 @@
         <x>170</x>
         <y>80</y>
         <width>611</width>
-        <height>41</height>
+        <height>45</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>6</number>
+       </property>
        <item>
         <widget class="QLabel" name="label">
          <property name="font">
           <font>
-           <pointsize>16</pointsize>
+           <pointsize>20</pointsize>
           </font>
          </property>
          <property name="text">
@@ -1994,14 +2097,38 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="LEdit_SettingInMenPath">
+        <widget class="QLineEdit" name="LEdit_SettingInMen_Path">
          <property name="font">
           <font>
-           <pointsize>16</pointsize>
+           <pointsize>20</pointsize>
           </font>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
          </property>
          <property name="text">
           <string>/root/QT/Picture</string>
+         </property>
+         <property name="frame">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="Btn_SettingInMen_Path">
+         <property name="font">
+          <font>
+           <pointsize>22</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Edit</string>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>60</width>
+           <height>60</height>
+          </size>
          </property>
         </widget>
        </item>
