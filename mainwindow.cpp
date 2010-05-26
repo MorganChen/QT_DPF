@@ -1311,9 +1311,9 @@ void MainWindow::on_Btn_Wireless_clicked()
     connect(WirelessProc, SIGNAL(finished(int, QProcess::ExitStatus)),
                this, SLOT(WirelessFinished()));
 #ifdef ARM_PLF
-    WirelessProc->start("/opt/Qtopia/demos/books3");
+    WirelessProc->start("/opt/Qtopia/demos/wireless");
 #else
-    WirelessProc->start("./books3");
+    WirelessProc->start("./wireless");
 #endif
     if(!WirelessProc->waitForStarted(3000)){}
 }
