@@ -22,7 +22,11 @@ const int MOVIE_SCREEN_CLR_TIME = 3000;
 QString InMemPath = "/demo";
 QString MemStkPath = "/mnt/sd";
 QString MemCardPath = "/mnt/sd";
-QString BG_MusicPath = "/demo/BG_Music";
+QString MemCard_BG_MusicPath = "/mnt/sd/BG_Music";
+QString InMem_BG_MusicPath = "/demo/BG_Music";
+QString BG_MusicPath;
+QString MusicPath;
+QString MoviePath;
 
 QString MovieItemPath;
 QString MusicItemPath;
@@ -65,6 +69,16 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     setWindowFlags(Qt::FramelessWindowHint );
+#ifdef ARM_PLF
+    QApplication::setOverrideCursor(QCursor(Qt::BlankCursor));
+    MusicPath = MemCardPath;
+    MoviePath = MemCardPath;
+    BG_MusicPath = MemCard_BG_MusicPath;
+#else
+    MusicPath = InMemPath;
+    MoviePath = InMemPath;
+    BG_MusicPath = InMem_BG_MusicPath;
+#endif
     FullScreen_Gem.setRect(0,0,PANEL_WIDTH,PANEL_HEIGHT);
     ui->setupUi(this);
     ct = new charThread(ui->label_ThreadInfo);
@@ -80,7 +94,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     // for test
-    bool flag =  true;
+    bool flag =  false;
     ui->label_ThreadInfo->setVisible(flag);
     ui->Btn_Test->setVisible(flag);
     ui->Btn_Ok->setVisible(flag);
@@ -200,6 +214,8 @@ void MainWindow::CompVisionCtrl(int StackPage)
     case SettingStack :
         ui->Btn_Home->setVisible(false);
         ui->Btn_PageUp->setVisible(false);
+        ui->LEdit_SettingInMen_Path->setEnabled(false);
+        ui->Btn_SettingInMen_Path->setEnabled(false);
         break;
     }
 }
@@ -277,6 +293,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
             MusicProc->kill();
             */
             MusicProc->kill();
+
             return true;
         }
         else if(event->type() == QEvent::Timer)
@@ -479,20 +496,26 @@ void MainWindow::changeEvent(QEvent *e)
 
 void MainWindow::on_Btn_InMem_clicked()
 {
+
     fileList_ = getPhotoListFiles(InMemPath);
     ShowPhotoMutiStack(fileList_);
+
 }
 
 void MainWindow::on_Btn_MemStk_clicked()
 {
+
     fileList_ = getPhotoListFiles(MemStkPath);
     ShowPhotoMutiStack(fileList_);
+
 }
 
 void MainWindow::on_Btn_MemCard_clicked()
 {
+
     fileList_ = getPhotoListFiles(MemCardPath);
     ShowPhotoMutiStack(fileList_);
+
 }
 
 void MainWindow::on_Btn_Picasa_clicked()
@@ -626,6 +649,7 @@ void MainWindow::on_Btn_PhotoFull_clicked()
     QStringList file;
     int i;
 
+
     if(StackPageHis[StackPageHisIdx] == PhotoMutiStack)
     {
         current_index_ = 0;
@@ -670,7 +694,7 @@ void MainWindow::on_Btn_PhotoFull_clicked()
 #ifdef ARM_PLF
     MusicProc->start("madplay",file);
 #else
-    MusicProc->start("./mplayer",file);
+    MusicProc->start("madplay",file);
 #endif
 
     //Play BG_Music
@@ -781,20 +805,16 @@ void MainWindow::on_Btn_Setting_clicked()
     ChangeStackPageTo(SettingStack);
     CompVisionCtrl(SettingStack);
 
-    //ui->LEdit_SettingInMen_Path->installEventFilter(this);
     installEventFilter(this);
 
 }
 
 void MainWindow::on_Btn_SettingCancel_clicked()
 {
-    virtualKeyBoard->show();
-    /*
-    ui->LEdit_SettingInMen_Path->removeEventFilter(this);
+
     removeEventFilter(this);
     ChangeStackPageTo(MainStack);
     CompVisionCtrl(MainStack);
-    */
 }
 
 void MainWindow::on_Btn_SettingInMen_Path_clicked()
@@ -810,6 +830,19 @@ void MainWindow::on_Btn_SettingOK_clicked()
     Str = ui->CbBox_SettingSSTimer->currentText();
     Para_PhotoSliceShow_Timer = Str.toInt();
     InMemPath = ui->LEdit_SettingInMen_Path->text();
+
+    if(ui->ComBox_SettingMMSource->currentIndex() == 0)
+    {
+        MusicPath = MemCardPath;
+        MoviePath = MemCardPath;
+        BG_MusicPath = MemCard_BG_MusicPath;
+    }
+    else
+    {
+        MusicPath = InMemPath;
+        MoviePath = InMemPath;
+        BG_MusicPath = InMem_BG_MusicPath;
+    }
 
     removeEventFilter(this);
     ChangeStackPageTo(MainStack);
@@ -892,7 +925,7 @@ void MainWindow::on_Btn_Music_clicked()
 
     QString ItemNum, ItemFileName, ItemFileSize, ItemStr;
 
-    fileList_ = getMusicListFiles(InMemPath);
+    fileList_ = getMusicListFiles(MusicPath);
     ui->ListWidget_MusicFile->clear();
 
 
@@ -941,7 +974,7 @@ void MainWindow::on_Btn_MusicPlay_clicked()
     Music_Update_Timer = new QTimer();
     connect(Music_Update_Timer,SIGNAL(timeout()),this,SLOT(MusicInfoUpdate()));
 
-    ui->Lab_MusicTitle->setText(StrTemp.setNum(MusicIdx+1) + ". " + fileList_[MusicIdx].fileName());
+
     ui->LcdNum_MusicTime->display("00:00");
     ui->LcdNum_MusicTime->setSegmentStyle(QLCDNumber::Filled);
 
@@ -1087,7 +1120,7 @@ void MainWindow::Music_Back_Message()
         else if (!qstrncmp("Playing",temp,7))
         {
             int i;
-            i = InMemPath.count();
+            i = MusicPath.count();
             ui->Lab_MusicTitle->setText(temp+9+i);
         }
         else if (!qstrncmp("ANS_TIME",temp,8))
@@ -1126,7 +1159,7 @@ void MainWindow::on_Btn_Movie_clicked()
 
     QString ItemNum, ItemFileName, ItemFileSize, ItemStr;
 
-    fileList_ = getMovieListFiles(InMemPath);
+    fileList_ = getMovieListFiles(MoviePath);
     ui->ListWidget_MovieFile->clear();
 
 
@@ -1284,6 +1317,7 @@ void MainWindow::on_Btn_Internet_clicked()
     BrowserProc = new QProcess(this);
     connect(BrowserProc, SIGNAL(finished(int, QProcess::ExitStatus)),
                this, SLOT(BrowserFinished()));
+
 #ifdef ARM_PLF
     BrowserProc->start("/opt/Qtopia/demos/browser");
 #else
@@ -1310,6 +1344,7 @@ void MainWindow::on_Btn_Wireless_clicked()
     WirelessProc = new QProcess(this);
     connect(WirelessProc, SIGNAL(finished(int, QProcess::ExitStatus)),
                this, SLOT(WirelessFinished()));
+
 #ifdef ARM_PLF
     WirelessProc->start("/opt/Qtopia/demos/wireless");
 #else
@@ -1320,6 +1355,5 @@ void MainWindow::on_Btn_Wireless_clicked()
 
 void MainWindow::WirelessFinished()
 {
-
     WirelessProc->kill();
 }

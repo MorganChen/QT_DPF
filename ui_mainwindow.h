@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Wed May 26 11:47:35 2010
+** Created: Wed May 26 15:58:44 2010
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -92,8 +92,6 @@ public:
     QPushButton *Btn_PhotoSinglePage_R;
     QWidget *PicasaPage;
     QWebView *webView;
-    QPushButton *Btn_ZoomIn;
-    QPushButton *Btn_ZoomOut;
     QWidget *CalenderPage;
     QCalendarWidget *calendarWidget;
     QWidget *ClockPage;
@@ -136,12 +134,18 @@ public:
     QComboBox *CbBox_SettingSSTimer;
     QWidget *horizontalLayoutWidget_2;
     QHBoxLayout *horizontalLayout_2;
-    QLabel *label;
+    QLabel *Lab_Setting1;
     QLineEdit *LEdit_SettingInMen_Path;
     QPushButton *Btn_SettingInMen_Path;
     QPushButton *Btn_SettingOK;
     QPushButton *Btn_SettingCancel;
+    QWidget *horizontalLayoutWidget_3;
+    QHBoxLayout *horizontalLayout_3;
+    QLabel *Lab_Setting2;
+    QComboBox *ComBox_SettingMMSource;
     QSlider *Bar_VolAdj;
+    QPushButton *Btn_ZoomOut;
+    QPushButton *Btn_ZoomIn;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -179,10 +183,10 @@ public:
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         Btn_Test = new QPushButton(centralWidget);
         Btn_Test->setObjectName(QString::fromUtf8("Btn_Test"));
-        Btn_Test->setGeometry(QRect(120, 10, 91, 27));
+        Btn_Test->setGeometry(QRect(260, 30, 91, 27));
         Btn_Ok = new QPushButton(centralWidget);
         Btn_Ok->setObjectName(QString::fromUtf8("Btn_Ok"));
-        Btn_Ok->setGeometry(QRect(250, 10, 91, 27));
+        Btn_Ok->setGeometry(QRect(260, 0, 91, 27));
         Btn_Home = new QPushButton(centralWidget);
         Btn_Home->setObjectName(QString::fromUtf8("Btn_Home"));
         Btn_Home->setGeometry(QRect(0, 0, 60, 60));
@@ -515,7 +519,7 @@ public:
         Btn_PageRight->setObjectName(QString::fromUtf8("Btn_PageRight"));
         Btn_PageRight->setGeometry(QRect(740, 140, 60, 60));
         QIcon icon11;
-        icon11.addFile(QString::fromUtf8(":/actions/icon/go-last.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon11.addFile(QString::fromUtf8(":/actions/icon/media-seek-forward1.png"), QSize(), QIcon::Normal, QIcon::Off);
         Btn_PageRight->setIcon(icon11);
         Btn_PageRight->setIconSize(QSize(60, 60));
         Btn_PageRight->setFlat(true);
@@ -523,7 +527,7 @@ public:
         Btn_PageLeft->setObjectName(QString::fromUtf8("Btn_PageLeft"));
         Btn_PageLeft->setGeometry(QRect(0, 140, 60, 60));
         QIcon icon12;
-        icon12.addFile(QString::fromUtf8(":/actions/icon/go-first.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon12.addFile(QString::fromUtf8(":/actions/icon/media-seek-forward2.png"), QSize(), QIcon::Normal, QIcon::Off);
         Btn_PageLeft->setIcon(icon12);
         Btn_PageLeft->setIconSize(QSize(57, 59));
         Btn_PageLeft->setFlat(true);
@@ -565,15 +569,13 @@ public:
         Btn_PhotoSinglePage_L = new QPushButton(PhotoSinglePage);
         Btn_PhotoSinglePage_L->setObjectName(QString::fromUtf8("Btn_PhotoSinglePage_L"));
         Btn_PhotoSinglePage_L->setGeometry(QRect(0, 140, 57, 59));
-        QIcon icon13;
-        icon13.addFile(QString::fromUtf8(":/actions/icon/go-previous.png"), QSize(), QIcon::Normal, QIcon::Off);
-        Btn_PhotoSinglePage_L->setIcon(icon13);
+        Btn_PhotoSinglePage_L->setIcon(icon12);
         Btn_PhotoSinglePage_L->setIconSize(QSize(57, 59));
         Btn_PhotoSinglePage_L->setFlat(true);
         Btn_PhotoSinglePage_R = new QPushButton(PhotoSinglePage);
         Btn_PhotoSinglePage_R->setObjectName(QString::fromUtf8("Btn_PhotoSinglePage_R"));
         Btn_PhotoSinglePage_R->setGeometry(QRect(743, 140, 57, 59));
-        Btn_PhotoSinglePage_R->setIcon(icon1);
+        Btn_PhotoSinglePage_R->setIcon(icon11);
         Btn_PhotoSinglePage_R->setIconSize(QSize(57, 59));
         Btn_PhotoSinglePage_R->setFlat(true);
         stackedWidget->addWidget(PhotoSinglePage);
@@ -581,7 +583,7 @@ public:
         PicasaPage->setObjectName(QString::fromUtf8("PicasaPage"));
         webView = new QWebView(PicasaPage);
         webView->setObjectName(QString::fromUtf8("webView"));
-        webView->setGeometry(QRect(0, 0, 740, 420));
+        webView->setGeometry(QRect(0, 0, 800, 420));
         QPalette palette5;
         palette5.setBrush(QPalette::Active, QPalette::Base, brush1);
         palette5.setBrush(QPalette::Inactive, QPalette::Base, brush1);
@@ -589,22 +591,6 @@ public:
         webView->setPalette(palette5);
         webView->setUrl(QUrl("http://picasaweb.google.com/elandman.chuang"));
         webView->setZoomFactor(0.6);
-        Btn_ZoomIn = new QPushButton(PicasaPage);
-        Btn_ZoomIn->setObjectName(QString::fromUtf8("Btn_ZoomIn"));
-        Btn_ZoomIn->setGeometry(QRect(740, 360, 60, 60));
-        QIcon icon14;
-        icon14.addFile(QString::fromUtf8(":/actions/icon/zoom-fit-page.png"), QSize(), QIcon::Normal, QIcon::Off);
-        Btn_ZoomIn->setIcon(icon14);
-        Btn_ZoomIn->setIconSize(QSize(60, 60));
-        Btn_ZoomIn->setFlat(true);
-        Btn_ZoomOut = new QPushButton(PicasaPage);
-        Btn_ZoomOut->setObjectName(QString::fromUtf8("Btn_ZoomOut"));
-        Btn_ZoomOut->setGeometry(QRect(740, 290, 60, 60));
-        QIcon icon15;
-        icon15.addFile(QString::fromUtf8(":/actions/icon/zoom-fit-width.png"), QSize(), QIcon::Normal, QIcon::Off);
-        Btn_ZoomOut->setIcon(icon15);
-        Btn_ZoomOut->setIconSize(QSize(60, 60));
-        Btn_ZoomOut->setFlat(true);
         stackedWidget->addWidget(PicasaPage);
         CalenderPage = new QWidget();
         CalenderPage->setObjectName(QString::fromUtf8("CalenderPage"));
@@ -669,7 +655,7 @@ public:
         MusicPlayPage->setObjectName(QString::fromUtf8("MusicPlayPage"));
         widget = new QWidget(MusicPlayPage);
         widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(140, 300, 491, 91));
+        widget->setGeometry(QRect(160, 300, 491, 91));
         gridLayout_2 = new QGridLayout(widget);
         gridLayout_2->setSpacing(6);
         gridLayout_2->setMargin(11);
@@ -677,7 +663,9 @@ public:
         gridLayout_2->setHorizontalSpacing(2);
         Btn_MusicSeekBack = new QPushButton(widget);
         Btn_MusicSeekBack->setObjectName(QString::fromUtf8("Btn_MusicSeekBack"));
-        Btn_MusicSeekBack->setIcon(icon12);
+        QIcon icon13;
+        icon13.addFile(QString::fromUtf8(":/actions/icon/go-first.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Btn_MusicSeekBack->setIcon(icon13);
         Btn_MusicSeekBack->setIconSize(QSize(60, 60));
         Btn_MusicSeekBack->setAutoRepeat(true);
         Btn_MusicSeekBack->setFlat(true);
@@ -686,9 +674,9 @@ public:
 
         Btn_MusicPause = new QPushButton(widget);
         Btn_MusicPause->setObjectName(QString::fromUtf8("Btn_MusicPause"));
-        QIcon icon16;
-        icon16.addFile(QString::fromUtf8(":/actions/icon/media-playback-pause.png"), QSize(), QIcon::Normal, QIcon::Off);
-        Btn_MusicPause->setIcon(icon16);
+        QIcon icon14;
+        icon14.addFile(QString::fromUtf8(":/actions/icon/media-playback-pause.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Btn_MusicPause->setIcon(icon14);
         Btn_MusicPause->setIconSize(QSize(60, 60));
         Btn_MusicPause->setFlat(true);
 
@@ -696,9 +684,9 @@ public:
 
         Btn_MusicStop = new QPushButton(widget);
         Btn_MusicStop->setObjectName(QString::fromUtf8("Btn_MusicStop"));
-        QIcon icon17;
-        icon17.addFile(QString::fromUtf8(":/actions/icon/media-playback-stop.png"), QSize(), QIcon::Normal, QIcon::Off);
-        Btn_MusicStop->setIcon(icon17);
+        QIcon icon15;
+        icon15.addFile(QString::fromUtf8(":/actions/icon/media-playback-stop.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Btn_MusicStop->setIcon(icon15);
         Btn_MusicStop->setIconSize(QSize(60, 60));
         Btn_MusicStop->setFlat(true);
 
@@ -714,7 +702,9 @@ public:
 
         Btn_MusicSeekNext = new QPushButton(widget);
         Btn_MusicSeekNext->setObjectName(QString::fromUtf8("Btn_MusicSeekNext"));
-        Btn_MusicSeekNext->setIcon(icon11);
+        QIcon icon16;
+        icon16.addFile(QString::fromUtf8(":/actions/icon/go-last.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Btn_MusicSeekNext->setIcon(icon16);
         Btn_MusicSeekNext->setIconSize(QSize(60, 60));
         Btn_MusicSeekNext->setAutoRepeat(true);
         Btn_MusicSeekNext->setFlat(true);
@@ -723,9 +713,7 @@ public:
 
         Btn_MusicBack = new QPushButton(widget);
         Btn_MusicBack->setObjectName(QString::fromUtf8("Btn_MusicBack"));
-        QIcon icon18;
-        icon18.addFile(QString::fromUtf8(":/actions/icon/media-seek-forward2.png"), QSize(), QIcon::Normal, QIcon::Off);
-        Btn_MusicBack->setIcon(icon18);
+        Btn_MusicBack->setIcon(icon12);
         Btn_MusicBack->setIconSize(QSize(60, 60));
         Btn_MusicBack->setFlat(true);
 
@@ -733,9 +721,7 @@ public:
 
         Btn_MusicNext = new QPushButton(widget);
         Btn_MusicNext->setObjectName(QString::fromUtf8("Btn_MusicNext"));
-        QIcon icon19;
-        icon19.addFile(QString::fromUtf8(":/actions/icon/media-seek-forward1.png"), QSize(), QIcon::Normal, QIcon::Off);
-        Btn_MusicNext->setIcon(icon19);
+        Btn_MusicNext->setIcon(icon11);
         Btn_MusicNext->setIconSize(QSize(60, 60));
         Btn_MusicNext->setFlat(true);
 
@@ -743,24 +729,26 @@ public:
 
         ProBar_MusicPro = new QProgressBar(MusicPlayPage);
         ProBar_MusicPro->setObjectName(QString::fromUtf8("ProBar_MusicPro"));
-        ProBar_MusicPro->setGeometry(QRect(150, 270, 481, 16));
+        ProBar_MusicPro->setGeometry(QRect(170, 270, 481, 16));
         ProBar_MusicPro->setValue(24);
         ProBar_MusicPro->setTextVisible(false);
         Lab_MusicTitle = new QLabel(MusicPlayPage);
         Lab_MusicTitle->setObjectName(QString::fromUtf8("Lab_MusicTitle"));
-        Lab_MusicTitle->setGeometry(QRect(240, 90, 491, 81));
-        Lab_MusicTitle->setFont(font5);
+        Lab_MusicTitle->setGeometry(QRect(250, 80, 491, 81));
+        QFont font6;
+        font6.setPointSize(26);
+        Lab_MusicTitle->setFont(font6);
         Lab_MusicTitle->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         LcdNum_MusicTime = new QLCDNumber(MusicPlayPage);
         LcdNum_MusicTime->setObjectName(QString::fromUtf8("LcdNum_MusicTime"));
         LcdNum_MusicTime->setEnabled(true);
-        LcdNum_MusicTime->setGeometry(QRect(240, 180, 281, 81));
-        QFont font6;
-        font6.setPointSize(10);
-        font6.setBold(false);
-        font6.setItalic(false);
-        font6.setWeight(50);
-        LcdNum_MusicTime->setFont(font6);
+        LcdNum_MusicTime->setGeometry(QRect(270, 180, 281, 81));
+        QFont font7;
+        font7.setPointSize(10);
+        font7.setBold(false);
+        font7.setItalic(false);
+        font7.setWeight(50);
+        LcdNum_MusicTime->setFont(font7);
         LcdNum_MusicTime->setSmallDecimalPoint(false);
         label_2 = new QLabel(MusicPlayPage);
         label_2->setObjectName(QString::fromUtf8("label_2"));
@@ -811,7 +799,7 @@ public:
         gridLayout1->setHorizontalSpacing(0);
         Btn_MovieSeekBack = new QPushButton(MoviePlayBtnWidget);
         Btn_MovieSeekBack->setObjectName(QString::fromUtf8("Btn_MovieSeekBack"));
-        Btn_MovieSeekBack->setIcon(icon12);
+        Btn_MovieSeekBack->setIcon(icon13);
         Btn_MovieSeekBack->setIconSize(QSize(60, 60));
         Btn_MovieSeekBack->setAutoRepeat(true);
         Btn_MovieSeekBack->setFlat(true);
@@ -820,7 +808,7 @@ public:
 
         Btn_MovieStop = new QPushButton(MoviePlayBtnWidget);
         Btn_MovieStop->setObjectName(QString::fromUtf8("Btn_MovieStop"));
-        Btn_MovieStop->setIcon(icon17);
+        Btn_MovieStop->setIcon(icon15);
         Btn_MovieStop->setIconSize(QSize(60, 60));
         Btn_MovieStop->setFlat(true);
 
@@ -833,7 +821,7 @@ public:
         palette10.setBrush(QPalette::Inactive, QPalette::Button, brush);
         palette10.setBrush(QPalette::Disabled, QPalette::Button, brush);
         Btn_MoviePause->setPalette(palette10);
-        Btn_MoviePause->setIcon(icon16);
+        Btn_MoviePause->setIcon(icon14);
         Btn_MoviePause->setIconSize(QSize(60, 60));
         Btn_MoviePause->setFlat(true);
 
@@ -854,7 +842,7 @@ public:
 
         Btn_MovieSeekNext = new QPushButton(MoviePlayBtnWidget);
         Btn_MovieSeekNext->setObjectName(QString::fromUtf8("Btn_MovieSeekNext"));
-        Btn_MovieSeekNext->setIcon(icon11);
+        Btn_MovieSeekNext->setIcon(icon16);
         Btn_MovieSeekNext->setIconSize(QSize(60, 60));
         Btn_MovieSeekNext->setAutoRepeat(true);
         Btn_MovieSeekNext->setFlat(true);
@@ -902,9 +890,9 @@ public:
 
         CbBox_SettingSSTimer = new QComboBox(horizontalLayoutWidget);
         CbBox_SettingSSTimer->setObjectName(QString::fromUtf8("CbBox_SettingSSTimer"));
-        QFont font7;
-        font7.setPointSize(22);
-        CbBox_SettingSSTimer->setFont(font7);
+        QFont font8;
+        font8.setPointSize(22);
+        CbBox_SettingSSTimer->setFont(font8);
         CbBox_SettingSSTimer->setMaxVisibleItems(7);
         CbBox_SettingSSTimer->setInsertPolicy(QComboBox::InsertAtBottom);
         CbBox_SettingSSTimer->setFrame(true);
@@ -913,17 +901,17 @@ public:
 
         horizontalLayoutWidget_2 = new QWidget(SettingPage);
         horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
-        horizontalLayoutWidget_2->setGeometry(QRect(170, 80, 611, 47));
+        horizontalLayoutWidget_2->setGeometry(QRect(170, 140, 611, 47));
         horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setMargin(11);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 6, 0);
-        label = new QLabel(horizontalLayoutWidget_2);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setFont(font5);
+        Lab_Setting1 = new QLabel(horizontalLayoutWidget_2);
+        Lab_Setting1->setObjectName(QString::fromUtf8("Lab_Setting1"));
+        Lab_Setting1->setFont(font5);
 
-        horizontalLayout_2->addWidget(label);
+        horizontalLayout_2->addWidget(Lab_Setting1);
 
         LEdit_SettingInMen_Path = new QLineEdit(horizontalLayoutWidget_2);
         LEdit_SettingInMen_Path->setObjectName(QString::fromUtf8("LEdit_SettingInMen_Path"));
@@ -935,7 +923,7 @@ public:
 
         Btn_SettingInMen_Path = new QPushButton(horizontalLayoutWidget_2);
         Btn_SettingInMen_Path->setObjectName(QString::fromUtf8("Btn_SettingInMen_Path"));
-        Btn_SettingInMen_Path->setFont(font7);
+        Btn_SettingInMen_Path->setFont(font8);
         Btn_SettingInMen_Path->setIconSize(QSize(60, 60));
 
         horizontalLayout_2->addWidget(Btn_SettingInMen_Path);
@@ -948,16 +936,52 @@ public:
         Btn_SettingCancel->setObjectName(QString::fromUtf8("Btn_SettingCancel"));
         Btn_SettingCancel->setGeometry(QRect(550, 340, 120, 60));
         Btn_SettingCancel->setFont(font2);
+        horizontalLayoutWidget_3 = new QWidget(SettingPage);
+        horizontalLayoutWidget_3->setObjectName(QString::fromUtf8("horizontalLayoutWidget_3"));
+        horizontalLayoutWidget_3->setGeometry(QRect(170, 80, 611, 51));
+        horizontalLayout_3 = new QHBoxLayout(horizontalLayoutWidget_3);
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setMargin(11);
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
+        Lab_Setting2 = new QLabel(horizontalLayoutWidget_3);
+        Lab_Setting2->setObjectName(QString::fromUtf8("Lab_Setting2"));
+        Lab_Setting2->setFont(font5);
+
+        horizontalLayout_3->addWidget(Lab_Setting2);
+
+        ComBox_SettingMMSource = new QComboBox(horizontalLayoutWidget_3);
+        ComBox_SettingMMSource->setObjectName(QString::fromUtf8("ComBox_SettingMMSource"));
+        ComBox_SettingMMSource->setFont(font5);
+
+        horizontalLayout_3->addWidget(ComBox_SettingMMSource);
+
         stackedWidget->addWidget(SettingPage);
         Bar_VolAdj = new QSlider(centralWidget);
         Bar_VolAdj->setObjectName(QString::fromUtf8("Bar_VolAdj"));
         Bar_VolAdj->setGeometry(QRect(460, 30, 251, 18));
         Bar_VolAdj->setOrientation(Qt::Horizontal);
+        Btn_ZoomOut = new QPushButton(centralWidget);
+        Btn_ZoomOut->setObjectName(QString::fromUtf8("Btn_ZoomOut"));
+        Btn_ZoomOut->setGeometry(QRect(90, 0, 60, 60));
+        QIcon icon17;
+        icon17.addFile(QString::fromUtf8(":/actions/icon/zoom-fit-width.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Btn_ZoomOut->setIcon(icon17);
+        Btn_ZoomOut->setIconSize(QSize(60, 60));
+        Btn_ZoomOut->setFlat(true);
+        Btn_ZoomIn = new QPushButton(centralWidget);
+        Btn_ZoomIn->setObjectName(QString::fromUtf8("Btn_ZoomIn"));
+        Btn_ZoomIn->setGeometry(QRect(160, 0, 60, 60));
+        QIcon icon18;
+        icon18.addFile(QString::fromUtf8(":/actions/icon/zoom-fit-page.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Btn_ZoomIn->setIcon(icon18);
+        Btn_ZoomIn->setIconSize(QSize(60, 60));
+        Btn_ZoomIn->setFlat(true);
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(4);
         CbBox_SettingSSTimer->setCurrentIndex(4);
 
 
@@ -1001,8 +1025,6 @@ public:
         Lab_PhotoSingle->setText(QApplication::translate("MainWindow", "TextLabel", 0, QApplication::UnicodeUTF8));
         Btn_PhotoSinglePage_L->setText(QString());
         Btn_PhotoSinglePage_R->setText(QString());
-        Btn_ZoomIn->setText(QString());
-        Btn_ZoomOut->setText(QString());
         Lab_Music->setText(QString());
         Btn_MusicSeekBack->setText(QString());
         Btn_MusicPause->setText(QString());
@@ -1045,11 +1067,19 @@ public:
          << QApplication::translate("MainWindow", "9500", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("MainWindow", "10000", 0, QApplication::UnicodeUTF8)
         );
-        label->setText(QApplication::translate("MainWindow", "Internal Memory Path:", 0, QApplication::UnicodeUTF8));
-        LEdit_SettingInMen_Path->setText(QApplication::translate("MainWindow", "/root/QT/Picture", 0, QApplication::UnicodeUTF8));
+        Lab_Setting1->setText(QApplication::translate("MainWindow", "Internal Memory Path:", 0, QApplication::UnicodeUTF8));
+        LEdit_SettingInMen_Path->setText(QApplication::translate("MainWindow", "/demo", 0, QApplication::UnicodeUTF8));
         Btn_SettingInMen_Path->setText(QApplication::translate("MainWindow", "Edit", 0, QApplication::UnicodeUTF8));
         Btn_SettingOK->setText(QApplication::translate("MainWindow", "OK", 0, QApplication::UnicodeUTF8));
         Btn_SettingCancel->setText(QApplication::translate("MainWindow", "Cancel", 0, QApplication::UnicodeUTF8));
+        Lab_Setting2->setText(QApplication::translate("MainWindow", "Music & Movie File Soure:", 0, QApplication::UnicodeUTF8));
+        ComBox_SettingMMSource->clear();
+        ComBox_SettingMMSource->insertItems(0, QStringList()
+         << QApplication::translate("MainWindow", "SD Card", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "Internal Memory", 0, QApplication::UnicodeUTF8)
+        );
+        Btn_ZoomOut->setText(QString());
+        Btn_ZoomIn->setText(QString());
         Q_UNUSED(MainWindow);
     } // retranslateUi
 
