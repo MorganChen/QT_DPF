@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-//#define ARM_PLF
+#define ARM_PLF
 
 #define MUSIC_UP_TIMER 1000
 const int WIDTH_ICON = 200;
@@ -19,9 +19,10 @@ const int STACK_PAGE_HIS_NUM = 5;
 
 const int MOVIE_SCREEN_CLR_TIME = 3000;
 
-QString InMemPath = "/root/QT/Picture";
-QString MemStkPath = "/root/QT/Picture";
-QString MemCardPath = "/root/QT/Picture";
+QString InMemPath = "/demo";
+QString MemStkPath = "/mnt/sd";
+QString MemCardPath = "/mnt/sd";
+QString BG_MusicPath = "/demo/BG_Music";
 
 QString MovieItemPath;
 QString MusicItemPath;
@@ -269,10 +270,13 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
             removeEventFilter(this);
             killTimer(SliceTimerID);
 
+            // BG_Music
+            /*
             MusicProc->write("quit\n");
             if(!MusicProc->waitForFinished(3000)){}
             MusicProc->kill();
-
+            */
+            MusicProc->kill();
             return true;
         }
         else if(event->type() == QEvent::Timer)
@@ -647,7 +651,31 @@ void MainWindow::on_Btn_PhotoFull_clicked()
     installEventFilter(this);    
     SliceTimerID = ui->Lab_PhotoSingle->startTimer(Para_PhotoSliceShow_Timer);
 
-    MusicFileList = getMusicListFiles(InMemPath);
+
+    MusicFileList = getMusicListFiles(BG_MusicPath);
+    MaxMusicFileCount = MusicFileList.count();
+    MusicIdx = 0;
+    MusicProc = new QProcess(this);
+
+
+    file << "-vzr";
+    for(i=MusicIdx ; i<MaxMusicFileCount ; i++)
+        file << QString(MusicFileList[i].filePath());
+    if(MusicIdx != 0)
+    {
+        for(i=0 ; i<MusicIdx ; i++)
+            file << QString(MusicFileList[i].filePath());
+    }
+
+#ifdef ARM_PLF
+    MusicProc->start("madplay",file);
+#else
+    MusicProc->start("./mplayer",file);
+#endif
+
+    //Play BG_Music
+    /*
+    MusicFileList = getMusicListFiles(BG_MusicPath);
     MaxMusicFileCount = MusicFileList.count();
     MusicIdx = 0;
     MusicProc = new QProcess(this);
@@ -671,6 +699,7 @@ void MainWindow::on_Btn_PhotoFull_clicked()
 #else
     MusicProc->start("./mplayer",file);
 #endif
+    */
 
 }
 
@@ -1260,7 +1289,7 @@ void MainWindow::on_Btn_Internet_clicked()
 #else
     BrowserProc->start("./browser");
 #endif
-
+    if(!BrowserProc->waitForStarted(3000)){}
 }
 
 void MainWindow::BrowserFinished()
@@ -1270,13 +1299,27 @@ void MainWindow::BrowserFinished()
 }
 
 
+/*------------------------------------------------------
+//
+//
+//
+//    Wireless Widget
+--------------------------------------------------------*/
+void MainWindow::on_Btn_Wireless_clicked()
+{
+    WirelessProc = new QProcess(this);
+    connect(WirelessProc, SIGNAL(finished(int, QProcess::ExitStatus)),
+               this, SLOT(WirelessFinished()));
+#ifdef ARM_PLF
+    WirelessProc->start("/opt/Qtopia/demos/books3");
+#else
+    WirelessProc->start("./books3");
+#endif
+    if(!WirelessProc->waitForStarted(3000)){}
+}
 
+void MainWindow::WirelessFinished()
+{
 
-
-
-
-
-
-
-
-
+    WirelessProc->kill();
+}

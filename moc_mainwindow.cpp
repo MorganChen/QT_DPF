@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Tue May 25 23:51:16 2010
+** Created: Wed May 26 11:47:43 2010
 **      by: The Qt Meta Object Compiler version 61 (Qt 4.5.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        2,       // revision
        0,       // classname
        0,    0, // classinfo
-      50,   12, // methods
+      52,   12, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -36,49 +36,51 @@ static const uint qt_meta_data_MainWindow[] = {
       69,   11,   11,   11, 0x0a,
       85,   11,   11,   11, 0x0a,
      103,   11,   11,   11, 0x0a,
-     124,   11,   11,   11, 0x0a,
-     142,   11,   11,   11, 0x08,
-     169,   11,   11,   11, 0x08,
-     196,   11,   11,   11, 0x08,
-     227,   11,   11,   11, 0x08,
-     258,   11,   11,   11, 0x08,
-     286,   11,   11,   11, 0x08,
-     313,   11,   11,   11, 0x08,
-     345,  340,   11,   11, 0x08,
-     399,   11,   11,   11, 0x08,
-     434,   11,   11,   11, 0x08,
-     465,   11,   11,   11, 0x08,
-     492,   11,   11,   11, 0x08,
-     518,  340,   11,   11, 0x08,
-     572,   11,   11,   11, 0x08,
-     599,   11,   11,   11, 0x08,
-     626,   11,   11,   11, 0x08,
-     654,   11,   11,   11, 0x08,
-     685,   11,   11,   11, 0x08,
-     716,   11,   11,   11, 0x08,
-     739,   11,   11,   11, 0x08,
-     762,   11,   11,   11, 0x08,
-     787,   11,   11,   11, 0x08,
-     811,   11,   11,   11, 0x08,
-     835,   11,   11,   11, 0x08,
-     858,   11,   11,   11, 0x08,
-     879,   11,   11,   11, 0x08,
-     906,   11,   11,   11, 0x08,
-     929,   11,   11,   11, 0x08,
-     953,   11,   11,   11, 0x08,
-     988,   11,   11,   11, 0x08,
-    1023,  340,   11,   11, 0x08,
-    1073,   11,   11,   11, 0x08,
-    1099,   11,   11,   11, 0x08,
-    1132, 1126,   11,   11, 0x08,
-    1151,   11,   11,   11, 0x08,
-    1162,   11,   11,   11, 0x08,
-    1184,   11,   11,   11, 0x08,
-    1208,   11,   11,   11, 0x08,
-    1231,   11,   11,   11, 0x08,
-    1256,   11,   11,   11, 0x08,
+     122,   11,   11,   11, 0x0a,
+     143,   11,   11,   11, 0x0a,
+     161,   11,   11,   11, 0x08,
+     187,   11,   11,   11, 0x08,
+     214,   11,   11,   11, 0x08,
+     241,   11,   11,   11, 0x08,
+     272,   11,   11,   11, 0x08,
+     303,   11,   11,   11, 0x08,
+     331,   11,   11,   11, 0x08,
+     358,   11,   11,   11, 0x08,
+     390,  385,   11,   11, 0x08,
+     444,   11,   11,   11, 0x08,
+     479,   11,   11,   11, 0x08,
+     510,   11,   11,   11, 0x08,
+     537,   11,   11,   11, 0x08,
+     563,  385,   11,   11, 0x08,
+     617,   11,   11,   11, 0x08,
+     644,   11,   11,   11, 0x08,
+     671,   11,   11,   11, 0x08,
+     699,   11,   11,   11, 0x08,
+     730,   11,   11,   11, 0x08,
+     761,   11,   11,   11, 0x08,
+     784,   11,   11,   11, 0x08,
+     807,   11,   11,   11, 0x08,
+     832,   11,   11,   11, 0x08,
+     856,   11,   11,   11, 0x08,
+     880,   11,   11,   11, 0x08,
+     903,   11,   11,   11, 0x08,
+     924,   11,   11,   11, 0x08,
+     951,   11,   11,   11, 0x08,
+     974,   11,   11,   11, 0x08,
+     998,   11,   11,   11, 0x08,
+    1033,   11,   11,   11, 0x08,
+    1068,  385,   11,   11, 0x08,
+    1118,   11,   11,   11, 0x08,
+    1144,   11,   11,   11, 0x08,
+    1177, 1171,   11,   11, 0x08,
+    1196,   11,   11,   11, 0x08,
+    1207,   11,   11,   11, 0x08,
+    1229,   11,   11,   11, 0x08,
+    1253,   11,   11,   11, 0x08,
     1276,   11,   11,   11, 0x08,
-    1298,   11,   11,   11, 0x08,
+    1301,   11,   11,   11, 0x08,
+    1321,   11,   11,   11, 0x08,
+    1343,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -87,7 +89,8 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "MainWindow\0\0ThreadStart()\0ThreadPause()\0"
     "ThreadStop()\0MusicFinished()\0"
     "MoiveFinished()\0BrowserFinished()\0"
-    "Music_Back_Message()\0MusicInfoUpdate()\0"
+    "WirelessFinished()\0Music_Back_Message()\0"
+    "MusicInfoUpdate()\0on_Btn_Wireless_clicked()\0"
     "on_Btn_MusicNext_clicked()\0"
     "on_Btn_MusicBack_clicked()\0"
     "on_Btn_MusicSeekBack_clicked()\0"
@@ -155,53 +158,55 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 3: MusicFinished(); break;
         case 4: MoiveFinished(); break;
         case 5: BrowserFinished(); break;
-        case 6: Music_Back_Message(); break;
-        case 7: MusicInfoUpdate(); break;
-        case 8: on_Btn_MusicNext_clicked(); break;
-        case 9: on_Btn_MusicBack_clicked(); break;
-        case 10: on_Btn_MusicSeekBack_clicked(); break;
-        case 11: on_Btn_MusicSeekNext_clicked(); break;
-        case 12: on_Btn_MusicPause_clicked(); break;
-        case 13: on_Btn_MusicStop_clicked(); break;
-        case 14: on_Btn_MusicPlay_clicked(); break;
-        case 15: on_ListWidget_MusicFile_itemClicked((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
-        case 16: on_Btn_SettingInMen_Path_clicked(); break;
-        case 17: on_Btn_SettingCancel_clicked(); break;
-        case 18: on_Btn_SettingOK_clicked(); break;
-        case 19: on_Btn_Internet_clicked(); break;
-        case 20: on_ListWidget_MovieFile_itemClicked((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
-        case 21: on_Btn_MovieStop_clicked(); break;
-        case 22: on_Btn_MoviePlay_clicked(); break;
-        case 23: on_Btn_MoviePause_clicked(); break;
-        case 24: on_Btn_MovieSeekNext_clicked(); break;
-        case 25: on_Btn_MovieSeekBack_clicked(); break;
-        case 26: on_Btn_Movie_clicked(); break;
-        case 27: on_Btn_Music_clicked(); break;
-        case 28: on_Btn_MemCard_clicked(); break;
-        case 29: on_Btn_MemStk_clicked(); break;
-        case 30: on_Btn_Picasa_clicked(); break;
-        case 31: on_Btn_Alarm_clicked(); break;
-        case 32: on_Btn_Cal_clicked(); break;
-        case 33: on_Btn_PhotoFull_clicked(); break;
-        case 34: on_Btn_InMem_clicked(); break;
-        case 35: on_Btn_ZoomIn_clicked(); break;
-        case 36: on_Btn_PhotoSinglePage_L_clicked(); break;
-        case 37: on_Btn_PhotoSinglePage_R_clicked(); break;
-        case 38: on_listWidget_Photo_itemClicked((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
-        case 39: on_Btn_PageLeft_clicked(); break;
-        case 40: on_Btn_PageRight_clicked(); break;
-        case 41: setItemInList((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 42: finished(); break;
-        case 43: on_Btn_Home_clicked(); break;
-        case 44: on_Btn_PageUp_clicked(); break;
-        case 45: on_Btn_Photo_clicked(); break;
-        case 46: on_Btn_Setting_clicked(); break;
-        case 47: on_Btn_Ok_clicked(); break;
-        case 48: on_Btn_Test_clicked(); break;
-        case 49: ShowDigiClock(); break;
+        case 6: WirelessFinished(); break;
+        case 7: Music_Back_Message(); break;
+        case 8: MusicInfoUpdate(); break;
+        case 9: on_Btn_Wireless_clicked(); break;
+        case 10: on_Btn_MusicNext_clicked(); break;
+        case 11: on_Btn_MusicBack_clicked(); break;
+        case 12: on_Btn_MusicSeekBack_clicked(); break;
+        case 13: on_Btn_MusicSeekNext_clicked(); break;
+        case 14: on_Btn_MusicPause_clicked(); break;
+        case 15: on_Btn_MusicStop_clicked(); break;
+        case 16: on_Btn_MusicPlay_clicked(); break;
+        case 17: on_ListWidget_MusicFile_itemClicked((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
+        case 18: on_Btn_SettingInMen_Path_clicked(); break;
+        case 19: on_Btn_SettingCancel_clicked(); break;
+        case 20: on_Btn_SettingOK_clicked(); break;
+        case 21: on_Btn_Internet_clicked(); break;
+        case 22: on_ListWidget_MovieFile_itemClicked((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
+        case 23: on_Btn_MovieStop_clicked(); break;
+        case 24: on_Btn_MoviePlay_clicked(); break;
+        case 25: on_Btn_MoviePause_clicked(); break;
+        case 26: on_Btn_MovieSeekNext_clicked(); break;
+        case 27: on_Btn_MovieSeekBack_clicked(); break;
+        case 28: on_Btn_Movie_clicked(); break;
+        case 29: on_Btn_Music_clicked(); break;
+        case 30: on_Btn_MemCard_clicked(); break;
+        case 31: on_Btn_MemStk_clicked(); break;
+        case 32: on_Btn_Picasa_clicked(); break;
+        case 33: on_Btn_Alarm_clicked(); break;
+        case 34: on_Btn_Cal_clicked(); break;
+        case 35: on_Btn_PhotoFull_clicked(); break;
+        case 36: on_Btn_InMem_clicked(); break;
+        case 37: on_Btn_ZoomIn_clicked(); break;
+        case 38: on_Btn_PhotoSinglePage_L_clicked(); break;
+        case 39: on_Btn_PhotoSinglePage_R_clicked(); break;
+        case 40: on_listWidget_Photo_itemClicked((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
+        case 41: on_Btn_PageLeft_clicked(); break;
+        case 42: on_Btn_PageRight_clicked(); break;
+        case 43: setItemInList((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 44: finished(); break;
+        case 45: on_Btn_Home_clicked(); break;
+        case 46: on_Btn_PageUp_clicked(); break;
+        case 47: on_Btn_Photo_clicked(); break;
+        case 48: on_Btn_Setting_clicked(); break;
+        case 49: on_Btn_Ok_clicked(); break;
+        case 50: on_Btn_Test_clicked(); break;
+        case 51: ShowDigiClock(); break;
         default: ;
         }
-        _id -= 50;
+        _id -= 52;
     }
     return _id;
 }

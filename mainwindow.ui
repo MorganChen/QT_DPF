@@ -326,7 +326,7 @@
      <bool>true</bool>
     </property>
     <property name="currentIndex">
-     <number>7</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="MainPage">
      <widget class="QWidget" name="Mainwidget" native="true">

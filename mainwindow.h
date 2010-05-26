@@ -50,10 +50,12 @@ public slots:
     void MusicFinished();
     void MoiveFinished();
     void BrowserFinished();
+    void WirelessFinished();
     void Music_Back_Message();
     void MusicInfoUpdate();
 
 private Q_SLOTS:
+    void on_Btn_Wireless_clicked();
     void on_Btn_MusicNext_clicked();
     void on_Btn_MusicBack_clicked();
     void on_Btn_MusicSeekBack_clicked();
@@ -116,6 +118,7 @@ private:
     QProcess  *MusicProc;
     QProcess  *MovieProc;
     QProcess  *BrowserProc;
+    QProcess  *WirelessProc;
     WidgetKeyboard *virtualKeyBoard;
     QTime *MusicTime;
     QTimer *Music_Update_Timer;
