@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Wed May 26 15:58:44 2010
+** Created: Thu May 27 16:11:12 2010
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -27,7 +27,6 @@
 #include <QtGui/QProgressBar>
 #include <QtGui/QPushButton>
 #include <QtGui/QScrollArea>
-#include <QtGui/QSlider>
 #include <QtGui/QStackedWidget>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
@@ -91,7 +90,7 @@ public:
     QPushButton *Btn_PhotoSinglePage_L;
     QPushButton *Btn_PhotoSinglePage_R;
     QWidget *PicasaPage;
-    QWebView *webView;
+    QWebView *WebView_Picase;
     QWidget *CalenderPage;
     QCalendarWidget *calendarWidget;
     QWidget *ClockPage;
@@ -143,9 +142,9 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QLabel *Lab_Setting2;
     QComboBox *ComBox_SettingMMSource;
-    QSlider *Bar_VolAdj;
     QPushButton *Btn_ZoomOut;
     QPushButton *Btn_ZoomIn;
+    QPushButton *Btn_PicasaStop;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -183,10 +182,10 @@ public:
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         Btn_Test = new QPushButton(centralWidget);
         Btn_Test->setObjectName(QString::fromUtf8("Btn_Test"));
-        Btn_Test->setGeometry(QRect(260, 30, 91, 27));
+        Btn_Test->setGeometry(QRect(640, 30, 91, 27));
         Btn_Ok = new QPushButton(centralWidget);
         Btn_Ok->setObjectName(QString::fromUtf8("Btn_Ok"));
-        Btn_Ok->setGeometry(QRect(260, 0, 91, 27));
+        Btn_Ok->setGeometry(QRect(640, 0, 91, 27));
         Btn_Home = new QPushButton(centralWidget);
         Btn_Home->setObjectName(QString::fromUtf8("Btn_Home"));
         Btn_Home->setGeometry(QRect(0, 0, 60, 60));
@@ -213,7 +212,7 @@ public:
         Btn_PageUp->setFlat(true);
         label_ThreadInfo = new QLabel(centralWidget);
         label_ThreadInfo->setObjectName(QString::fromUtf8("label_ThreadInfo"));
-        label_ThreadInfo->setGeometry(QRect(440, 10, 281, 31));
+        label_ThreadInfo->setGeometry(QRect(440, 10, 161, 31));
         QFont font;
         font.setFamily(QString::fromUtf8("AR PL Mingti2L Big5"));
         font.setPointSize(11);
@@ -581,16 +580,16 @@ public:
         stackedWidget->addWidget(PhotoSinglePage);
         PicasaPage = new QWidget();
         PicasaPage->setObjectName(QString::fromUtf8("PicasaPage"));
-        webView = new QWebView(PicasaPage);
-        webView->setObjectName(QString::fromUtf8("webView"));
-        webView->setGeometry(QRect(0, 0, 800, 420));
+        WebView_Picase = new QWebView(PicasaPage);
+        WebView_Picase->setObjectName(QString::fromUtf8("WebView_Picase"));
+        WebView_Picase->setGeometry(QRect(0, 0, 800, 420));
         QPalette palette5;
         palette5.setBrush(QPalette::Active, QPalette::Base, brush1);
         palette5.setBrush(QPalette::Inactive, QPalette::Base, brush1);
         palette5.setBrush(QPalette::Disabled, QPalette::Base, brush1);
-        webView->setPalette(palette5);
-        webView->setUrl(QUrl("http://picasaweb.google.com/elandman.chuang"));
-        webView->setZoomFactor(0.6);
+        WebView_Picase->setPalette(palette5);
+        WebView_Picase->setUrl(QUrl("file:///root"));
+        WebView_Picase->setZoomFactor(0.6);
         stackedWidget->addWidget(PicasaPage);
         CalenderPage = new QWidget();
         CalenderPage->setObjectName(QString::fromUtf8("CalenderPage"));
@@ -915,6 +914,7 @@ public:
 
         LEdit_SettingInMen_Path = new QLineEdit(horizontalLayoutWidget_2);
         LEdit_SettingInMen_Path->setObjectName(QString::fromUtf8("LEdit_SettingInMen_Path"));
+        LEdit_SettingInMen_Path->setEnabled(false);
         LEdit_SettingInMen_Path->setFont(font5);
         LEdit_SettingInMen_Path->setAutoFillBackground(false);
         LEdit_SettingInMen_Path->setFrame(true);
@@ -923,6 +923,7 @@ public:
 
         Btn_SettingInMen_Path = new QPushButton(horizontalLayoutWidget_2);
         Btn_SettingInMen_Path->setObjectName(QString::fromUtf8("Btn_SettingInMen_Path"));
+        Btn_SettingInMen_Path->setEnabled(false);
         Btn_SettingInMen_Path->setFont(font8);
         Btn_SettingInMen_Path->setIconSize(QSize(60, 60));
 
@@ -952,20 +953,17 @@ public:
 
         ComBox_SettingMMSource = new QComboBox(horizontalLayoutWidget_3);
         ComBox_SettingMMSource->setObjectName(QString::fromUtf8("ComBox_SettingMMSource"));
+        ComBox_SettingMMSource->setEnabled(false);
         ComBox_SettingMMSource->setFont(font5);
 
         horizontalLayout_3->addWidget(ComBox_SettingMMSource);
 
         stackedWidget->addWidget(SettingPage);
-        Bar_VolAdj = new QSlider(centralWidget);
-        Bar_VolAdj->setObjectName(QString::fromUtf8("Bar_VolAdj"));
-        Bar_VolAdj->setGeometry(QRect(460, 30, 251, 18));
-        Bar_VolAdj->setOrientation(Qt::Horizontal);
         Btn_ZoomOut = new QPushButton(centralWidget);
         Btn_ZoomOut->setObjectName(QString::fromUtf8("Btn_ZoomOut"));
         Btn_ZoomOut->setGeometry(QRect(90, 0, 60, 60));
         QIcon icon17;
-        icon17.addFile(QString::fromUtf8(":/actions/icon/zoom-fit-width.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon17.addFile(QString::fromUtf8(":/actions/icon/zoom-fit-page.png"), QSize(), QIcon::Normal, QIcon::Off);
         Btn_ZoomOut->setIcon(icon17);
         Btn_ZoomOut->setIconSize(QSize(60, 60));
         Btn_ZoomOut->setFlat(true);
@@ -973,16 +971,23 @@ public:
         Btn_ZoomIn->setObjectName(QString::fromUtf8("Btn_ZoomIn"));
         Btn_ZoomIn->setGeometry(QRect(160, 0, 60, 60));
         QIcon icon18;
-        icon18.addFile(QString::fromUtf8(":/actions/icon/zoom-fit-page.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon18.addFile(QString::fromUtf8(":/actions/icon/zoom-fit-width.png"), QSize(), QIcon::Normal, QIcon::Off);
         Btn_ZoomIn->setIcon(icon18);
         Btn_ZoomIn->setIconSize(QSize(60, 60));
         Btn_ZoomIn->setFlat(true);
+        Btn_PicasaStop = new QPushButton(centralWidget);
+        Btn_PicasaStop->setObjectName(QString::fromUtf8("Btn_PicasaStop"));
+        Btn_PicasaStop->setGeometry(QRect(230, 0, 60, 60));
+        Btn_PicasaStop->setIcon(icon15);
+        Btn_PicasaStop->setIconSize(QSize(60, 60));
+        Btn_PicasaStop->setFlat(true);
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(4);
+        stackedWidget->setCurrentIndex(11);
         CbBox_SettingSSTimer->setCurrentIndex(4);
+        ComBox_SettingMMSource->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1080,6 +1085,7 @@ public:
         );
         Btn_ZoomOut->setText(QString());
         Btn_ZoomIn->setText(QString());
+        Btn_PicasaStop->setText(QString());
         Q_UNUSED(MainWindow);
     } // retranslateUi
 

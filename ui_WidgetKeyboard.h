@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'WidgetKeyboard.ui'
 **
-** Created: Wed May 26 15:24:24 2010
+** Created: Thu May 27 16:11:12 2010
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!

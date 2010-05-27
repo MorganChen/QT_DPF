@@ -56,6 +56,8 @@ public slots:
     void MusicInfoUpdate();
 
 private Q_SLOTS:
+    void on_Btn_PicasaStop_clicked();
+    void on_Btn_ZoomOut_clicked();
     void on_Btn_Wireless_clicked();
     void on_Btn_MusicNext_clicked();
     void on_Btn_MusicBack_clicked();

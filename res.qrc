@@ -25,4 +25,5 @@
         <file>media-seek-forward2.png</file>
         <file>media-seek-forward1.png</file>
     </qresource>
+    <qresource prefix="/new/prefix1"/>
 </RCC>

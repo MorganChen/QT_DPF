@@ -23,10 +23,17 @@ QString InMemPath = "/demo";
 QString MemStkPath = "/mnt/sd";
 QString MemCardPath = "/mnt/sd";
 QString MemCard_BG_MusicPath = "/mnt/sd/BG_Music";
-QString InMem_BG_MusicPath = "/demo/BG_Music";
+
+QString InMem_BG_MusicPath = "/demo/music/BG_Music";
+QString InMem_MusicPath = "/demo/music";
+QString InMem_MoviePath = "/demo/movie";
+QString InMem_PhotoPath = "/demo/photo";
+
+
 QString BG_MusicPath;
 QString MusicPath;
 QString MoviePath;
+QString PhotoPath;
 
 QString MovieItemPath;
 QString MusicItemPath;
@@ -71,13 +78,18 @@ MainWindow::MainWindow(QWidget *parent) :
     setWindowFlags(Qt::FramelessWindowHint );
 #ifdef ARM_PLF
     QApplication::setOverrideCursor(QCursor(Qt::BlankCursor));
-    MusicPath = MemCardPath;
+    /*MusicPath = MemCardPath;
     MoviePath = MemCardPath;
-    BG_MusicPath = MemCard_BG_MusicPath;
-#else
-    MusicPath = InMemPath;
-    MoviePath = InMemPath;
+    BG_MusicPath = MemCard_BG_MusicPath;*/
+    MusicPath = InMem_MusicPath;
+    MoviePath = InMem_MoviePath;
     BG_MusicPath = InMem_BG_MusicPath;
+    PhotoPath = InMem_PhotoPath;
+#else
+    MusicPath = InMem_MusicPath;
+    MoviePath = InMem_MoviePath;
+    BG_MusicPath = InMem_BG_MusicPath;
+    PhotoPath = InMem_PhotoPath;
 #endif
     FullScreen_Gem.setRect(0,0,PANEL_WIDTH,PANEL_HEIGHT);
     ui->setupUi(this);
@@ -165,12 +177,18 @@ void MainWindow::CompVisionCtrl(int StackPage)
         ui->Btn_PhotoFull->setVisible(false);
         ui->Btn_ZoomIn->setVisible(false);
         ui->Btn_ZoomOut->setVisible(false);
-        ui->Bar_VolAdj->setVisible(false);
+        ui->Btn_PicasaStop->setVisible(false);
+#ifdef ARM_PLF
+        QApplication::setOverrideCursor(QCursor(Qt::BlankCursor));
+#endif
         break;
     case PhotoStack :
         ui->Btn_Home->setVisible(true);
         ui->Btn_PageUp->setVisible(true);
         ui->Btn_PhotoFull->setVisible(false);
+        ui->Btn_ZoomIn->setVisible(false);
+        ui->Btn_ZoomOut->setVisible(false);
+        ui->Btn_PicasaStop->setVisible(false);
         break;
     case PhotoMutiStack :
         ui->Btn_Home->setVisible(true);
@@ -192,6 +210,9 @@ void MainWindow::CompVisionCtrl(int StackPage)
         ui->Btn_Home->setVisible(true);
         ui->Btn_PageUp->setVisible(true);
         ui->Btn_PhotoFull->setVisible(false);
+        ui->Btn_ZoomIn->setVisible(true);
+        ui->Btn_ZoomOut->setVisible(true);
+        ui->Btn_PicasaStop->setVisible(true);
 
     case CalendarStack :
         ui->Btn_Home->setVisible(true);
@@ -496,9 +517,9 @@ void MainWindow::changeEvent(QEvent *e)
 
 void MainWindow::on_Btn_InMem_clicked()
 {
-
-    fileList_ = getPhotoListFiles(InMemPath);
+    fileList_ = getPhotoListFiles(PhotoPath);
     ShowPhotoMutiStack(fileList_);
+
 
 }
 
@@ -520,8 +541,37 @@ void MainWindow::on_Btn_MemCard_clicked()
 
 void MainWindow::on_Btn_Picasa_clicked()
 {
+    ui->WebView_Picase->setUrl(QUrl("http://picasaweb.google.com/elandman.chuang"));
+
+
     ChangeStackPageTo(PicasaStack);
     CompVisionCtrl(PicasaStack);
+    //ui->WebView_Picase->setUrl(QUrl("http://picasaweb.google.com/elandman.chuang/IkUfMF#slideshow/5455944560963928882"));
+    //ui->WebView_Picase->load(QUrl("http://picasaweb.google.com/elandman.chuang/IkUfMF#slideshow/5455944560963928882"));
+    //ui->WebView_Picase->load(QUrl("http://picasaweb.google.com/tetsuhou2/10041718_AMD#5461878085561979298"));
+}
+
+void MainWindow::on_Btn_ZoomOut_clicked()
+{
+    qreal zf = ui->WebView_Picase->zoomFactor();
+    if(zf > 0.2)
+        zf -= 0.1;
+    ui->WebView_Picase->setZoomFactor(zf);
+}
+
+void MainWindow::on_Btn_ZoomIn_clicked()
+{
+    qreal zf = ui->WebView_Picase->zoomFactor();
+    if(zf < 2)
+        zf += 0.1;
+    ui->WebView_Picase->setZoomFactor(zf);
+}
+
+
+void MainWindow::on_Btn_PicasaStop_clicked()
+{
+    //ui->WebView_Picase->setUrl(QUrl("http://picasaweb.google.com/elandman.chuang/IkUfMF#slideshow/5455944560963928882"));
+    ui->WebView_Picase->stop();
 }
 
 
@@ -839,8 +889,8 @@ void MainWindow::on_Btn_SettingOK_clicked()
     }
     else
     {
-        MusicPath = InMemPath;
-        MoviePath = InMemPath;
+        MusicPath = InMem_MusicPath;
+        MoviePath = InMem_MoviePath;
         BG_MusicPath = InMem_BG_MusicPath;
     }
 
@@ -850,11 +900,6 @@ void MainWindow::on_Btn_SettingOK_clicked()
 }
 
 
-
-void MainWindow::on_Btn_ZoomIn_clicked()
-{
-
-}
 
 
 
@@ -867,10 +912,7 @@ void MainWindow::on_Btn_ZoomIn_clicked()
 --------------------------------------------------------*/
 void MainWindow::on_Btn_Ok_clicked()
 {
-    if(opacity<1)
-        opacity+=0.1;
-    setWindowOpacity(opacity);
-
+    ui->WebView_Picase->reload();
 }
 
 void MainWindow::on_Btn_Test_clicked()
@@ -1357,3 +1399,4 @@ void MainWindow::WirelessFinished()
 {
     WirelessProc->kill();
 }
+
