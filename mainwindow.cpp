@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 #define ARM_PLF
+//#define TEST_BTN
 
 #define MUSIC_UP_TIMER 1000
 const int WIDTH_ICON = 200;
@@ -63,6 +64,7 @@ QRect MoviePlayWidget_Gem;
 bool isMoviePlay = false;
 bool isMovieBgBlack = false;
 bool isMusicPlay = false;
+bool isSliceMusicPlay = true;
 
 double opacity=1;
 
@@ -100,17 +102,23 @@ MainWindow::MainWindow(QWidget *parent) :
     CompVisionCtrl(MainStack);
     imagesShow_ = new QFutureWatcher<QImage>(this);
 
+    ui->LcdNum_CalTime->setSegmentStyle(QLCDNumber::Filled);
+
     connect(DigiClockTimer, SIGNAL(timeout()), this, SLOT(ShowDigiClock()));
 
     DigiClockTimer->start(1000);
 
 
     // for test
-    bool flag =  false;
-    ui->label_ThreadInfo->setVisible(flag);
-    ui->Btn_Test->setVisible(flag);
-    ui->Btn_Ok->setVisible(flag);
-    //virtualKeyBoard->show();
+#ifdef TEST_BTN
+    bool Test_Flag =  true;
+#else
+    bool Test_Flag =  false;
+#endif
+
+    ui->label_ThreadInfo->setVisible(Test_Flag);
+    ui->Btn_Test->setVisible(Test_Flag);
+    ui->Btn_Ok->setVisible(Test_Flag);
 
 
 
@@ -541,12 +549,8 @@ void MainWindow::on_Btn_Picasa_clicked()
 {
     ui->WebView_Picase->setUrl(QUrl("http://picasaweb.google.com/elandman.chuang"));
 
-
     ChangeStackPageTo(PicasaStack);
     CompVisionCtrl(PicasaStack);
-    //ui->WebView_Picase->setUrl(QUrl("http://picasaweb.google.com/elandman.chuang/IkUfMF#slideshow/5455944560963928882"));
-    //ui->WebView_Picase->load(QUrl("http://picasaweb.google.com/elandman.chuang/IkUfMF#slideshow/5455944560963928882"));
-    //ui->WebView_Picase->load(QUrl("http://picasaweb.google.com/tetsuhou2/10041718_AMD#5461878085561979298"));
 }
 
 void MainWindow::on_Btn_ZoomOut_clicked()
@@ -568,7 +572,6 @@ void MainWindow::on_Btn_ZoomIn_clicked()
 
 void MainWindow::on_Btn_PicasaStop_clicked()
 {
-    //ui->WebView_Picase->setUrl(QUrl("http://picasaweb.google.com/elandman.chuang/IkUfMF#slideshow/5455944560963928882"));
     ui->WebView_Picase->stop();
 }
 
@@ -729,22 +732,23 @@ void MainWindow::on_Btn_PhotoFull_clicked()
     MusicIdx = 0;
     MusicProc = new QProcess(this);
 
-
-    file << "-vzr";
-    for(i=MusicIdx ; i<MaxMusicFileCount ; i++)
-        file << QString(MusicFileList[i].filePath());
-    if(MusicIdx != 0)
+    if(isSliceMusicPlay == true)
     {
-        for(i=0 ; i<MusicIdx ; i++)
+        file << "-vzr";
+        for(i=MusicIdx ; i<MaxMusicFileCount ; i++)
             file << QString(MusicFileList[i].filePath());
+        if(MusicIdx != 0)
+        {
+            for(i=0 ; i<MusicIdx ; i++)
+                file << QString(MusicFileList[i].filePath());
+        }
+
+    #ifdef ARM_PLF
+        MusicProc->start("madplay",file);
+    #else
+        MusicProc->start("madplay",file);
+    #endif
     }
-
-#ifdef ARM_PLF
-    MusicProc->start("madplay",file);
-#else
-    MusicProc->start("madplay",file);
-#endif
-
     //Play BG_Music
     /*
     MusicFileList = getMusicListFiles(BG_MusicPath);
@@ -892,6 +896,11 @@ void MainWindow::on_Btn_SettingOK_clicked()
         BG_MusicPath = InMem_BG_MusicPath;
     }
 
+    if(ui->ComBox_SliceMusic->currentIndex() == 0)
+        isSliceMusicPlay = true;
+    else
+        isSliceMusicPlay = false;
+
     removeEventFilter(this);
     ChangeStackPageTo(MainStack);
     CompVisionCtrl(MainStack);
@@ -915,8 +924,7 @@ void MainWindow::on_Btn_Ok_clicked()
 
 void MainWindow::on_Btn_Test_clicked()
 {
-    ui->Btn_InMem->setAutoFillBackground(true);
-    ui->Btn_InMem->setStyleSheet("background-color: rgb(255, 0, 0); color: rgb(255, 255, 255)");
+
     /*
     if(opacity>0)
         opacity-=0.1;
@@ -948,6 +956,7 @@ void MainWindow::on_Btn_Alarm_clicked()
     ChangeStackPageTo(ClockStack);
     CompVisionCtrl(ClockStack);
 
+    ui->Btn_PageUp->lower();
     stackWidget_Gem = ui->stackedWidget->geometry();
     ui->stackedWidget->setGeometry(FullScreen_Gem);
 
@@ -961,12 +970,15 @@ void MainWindow::ShowDigiClock()
 
     QTime time = QTime::currentTime();
     QString text = time.toString("hh:mm:ss");
+    QDate temp=QDate::currentDate();
     if ((time.second() % 2) == 0)
     {
         text[2] = ' ';
         text[5] = ' ';
     }
     ui->LcdNum_DigiClock->display(text);
+    ui->LcdNum_CalTime->display(text);       
+    ui->Lab_CalDate->setText(temp.toString(Qt::TextDate));
 
 }
 

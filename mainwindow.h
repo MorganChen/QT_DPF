@@ -17,6 +17,7 @@
 #include <QLCDNumber>
 #include <QFrame>
 #include <QProcess>
+#include <QDate>
 
 
 #include "WidgetKeyboard.h"
