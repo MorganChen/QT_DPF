@@ -25,5 +25,7 @@
         <file>media-seek-forward2.png</file>
         <file>media-seek-forward1.png</file>
     </qresource>
-    <qresource prefix="/new/prefix1"/>
+    <qresource prefix="/bg/picture">
+        <file>IMG_7532-LoMo.jpg</file>
+    </qresource>
 </RCC>

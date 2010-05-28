@@ -20,9 +20,11 @@ const int STACK_PAGE_HIS_NUM = 5;
 const int MOVIE_SCREEN_CLR_TIME = 3000;
 
 QString InMemPath = "/demo";
-QString MemStkPath = "/mnt/sd";
-QString MemCardPath = "/mnt/sd";
-QString MemCard_BG_MusicPath = "/mnt/sd/BG_Music";
+QString MemStk_PhotoPath = "/mnt/sd/photo";
+QString MemCard_PhotoPath = "/mnt/sd/photo";
+QString MemCard_MusicPath = "/mnt/sd/music";
+QString MemCard_MoviePath = "/mnt/sd/movie";
+QString MemCard_BG_MusicPath = "/mnt/sd/music/BG_Music";
 
 QString InMem_BG_MusicPath = "/demo/music/BG_Music";
 QString InMem_MusicPath = "/demo/music";
@@ -33,7 +35,7 @@ QString InMem_PhotoPath = "/demo/photo";
 QString BG_MusicPath;
 QString MusicPath;
 QString MoviePath;
-QString PhotoPath;
+
 
 QString MovieItemPath;
 QString MusicItemPath;
@@ -84,12 +86,10 @@ MainWindow::MainWindow(QWidget *parent) :
     MusicPath = InMem_MusicPath;
     MoviePath = InMem_MoviePath;
     BG_MusicPath = InMem_BG_MusicPath;
-    PhotoPath = InMem_PhotoPath;
 #else
     MusicPath = InMem_MusicPath;
     MoviePath = InMem_MoviePath;
     BG_MusicPath = InMem_BG_MusicPath;
-    PhotoPath = InMem_PhotoPath;
 #endif
     FullScreen_Gem.setRect(0,0,PANEL_WIDTH,PANEL_HEIGHT);
     ui->setupUi(this);
@@ -117,25 +117,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 }
 
-/*------------------------------------------------------
-//
-//
-//
-//    Digital Clock
---------------------------------------------------------*/
-void MainWindow::ShowDigiClock()
-{
 
-    QTime time = QTime::currentTime();
-    QString text = time.toString("hh:mm:ss");
-    if ((time.second() % 2) == 0)
-    {
-        text[2] = ' ';
-        text[5] = ' ';
-    }
-    ui->LcdNum_DigiClock->display(text);
-
-}
 
 MainWindow::~MainWindow()
 {
@@ -349,20 +331,36 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
                 isMovieBgBlack = true;
             }
         }
-    }/*
-    else if(obj == ui->LEdit_SettingInMen_Path)
+    }
+    /*
+    else if(obj == ui->LcdNum_DigiClock)
     {
 
         if(event->type() == QEvent::MouseButtonPress)
         {
-            virtualKeyBoard->show();
+           ui->stackedWidget->setGeometry(stackWidget_Gem);
+           ChangeStackPageTo(MainStack);
+           CompVisionCtrl(MainStack);
+           ui->LcdNum_DigiClock->removeEventFilter(this);
+           removeEventFilter(this);
+
         }
         return true;
     }*/
     else if(event->type() == QEvent::MouseButtonPress)
     {
-        virtualKeyBoard->hide();
-
+        switch(ui->stackedWidget->currentIndex())
+        {
+        case ClockStack :
+            ui->stackedWidget->setGeometry(stackWidget_Gem);
+            ChangeStackPageTo(MainStack);
+            CompVisionCtrl(MainStack);
+            removeEventFilter(this);
+            break;
+        case SettingStack :
+            virtualKeyBoard->hide();
+            break;
+        }
         return true;
     }
     else
@@ -517,7 +515,7 @@ void MainWindow::changeEvent(QEvent *e)
 
 void MainWindow::on_Btn_InMem_clicked()
 {
-    fileList_ = getPhotoListFiles(PhotoPath);
+    fileList_ = getPhotoListFiles(InMem_PhotoPath);
     ShowPhotoMutiStack(fileList_);
 
 
@@ -526,7 +524,7 @@ void MainWindow::on_Btn_InMem_clicked()
 void MainWindow::on_Btn_MemStk_clicked()
 {
 
-    fileList_ = getPhotoListFiles(MemStkPath);
+    fileList_ = getPhotoListFiles(MemStk_PhotoPath);
     ShowPhotoMutiStack(fileList_);
 
 }
@@ -534,7 +532,7 @@ void MainWindow::on_Btn_MemStk_clicked()
 void MainWindow::on_Btn_MemCard_clicked()
 {
 
-    fileList_ = getPhotoListFiles(MemCardPath);
+    fileList_ = getPhotoListFiles(MemCard_PhotoPath);
     ShowPhotoMutiStack(fileList_);
 
 }
@@ -883,8 +881,8 @@ void MainWindow::on_Btn_SettingOK_clicked()
 
     if(ui->ComBox_SettingMMSource->currentIndex() == 0)
     {
-        MusicPath = MemCardPath;
-        MoviePath = MemCardPath;
+        MusicPath = MemCard_MusicPath;
+        MoviePath = MemCard_MoviePath;
         BG_MusicPath = MemCard_BG_MusicPath;
     }
     else
@@ -917,7 +915,8 @@ void MainWindow::on_Btn_Ok_clicked()
 
 void MainWindow::on_Btn_Test_clicked()
 {
-
+    ui->Btn_InMem->setAutoFillBackground(true);
+    ui->Btn_InMem->setStyleSheet("background-color: rgb(255, 0, 0); color: rgb(255, 255, 255)");
     /*
     if(opacity>0)
         opacity-=0.1;
@@ -949,6 +948,25 @@ void MainWindow::on_Btn_Alarm_clicked()
     ChangeStackPageTo(ClockStack);
     CompVisionCtrl(ClockStack);
 
+    stackWidget_Gem = ui->stackedWidget->geometry();
+    ui->stackedWidget->setGeometry(FullScreen_Gem);
+
+    installEventFilter(this);
+
+}
+
+
+void MainWindow::ShowDigiClock()
+{
+
+    QTime time = QTime::currentTime();
+    QString text = time.toString("hh:mm:ss");
+    if ((time.second() % 2) == 0)
+    {
+        text[2] = ' ';
+        text[5] = ' ';
+    }
+    ui->LcdNum_DigiClock->display(text);
 
 }
 
@@ -982,7 +1000,7 @@ void MainWindow::on_Btn_Music_clicked()
         ItemNum = ItemNum.setNum(i+1)+" :";
         ItemFileName = QString(fileList_[i].fileName());
         ItemFileSize = "Size:"+ItemFileSize.setNum(fileList_[i].size()/1024)+"KB";
-        ItemStr = QString("%1 %2 %3").arg(ItemNum,-5).arg(ItemFileName,-20).arg(ItemFileSize,-11);       
+        ItemStr = QString("%1 %2 %3").arg(ItemNum,-5).arg(ItemFileName,-19).arg(ItemFileSize,-11);
         ItemFile->setText(ItemStr);
         ui->ListWidget_MusicFile->addItem(ItemFile);
 
@@ -1216,7 +1234,7 @@ void MainWindow::on_Btn_Movie_clicked()
         ItemNum = ItemNum.setNum(i+1)+" :";
         ItemFileName = QString(fileList_[i].fileName());
         ItemFileSize = "Size:"+ItemFileSize.setNum(fileList_[i].size()/1024)+"KB";
-        ItemStr = QString("%1 %2 %3").arg(ItemNum,-5).arg(ItemFileName,-20).arg(ItemFileSize,-11);
+        ItemStr = QString("%1 %2 %3").arg(ItemNum,-5).arg(ItemFileName,-19).arg(ItemFileSize,-11);
         ItemFile->setText(ItemStr);
         ui->ListWidget_MovieFile->addItem(ItemFile);
 
