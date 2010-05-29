@@ -8,8 +8,8 @@
 const int WIDTH_ICON = 200;
 const int HEIGHT_ICON = 140;
 
-const int WIDTH_IMAGE = 190;
-const int HEIGHT_IMAGE = 130;
+const int WIDTH_IMAGE = 200;
+const int HEIGHT_IMAGE = 140;
 
 const int MUTI_PHOTO_NUM = 6;
 
@@ -103,6 +103,30 @@ MainWindow::MainWindow(QWidget *parent) :
     imagesShow_ = new QFutureWatcher<QImage>(this);
 
     ui->LcdNum_CalTime->setSegmentStyle(QLCDNumber::Filled);
+    ui->Btn_PageUp->lower();
+    ui->Lab_CalBg->lower();
+    ui->Lab_CalBg->setGeometry(FullScreen_Gem);
+    ui->Lab_SettingBg->lower();
+    ui->Lab_SettingBg->setGeometry(FullScreen_Gem);
+    ui->Lab_MusicBg->lower();
+    ui->Lab_MusicBg->setGeometry(FullScreen_Gem);
+    ui->Lab_MusicPlayBg->lower();
+    ui->Lab_MusicPlayBg->setGeometry(FullScreen_Gem);
+    ui->Lab_MovieBg->lower();
+    ui->Lab_MovieBg->setGeometry(FullScreen_Gem);
+    ui->Lab_MoviePlayBg->lower();
+    ui->Lab_MoviePlayBg->setGeometry(FullScreen_Gem);
+    ui->Lab_PhotoBg->lower();
+    ui->Lab_PhotoBg->setGeometry(FullScreen_Gem);
+    ui->Lab_PhotoMutiBg->lower();
+    ui->Lab_PhotoMutiBg->setGeometry(FullScreen_Gem);
+    ui->Lab_PhotoSingleBg->lower();
+    ui->Lab_PhotoSingleBg->setGeometry(FullScreen_Gem);
+    ui->Lab_MainBg->lower();
+    ui->Lab_MainBg->setGeometry(FullScreen_Gem);
+
+
+
 
     connect(DigiClockTimer, SIGNAL(timeout()), this, SLOT(ShowDigiClock()));
 
@@ -173,51 +197,51 @@ void MainWindow::CompVisionCtrl(int StackPage)
 #endif
         break;
     case PhotoStack :
-        ui->Btn_Home->setVisible(true);
-        ui->Btn_PageUp->setVisible(true);
+        ui->Btn_Home->setVisible(false);
+        ui->Btn_PageUp->setVisible(false);
         ui->Btn_PhotoFull->setVisible(false);
         ui->Btn_ZoomIn->setVisible(false);
         ui->Btn_ZoomOut->setVisible(false);
         ui->Btn_PicasaStop->setVisible(false);
         break;
     case PhotoMutiStack :
-        ui->Btn_Home->setVisible(true);
-        ui->Btn_PageUp->setVisible(true);
+        //ui->Btn_Home->setVisible(true);
+        //ui->Btn_PageUp->setVisible(true);
         ui->Btn_PhotoFull->setVisible(true);
 
         ui->Btn_PageLeft->setVisible(true);
         ui->Btn_PageRight->setVisible(true);
         break;
     case PhotoSingleStack :
-        ui->Btn_Home->setVisible(true);
-        ui->Btn_PageUp->setVisible(true);
+        //ui->Btn_Home->setVisible(true);
+        //ui->Btn_PageUp->setVisible(true);
         ui->Btn_PhotoFull->setVisible(true);
 
         ui->Btn_PhotoSinglePage_L->setVisible(true);
         ui->Btn_PhotoSinglePage_R->setVisible(true);
         break;
     case PicasaStack :
-        ui->Btn_Home->setVisible(true);
-        ui->Btn_PageUp->setVisible(true);
+        //ui->Btn_Home->setVisible(true);
+        //ui->Btn_PageUp->setVisible(true);
         ui->Btn_PhotoFull->setVisible(false);
         ui->Btn_ZoomIn->setVisible(true);
         ui->Btn_ZoomOut->setVisible(true);
         ui->Btn_PicasaStop->setVisible(true);
 
     case CalendarStack :
-        ui->Btn_Home->setVisible(true);
-        ui->Btn_PageUp->setVisible(true);
+        //ui->Btn_Home->setVisible(true);
+        //ui->Btn_PageUp->setVisible(true);
         break;
     case ClockStack :
-        ui->Btn_Home->setVisible(true);
-        ui->Btn_PageUp->setVisible(true);
+        //ui->Btn_Home->setVisible(true);
+        //ui->Btn_PageUp->setVisible(true);
     case MusicStack :
-        ui->Btn_Home->setVisible(true);
-        ui->Btn_PageUp->setVisible(true);
+        //ui->Btn_Home->setVisible(true);
+        //ui->Btn_PageUp->setVisible(true);
         break;
     case MovieStack :
-        ui->Btn_Home->setVisible(true);
-        ui->Btn_PageUp->setVisible(true);
+        //ui->Btn_Home->setVisible(true);
+        //ui->Btn_PageUp->setVisible(true);
     case MoviePlayStack :
         break;
     case MusicPlayStack :
@@ -225,8 +249,9 @@ void MainWindow::CompVisionCtrl(int StackPage)
     case SettingStack :
         ui->Btn_Home->setVisible(false);
         ui->Btn_PageUp->setVisible(false);
-        ui->LEdit_SettingInMen_Path->setEnabled(false);
-        ui->Btn_SettingInMen_Path->setEnabled(false);
+        ui->LEdit_SettingInMen_Path->setVisible(false);
+        ui->Btn_SettingInMen_Path->setVisible(false);
+        ui->Lab_Setting1->setVisible(false);
         break;
     }
 }
@@ -328,13 +353,13 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
         {
             if(isMovieBgBlack == true)
             {
-                ui->stackedWidget->setGeometry(0,60,800,420);
+                //ui->stackedWidget->setGeometry(0,60,800,420);
                 ui->MoviePlayWidget->setGeometry(MoviePlayWidget_Gem);
                 isMovieBgBlack = false;
             }
             else
             {
-                ui->stackedWidget->setGeometry(FullScreen_Gem);
+                //ui->stackedWidget->setGeometry(FullScreen_Gem);
                 ui->MoviePlayWidget->setGeometry(FullScreen_Gem);
                 isMovieBgBlack = true;
             }
@@ -360,6 +385,12 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
         switch(ui->stackedWidget->currentIndex())
         {
         case ClockStack :
+            ui->stackedWidget->setGeometry(stackWidget_Gem);
+            ChangeStackPageTo(MainStack);
+            CompVisionCtrl(MainStack);
+            removeEventFilter(this);
+            break;
+        case CalendarStack :
             ui->stackedWidget->setGeometry(stackWidget_Gem);
             ChangeStackPageTo(MainStack);
             CompVisionCtrl(MainStack);
@@ -573,6 +604,12 @@ void MainWindow::on_Btn_ZoomIn_clicked()
 void MainWindow::on_Btn_PicasaStop_clicked()
 {
     ui->WebView_Picase->stop();
+}
+
+void MainWindow::on_Btn_PicasaGoHome_clicked()
+{
+    ChangeStackPageTo(MainStack);
+    CompVisionCtrl(MainStack);
 }
 
 
@@ -845,6 +882,47 @@ void MainWindow::on_Btn_Photo_clicked()
     CompVisionCtrl(PhotoStack);
 }
 
+void MainWindow::on_Btn_PhotoGoHome_clicked()
+{
+    ChangeStackPageTo(MainStack);
+    CompVisionCtrl(MainStack);
+}
+
+void MainWindow::on_Btn_PhotoMutiGoHome_clicked()
+{
+    ChangeStackPageTo(MainStack);
+    CompVisionCtrl(MainStack);
+}
+
+void MainWindow::on_Btn_PhotoMutiFullScreen_clicked()
+{
+    on_Btn_PhotoFull_clicked();
+}
+
+void MainWindow::on_Btn_PhotoMutiPageUp_clicked()
+{
+    ChangeStackPageUp();
+    CompVisionCtrl(StackPageHis[StackPageHisIdx]);
+}
+
+
+void MainWindow::on_Btn_PhotoSingleGoHome_clicked()
+{
+    ChangeStackPageTo(MainStack);
+    CompVisionCtrl(MainStack);
+}
+
+void MainWindow::on_Btn_PhotoSingleFullScreen_clicked()
+{
+    on_Btn_PhotoFull_clicked();
+}
+
+void MainWindow::on_Btn_PhotoSinglePageUp_clicked()
+{
+    ChangeStackPageUp();
+    CompVisionCtrl(StackPageHis[StackPageHisIdx]);
+}
+
 /*------------------------------------------------------
 //
 //
@@ -854,6 +932,9 @@ void MainWindow::on_Btn_Photo_clicked()
 
 void MainWindow::on_Btn_Setting_clicked()
 {
+    stackWidget_Gem = ui->stackedWidget->geometry();
+    ui->stackedWidget->setGeometry(FullScreen_Gem);
+
     ChangeStackPageTo(SettingStack);
     CompVisionCtrl(SettingStack);
 
@@ -867,6 +948,7 @@ void MainWindow::on_Btn_SettingCancel_clicked()
     removeEventFilter(this);
     ChangeStackPageTo(MainStack);
     CompVisionCtrl(MainStack);
+    ui->stackedWidget->setGeometry(stackWidget_Gem);
 }
 
 void MainWindow::on_Btn_SettingInMen_Path_clicked()
@@ -904,6 +986,7 @@ void MainWindow::on_Btn_SettingOK_clicked()
     removeEventFilter(this);
     ChangeStackPageTo(MainStack);
     CompVisionCtrl(MainStack);
+    ui->stackedWidget->setGeometry(stackWidget_Gem);
 }
 
 
@@ -940,8 +1023,21 @@ void MainWindow::on_Btn_Test_clicked()
 --------------------------------------------------------*/
 void MainWindow::on_Btn_Cal_clicked()
 {
+    //ui->Lab_CalDate->raise();
+    //ui->LcdNum_CalTime->raise();
+    //ui->calendarWidget->raise();
+
+
+    stackWidget_Gem = ui->stackedWidget->geometry();
+    ui->stackedWidget->setGeometry(FullScreen_Gem);
+
+
+    installEventFilter(this);
     ChangeStackPageTo(CalendarStack);
     CompVisionCtrl(CalendarStack);
+
+
+
 }
 
 
@@ -956,7 +1052,6 @@ void MainWindow::on_Btn_Alarm_clicked()
     ChangeStackPageTo(ClockStack);
     CompVisionCtrl(ClockStack);
 
-    ui->Btn_PageUp->lower();
     stackWidget_Gem = ui->stackedWidget->geometry();
     ui->stackedWidget->setGeometry(FullScreen_Gem);
 
@@ -1051,7 +1146,9 @@ void MainWindow::on_Btn_MusicPlay_clicked()
     ui->LcdNum_MusicTime->setSegmentStyle(QLCDNumber::Filled);
 
     ui->Btn_Home->setEnabled(false);
+    ui->Btn_MusicPlayGoHome->setEnabled(false);
     ui->Btn_PageUp->setEnabled(false);
+    ui->Btn_MusicPlayPageUp->setEnabled(false);
     ui->Btn_MusicNext->setEnabled(true);
     ui->Btn_MusicBack->setEnabled(true);
     ui->Btn_MusicPause->setEnabled(true);
@@ -1158,6 +1255,8 @@ void MainWindow::MusicFinished()
 
     ui->Btn_Home->setEnabled(true);
     ui->Btn_PageUp->setEnabled(true);
+    ui->Btn_MusicPlayGoHome->setEnabled(true);
+    ui->Btn_MusicPlayPageUp->setEnabled(true);
     ui->Btn_MusicNext->setEnabled(false);
     ui->Btn_MusicBack->setEnabled(false);
     ui->Btn_MusicPause->setEnabled(false);
@@ -1218,6 +1317,27 @@ void MainWindow::MusicInfoUpdate()
 
     MusicProc->write("get_time_pos\n");
 }
+
+void MainWindow::on_Btn_MusicGoHome_clicked()
+{
+    ChangeStackPageTo(MainStack);
+    CompVisionCtrl(MainStack);
+
+}
+
+void MainWindow::on_Btn_MusicPlayGoHome_clicked()
+{
+    ChangeStackPageTo(MainStack);
+    CompVisionCtrl(MainStack);
+}
+
+void MainWindow::on_Btn_MusicPlayPageUp_clicked()
+{
+    ChangeStackPageUp();
+    CompVisionCtrl(StackPageHis[StackPageHisIdx]);
+}
+
+
 
 /*------------------------------------------------------
 //
@@ -1299,6 +1419,9 @@ void MainWindow::on_Btn_MoviePlay_clicked()
     ui->Btn_Home->setEnabled(false);
     ui->Btn_PageUp->setEnabled(false);
 
+    ui->Btn_MoviePlayGoHome->setEnabled(false);
+    ui->Btn_MoviePlayPageUp->setEnabled(false);
+
     ui->Btn_MoviePlay->setEnabled(false);
 
     ui->Btn_MoviePause->setEnabled(true);
@@ -1330,7 +1453,7 @@ void MainWindow::on_Btn_MoviePlay_clicked()
     MoviePlayWidget_Gem = ui->MoviePlayWidget->geometry();
     ui->MoviePlayWidget->setGeometry(FullScreen_Gem);
     ui->stackedWidget->setGeometry(FullScreen_Gem);
-    ui->MoviePlayBtnWidget->setGeometry(160,310,490,90);
+    ui->MoviePlayBtnWidget->setGeometry(160,380,490,90);
     ui->MoviePlayWidget->raise();
     ui->MoviePlayWidget->setAutoFillBackground(true);
     ui->MoviePlayWidget->installEventFilter(this);
@@ -1346,6 +1469,9 @@ void MainWindow::MoiveFinished()
     ui->Btn_Home->setEnabled(true);
     ui->Btn_PageUp->setEnabled(true);
 
+    ui->Btn_MoviePlayGoHome->setEnabled(true);
+    ui->Btn_MoviePlayPageUp->setEnabled(true);
+
     ui->Btn_MoviePlay->setEnabled(true);
 
     ui->Btn_MoviePause->setEnabled(false);
@@ -1356,7 +1482,7 @@ void MainWindow::MoiveFinished()
     isMoviePlay = false;
     isMovieBgBlack = false;
 
-    ui->stackedWidget->setGeometry(0,60,800,420);
+    //ui->stackedWidget->setGeometry(0,60,800,420);
     ui->MoviePlayWidget->setGeometry(MoviePlayWidget_Gem);
     ui->MoviePlayWidget->setAutoFillBackground(false);
     ui->stackedWidget->repaint();
@@ -1378,6 +1504,24 @@ void MainWindow::on_Btn_MovieStop_clicked()
 }
 
 
+void MainWindow::on_Btn_MovieGoHome_clicked()
+{
+    ChangeStackPageTo(MainStack);
+    CompVisionCtrl(MainStack);
+}
+
+
+void MainWindow::on_Btn_MoviePlayGoHome_clicked()
+{
+    ChangeStackPageTo(MainStack);
+    CompVisionCtrl(MainStack);
+}
+
+void MainWindow::on_Btn_MoviePlayPageUp_clicked()
+{
+    ChangeStackPageUp();
+    CompVisionCtrl(StackPageHis[StackPageHisIdx]);
+}
 /*------------------------------------------------------
 //
 //
@@ -1429,4 +1573,19 @@ void MainWindow::WirelessFinished()
 {
     WirelessProc->kill();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

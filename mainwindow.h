@@ -57,6 +57,20 @@ public slots:
     void MusicInfoUpdate();
 
 private Q_SLOTS:
+    void on_Btn_PicasaGoHome_clicked();
+    void on_Btn_PhotoSinglePageUp_clicked();
+    void on_Btn_PhotoSingleFullScreen_clicked();
+    void on_Btn_PhotoSingleGoHome_clicked();
+    void on_Btn_PhotoMutiPageUp_clicked();
+    void on_Btn_PhotoMutiFullScreen_clicked();
+    void on_Btn_PhotoMutiGoHome_clicked();
+    void on_Btn_PhotoGoHome_clicked();
+    void on_Btn_MoviePlayPageUp_clicked();
+    void on_Btn_MoviePlayGoHome_clicked();
+    void on_Btn_MovieGoHome_clicked();
+    void on_Btn_MusicPlayPageUp_clicked();
+    void on_Btn_MusicPlayGoHome_clicked();
+    void on_Btn_MusicGoHome_clicked();
     void on_Btn_PicasaStop_clicked();
     void on_Btn_ZoomOut_clicked();
     void on_Btn_Wireless_clicked();
