@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'WidgetKeyboard.h'
 **
-** Created: Sat May 29 16:43:15 2010
+** Created: Mon May 31 14:29:15 2010
 **      by: The Qt Meta Object Compiler version 61 (Qt 4.5.2)
 **
 ** WARNING! All changes made in this file will be lost!

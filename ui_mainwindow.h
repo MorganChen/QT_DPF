@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Sat May 29 16:43:02 2010
+** Created: Mon May 31 14:29:02 2010
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -175,6 +175,7 @@ public:
     QLabel *Lab_Setting3;
     QComboBox *ComBox_SliceMusic;
     QLabel *Lab_SettingBg;
+    QLabel *Lab_SettingVerNum;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -1518,12 +1519,15 @@ public:
         Lab_SettingBg->setObjectName(QString::fromUtf8("Lab_SettingBg"));
         Lab_SettingBg->setGeometry(QRect(20, 290, 411, 91));
         Lab_SettingBg->setPixmap(QPixmap(QString::fromUtf8(":/bg/picture/IMG_7532-LoMo.jpg")));
+        Lab_SettingVerNum = new QLabel(SettingPage);
+        Lab_SettingVerNum->setObjectName(QString::fromUtf8("Lab_SettingVerNum"));
+        Lab_SettingVerNum->setGeometry(QRect(10, 450, 331, 21));
         stackedWidget->addWidget(SettingPage);
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(11);
         CbBox_SettingSSTimer->setCurrentIndex(4);
         ComBox_SettingMMSource->setCurrentIndex(1);
 
@@ -1656,6 +1660,7 @@ public:
          << QApplication::translate("MainWindow", "Off", 0, QApplication::UnicodeUTF8)
         );
         Lab_SettingBg->setText(QString());
+        Lab_SettingVerNum->setText(QApplication::translate("MainWindow", "Version:", 0, QApplication::UnicodeUTF8));
         Q_UNUSED(MainWindow);
     } // retranslateUi
 

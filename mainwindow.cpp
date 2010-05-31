@@ -3,6 +3,7 @@
 
 #define ARM_PLF
 //#define TEST_BTN
+#define Version  "Version: V1.0  2010.0531"
 
 #define MUSIC_UP_TIMER 1000
 const int WIDTH_ICON = 200;
@@ -124,6 +125,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->Lab_PhotoSingleBg->setGeometry(FullScreen_Gem);
     ui->Lab_MainBg->lower();
     ui->Lab_MainBg->setGeometry(FullScreen_Gem);
+
+    ui->Lab_SettingVerNum->setText(Version);
 
 
 

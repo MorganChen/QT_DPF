@@ -257,7 +257,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>11</number>
     </property>
     <widget class="QWidget" name="MainPage">
      <widget class="QWidget" name="Mainwidget" native="true">
@@ -339,7 +339,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="res.qrc">
+            <iconset>
              <normaloff>:/apps/icon/f-spot.png</normaloff>:/apps/icon/f-spot.png</iconset>
            </property>
            <property name="iconSize">
@@ -379,7 +379,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="res.qrc">
+            <iconset>
              <normaloff>:/apps/icon/audacious.png</normaloff>:/apps/icon/audacious.png</iconset>
            </property>
            <property name="iconSize">
@@ -431,7 +431,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="res.qrc">
+            <iconset>
              <normaloff>:/apps/icon/mplayer.png</normaloff>:/apps/icon/mplayer.png</iconset>
            </property>
            <property name="iconSize">
@@ -471,7 +471,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="res.qrc">
+            <iconset>
              <normaloff>:/apps/icon/dates.png</normaloff>:/apps/icon/dates.png</iconset>
            </property>
            <property name="iconSize">
@@ -514,7 +514,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="res.qrc">
+            <iconset>
              <normaloff>:/apps/icon/clock.png</normaloff>:/apps/icon/clock.png</iconset>
            </property>
            <property name="iconSize">
@@ -554,7 +554,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="res.qrc">
+            <iconset>
              <normaloff>:/apps/icon/web-browser.png</normaloff>:/apps/icon/web-browser.png</iconset>
            </property>
            <property name="iconSize">
@@ -594,7 +594,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="res.qrc">
+            <iconset>
              <normaloff>:/apps/icon/network-wireless.png</normaloff>:/apps/icon/network-wireless.png</iconset>
            </property>
            <property name="iconSize">
@@ -637,7 +637,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="res.qrc">
+            <iconset>
              <normaloff>:/apps/icon/gkdebconf.png</normaloff>:/apps/icon/gkdebconf.png</iconset>
            </property>
            <property name="iconSize">
@@ -693,7 +693,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/bg/picture/IMG_7532-LoMo.jpg</pixmap>
+       <pixmap>:/bg/picture/IMG_7532-LoMo.jpg</pixmap>
       </property>
      </widget>
     </widget>
@@ -720,7 +720,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="res.qrc">:/apps/icon/f-spot.png</pixmap>
+        <pixmap>:/apps/icon/f-spot.png</pixmap>
        </property>
       </widget>
       <widget class="QPushButton" name="Btn_MemStk">
@@ -1041,7 +1041,7 @@ color: rgb(0, 0, 0);</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="res.qrc">
+        <iconset>
          <normaloff>:/actions/icon/lincity-ng.png</normaloff>:/actions/icon/lincity-ng.png</iconset>
        </property>
        <property name="iconSize">
@@ -1068,7 +1068,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/lincity-ng.png</normaloff>:/actions/icon/lincity-ng.png</iconset>
       </property>
       <property name="iconSize">
@@ -1094,7 +1094,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/go-next.png</normaloff>:/actions/icon/go-next.png</iconset>
       </property>
       <property name="iconSize">
@@ -1120,7 +1120,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/edit-undo.png</normaloff>:/actions/icon/edit-undo.png</iconset>
       </property>
       <property name="iconSize">
@@ -1146,7 +1146,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/bg/picture/IMG_7532-LoMo.jpg</pixmap>
+       <pixmap>:/bg/picture/IMG_7532-LoMo.jpg</pixmap>
       </property>
      </widget>
     </widget>
@@ -1295,7 +1295,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/media-seek-forward1.png</normaloff>:/actions/icon/media-seek-forward1.png</iconset>
       </property>
       <property name="iconSize">
@@ -1321,7 +1321,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/media-seek-forward2.png</normaloff>:/actions/icon/media-seek-forward2.png</iconset>
       </property>
       <property name="iconSize">
@@ -1347,7 +1347,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/lincity-ng.png</normaloff>:/actions/icon/lincity-ng.png</iconset>
       </property>
       <property name="iconSize">
@@ -1373,7 +1373,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/go-next.png</normaloff>:/actions/icon/go-next.png</iconset>
       </property>
       <property name="iconSize">
@@ -1399,7 +1399,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/edit-undo.png</normaloff>:/actions/icon/edit-undo.png</iconset>
       </property>
       <property name="iconSize">
@@ -1425,7 +1425,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/bg/picture/IMG_7532-LoMo.jpg</pixmap>
+       <pixmap>:/bg/picture/IMG_7532-LoMo.jpg</pixmap>
       </property>
      </widget>
     </widget>
@@ -1603,7 +1603,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/media-seek-forward2.png</normaloff>:/actions/icon/media-seek-forward2.png</iconset>
       </property>
       <property name="iconSize">
@@ -1629,7 +1629,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/media-seek-forward1.png</normaloff>:/actions/icon/media-seek-forward1.png</iconset>
       </property>
       <property name="iconSize">
@@ -1655,7 +1655,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/bg/picture/IMG_7532-LoMo.jpg</pixmap>
+       <pixmap>:/bg/picture/IMG_7532-LoMo.jpg</pixmap>
       </property>
      </widget>
      <widget class="QPushButton" name="Btn_PhotoSingleGoHome">
@@ -1671,7 +1671,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/lincity-ng.png</normaloff>:/actions/icon/lincity-ng.png</iconset>
       </property>
       <property name="iconSize">
@@ -1697,7 +1697,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/go-next.png</normaloff>:/actions/icon/go-next.png</iconset>
       </property>
       <property name="iconSize">
@@ -1723,7 +1723,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/edit-undo.png</normaloff>:/actions/icon/edit-undo.png</iconset>
       </property>
       <property name="iconSize">
@@ -1933,7 +1933,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/media-playback-stop.png</normaloff>:/actions/icon/media-playback-stop.png</iconset>
       </property>
       <property name="iconSize">
@@ -1959,7 +1959,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/zoom-fit-width.png</normaloff>:/actions/icon/zoom-fit-width.png</iconset>
       </property>
       <property name="iconSize">
@@ -1985,7 +1985,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/zoom-fit-page.png</normaloff>:/actions/icon/zoom-fit-page.png</iconset>
       </property>
       <property name="iconSize">
@@ -2011,7 +2011,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/lincity-ng.png</normaloff>:/actions/icon/lincity-ng.png</iconset>
       </property>
       <property name="iconSize">
@@ -2677,7 +2677,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/bg/picture/IMG_7532-LoMo.jpg</pixmap>
+       <pixmap>:/bg/picture/IMG_7532-LoMo.jpg</pixmap>
       </property>
      </widget>
     </widget>
@@ -2809,7 +2809,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/apps/icon/audacious.png</pixmap>
+       <pixmap>:/apps/icon/audacious.png</pixmap>
       </property>
      </widget>
      <widget class="QListWidget" name="ListWidget_MusicFile">
@@ -2889,7 +2889,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/bg/picture/IMG_7532-LoMo.jpg</pixmap>
+       <pixmap>:/bg/picture/IMG_7532-LoMo.jpg</pixmap>
       </property>
      </widget>
      <widget class="QPushButton" name="Btn_MusicGoHome">
@@ -3084,7 +3084,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/lincity-ng.png</normaloff>:/actions/icon/lincity-ng.png</iconset>
       </property>
       <property name="iconSize">
@@ -3118,7 +3118,7 @@ color: rgb(0, 0, 0);</string>
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="res.qrc">
+          <iconset>
            <normaloff>:/actions/icon/go-first.png</normaloff>:/actions/icon/go-first.png</iconset>
          </property>
          <property name="iconSize">
@@ -3141,7 +3141,7 @@ color: rgb(0, 0, 0);</string>
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="res.qrc">
+          <iconset>
            <normaloff>:/actions/icon/media-playback-pause.png</normaloff>:/actions/icon/media-playback-pause.png</iconset>
          </property>
          <property name="iconSize">
@@ -3161,7 +3161,7 @@ color: rgb(0, 0, 0);</string>
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="res.qrc">
+          <iconset>
            <normaloff>:/actions/icon/media-playback-stop.png</normaloff>:/actions/icon/media-playback-stop.png</iconset>
          </property>
          <property name="iconSize">
@@ -3181,7 +3181,7 @@ color: rgb(0, 0, 0);</string>
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="res.qrc">
+          <iconset>
            <normaloff>:/actions/icon/go-next.png</normaloff>:/actions/icon/go-next.png</iconset>
          </property>
          <property name="iconSize">
@@ -3201,7 +3201,7 @@ color: rgb(0, 0, 0);</string>
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="res.qrc">
+          <iconset>
            <normaloff>:/actions/icon/go-last.png</normaloff>:/actions/icon/go-last.png</iconset>
          </property>
          <property name="iconSize">
@@ -3224,7 +3224,7 @@ color: rgb(0, 0, 0);</string>
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="res.qrc">
+          <iconset>
            <normaloff>:/actions/icon/media-seek-forward2.png</normaloff>:/actions/icon/media-seek-forward2.png</iconset>
          </property>
          <property name="iconSize">
@@ -3244,7 +3244,7 @@ color: rgb(0, 0, 0);</string>
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="res.qrc">
+          <iconset>
            <normaloff>:/actions/icon/media-seek-forward1.png</normaloff>:/actions/icon/media-seek-forward1.png</iconset>
          </property>
          <property name="iconSize">
@@ -3684,7 +3684,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/apps/icon/audacious.png</pixmap>
+       <pixmap>:/apps/icon/audacious.png</pixmap>
       </property>
      </widget>
      <widget class="QPushButton" name="Btn_MusicPlayGoHome">
@@ -3743,7 +3743,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/lincity-ng.png</normaloff>:/actions/icon/lincity-ng.png</iconset>
       </property>
       <property name="iconSize">
@@ -3769,7 +3769,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/bg/picture/IMG_7532-LoMo.jpg</pixmap>
+       <pixmap>:/bg/picture/IMG_7532-LoMo.jpg</pixmap>
       </property>
      </widget>
      <widget class="QPushButton" name="Btn_MusicPlayPageUp">
@@ -3785,7 +3785,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/edit-undo.png</normaloff>:/actions/icon/edit-undo.png</iconset>
       </property>
       <property name="iconSize">
@@ -3813,7 +3813,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/apps/icon/mplayer.png</pixmap>
+       <pixmap>:/apps/icon/mplayer.png</pixmap>
       </property>
      </widget>
      <widget class="QListWidget" name="ListWidget_MovieFile">
@@ -3905,7 +3905,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/lincity-ng.png</normaloff>:/actions/icon/lincity-ng.png</iconset>
       </property>
       <property name="iconSize">
@@ -3931,7 +3931,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/bg/picture/IMG_7532-LoMo.jpg</pixmap>
+       <pixmap>:/bg/picture/IMG_7532-LoMo.jpg</pixmap>
       </property>
      </widget>
     </widget>
@@ -4019,7 +4019,7 @@ color: rgb(0, 0, 0);</string>
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="res.qrc">
+          <iconset>
            <normaloff>:/actions/icon/go-first.png</normaloff>:/actions/icon/go-first.png</iconset>
          </property>
          <property name="iconSize">
@@ -4042,7 +4042,7 @@ color: rgb(0, 0, 0);</string>
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="res.qrc">
+          <iconset>
            <normaloff>:/actions/icon/media-playback-stop.png</normaloff>:/actions/icon/media-playback-stop.png</iconset>
          </property>
          <property name="iconSize">
@@ -4099,7 +4099,7 @@ color: rgb(0, 0, 0);</string>
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="res.qrc">
+          <iconset>
            <normaloff>:/actions/icon/media-playback-pause.png</normaloff>:/actions/icon/media-playback-pause.png</iconset>
          </property>
          <property name="iconSize">
@@ -4156,7 +4156,7 @@ color: rgb(0, 0, 0);</string>
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="res.qrc">
+          <iconset>
            <normaloff>:/actions/icon/go-next.png</normaloff>:/actions/icon/go-next.png</iconset>
          </property>
          <property name="iconSize">
@@ -4176,7 +4176,7 @@ color: rgb(0, 0, 0);</string>
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="res.qrc">
+          <iconset>
            <normaloff>:/actions/icon/go-last.png</normaloff>:/actions/icon/go-last.png</iconset>
          </property>
          <property name="iconSize">
@@ -4199,7 +4199,7 @@ color: rgb(0, 0, 0);</string>
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="res.qrc">
+          <iconset>
            <normaloff>:/actions/icon/edit-undo.png</normaloff>:/actions/icon/edit-undo.png</iconset>
          </property>
          <property name="iconSize">
@@ -4228,7 +4228,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/apps/icon/mplayer.png</pixmap>
+       <pixmap>:/apps/icon/mplayer.png</pixmap>
       </property>
      </widget>
      <widget class="QWidget" name="MoviePlayWidget" native="true">
@@ -4321,7 +4321,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset>
         <normaloff>:/actions/icon/lincity-ng.png</normaloff>:/actions/icon/lincity-ng.png</iconset>
       </property>
       <property name="iconSize">
@@ -4347,7 +4347,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/bg/picture/IMG_7532-LoMo.jpg</pixmap>
+       <pixmap>:/bg/picture/IMG_7532-LoMo.jpg</pixmap>
       </property>
      </widget>
     </widget>
@@ -4365,7 +4365,7 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/apps/icon/gkdebconf.png</pixmap>
+       <pixmap>:/apps/icon/gkdebconf.png</pixmap>
       </property>
      </widget>
      <widget class="QWidget" name="horizontalLayoutWidget">
@@ -5265,7 +5265,20 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/bg/picture/IMG_7532-LoMo.jpg</pixmap>
+       <pixmap>:/bg/picture/IMG_7532-LoMo.jpg</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Lab_SettingVerNum">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>450</y>
+        <width>331</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Version:</string>
       </property>
      </widget>
     </widget>
@@ -5280,9 +5293,7 @@ color: rgb(0, 0, 0);</string>
    <header>QtWebKit/QWebView</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="res.qrc"/>
- </resources>
+ <resources/>
  <connections/>
  <slots>
   <slot>ThreadStart()</slot>
