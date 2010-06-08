@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#define ARM_PLF
+//#define ARM_PLF
 //#define TEST_BTN
 #define Version  "Version: V1.0  2010.0531"
 
@@ -14,8 +14,8 @@ const int HEIGHT_IMAGE = 140;
 
 const int MUTI_PHOTO_NUM = 6;
 
-const int PANEL_WIDTH = 800;
-const int PANEL_HEIGHT = 480;
+const int PANEL_WIDTH = 1024;
+const int PANEL_HEIGHT = 600;
 
 const int STACK_PAGE_HIS_NUM = 5;
 
@@ -103,6 +103,7 @@ MainWindow::MainWindow(QWidget *parent) :
     CompVisionCtrl(MainStack);
     imagesShow_ = new QFutureWatcher<QImage>(this);
 
+    setGeometry(FullScreen_Gem);
     ui->LcdNum_CalTime->setSegmentStyle(QLCDNumber::Filled);
     ui->Btn_PageUp->lower();
     ui->Lab_CalBg->lower();
@@ -127,6 +128,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->Lab_MainBg->setGeometry(FullScreen_Gem);
 
     ui->Lab_SettingVerNum->setText(Version);
+    ui->stackedWidget->setGeometry(FullScreen_Gem);
 
 
 
